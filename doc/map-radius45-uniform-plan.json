@@ -1,0 +1,171 @@
+{
+  "status": "implemented",
+  "radius": 45,
+  "distanceMetric": "manhattan",
+  "lateStart": 45,
+  "advancedLateStart": 65,
+  "sampling": "uniform-eligible-tile",
+  "landmarks": [
+    {
+      "symbol": "A",
+      "name": "村庄",
+      "count": 1,
+      "min": 0,
+      "max": 0
+    },
+    {
+      "symbol": "I",
+      "name": "铁矿",
+      "count": 1,
+      "min": 5,
+      "max": 5
+    },
+    {
+      "symbol": "C",
+      "name": "煤矿",
+      "count": 1,
+      "min": 10,
+      "max": 10
+    },
+    {
+      "symbol": "S",
+      "name": "硫磺矿",
+      "count": 1,
+      "min": 20,
+      "max": 20
+    },
+    {
+      "symbol": "H",
+      "name": "小木屋",
+      "count": 20,
+      "min": 3,
+      "max": 25
+    },
+    {
+      "symbol": "V",
+      "name": "洞穴",
+      "count": 20,
+      "min": 5,
+      "max": 32
+    },
+    {
+      "symbol": "O",
+      "name": "小镇",
+      "count": 30,
+      "min": 18,
+      "max": 40
+    },
+    {
+      "symbol": "Y",
+      "name": "城市",
+      "count": 40,
+      "min": 30,
+      "max": 55
+    },
+    {
+      "symbol": "G",
+      "name": "仓库",
+      "count": 20,
+      "min": 32,
+      "max": 44
+    },
+    {
+      "symbol": "Z",
+      "name": "军事要塞",
+      "count": 40,
+      "min": 45,
+      "max": 90
+    },
+    {
+      "symbol": "W",
+      "name": "坠毁星舰",
+      "count": 1,
+      "min": 45,
+      "max": 49
+    },
+    {
+      "symbol": "B",
+      "name": "巨坑",
+      "count": 40,
+      "min": 45,
+      "max": 90
+    },
+    {
+      "symbol": "F",
+      "name": "古代战场",
+      "count": 40,
+      "min": 45,
+      "max": 90
+    },
+    {
+      "symbol": "M",
+      "name": "迷雾沼泽",
+      "count": 1,
+      "min": 20,
+      "max": 35
+    },
+    {
+      "symbol": "X",
+      "name": "残破战舰",
+      "count": 1,
+      "min": 65,
+      "max": 75
+    },
+    {
+      "symbol": "K",
+      "name": "废弃晶体厂",
+      "count": 1,
+      "min": 32,
+      "max": 36
+    },
+    {
+      "symbol": "E",
+      "name": "化学工厂",
+      "count": 1,
+      "min": 38,
+      "max": 42
+    },
+    {
+      "symbol": "D",
+      "name": "精密装配厂",
+      "count": 1,
+      "min": 45,
+      "max": 49
+    },
+    {
+      "symbol": "R",
+      "name": "坠毁侦察舰",
+      "count": 1,
+      "min": 55,
+      "max": 65
+    },
+    {
+      "symbol": "T",
+      "name": "掩埋运输舰",
+      "count": 1,
+      "min": 75,
+      "max": 90
+    },
+    {
+      "symbol": "P",
+      "name": "前哨",
+      "count": 0,
+      "min": 0,
+      "max": 0
+    },
+    {
+      "symbol": "U",
+      "name": "小黑屋遗址",
+      "count": 0,
+      "inheritedMaxCount": 5,
+      "min": 75,
+      "max": 90
+    }
+  ],
+  "minimumSeparation": 5,
+  "innerException": {
+    "radius": 10,
+    "minimumSeparation": 3,
+    "bothSitesRequired": true
+  }
+}

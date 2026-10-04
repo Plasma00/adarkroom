@@ -2,7 +2,7 @@
   var Engine = window.Engine = {
 
     SITE_URL: encodeURIComponent("http://adarkroom.doublespeakgames.com"),
-    VERSION: 1.3,
+    VERSION: 1.4,
     MAX_STORE: 99999999999999,
     SAVE_DISPLAY: 30 * 1000,
     GAME_OVER: false,
@@ -11,6 +11,11 @@
     topics: {},
 
     Perks: {
+      'sharpshooter': {
+        name: _('sharpshooter'),
+        desc: _('fire rifles 300 times. rifle, laser and plasma damage become 8, 12 and 15.'),
+        notify: _('three hundred shots. breath, sight and trigger become one.')
+      },
       'boxer': {
         name: _('boxer'),
         desc: _('punches do more damage'),
@@ -91,11 +96,6 @@
         window.location = 'browserWarning.html';
       }
 
-      // Check for mobile
-      if(Engine.isMobile()) {
-        window.location = 'mobileWarning.html';
-      }
-
       Engine.disableSelection();
 
       if(this.options.state != null) {
@@ -130,7 +130,7 @@
         var optionsList = $('<ul>')
           .appendTo(selectOptions);
         $('<li>')
-          .text("language.")
+          .text(_("language."))
           .appendTo(optionsList);
 
         $.each(langs, function(name,display){
@@ -205,7 +205,8 @@
       $('body').off('keyup').keyup(Engine.keyUp);
 
       // Register swipe handlers
-      swipeElement = $('#outerSlider');
+      // Touch screens scroll normally; MobileUI provides dedicated movement controls.
+      swipeElement = window.MobileUI && MobileUI.touchDevice ? $() : $('#outerSlider');
       swipeElement.on('swipeleft', Engine.swipeLeft);
       swipeElement.on('swiperight', Engine.swipeRight);
       swipeElement.on('swipeup', Engine.swipeUp);
@@ -248,6 +249,8 @@
       }
       
       Engine.saveLanguage();
+      Engine.initLayout();
+      if(window.MobileUI) MobileUI.init();
       Engine.travelTo(Room);
 
       setTimeout(notifyAboutSound, 3000);
@@ -266,7 +269,7 @@
     },
 
     isMobile: function() {
-      return ( location.search.indexOf( 'ignorebrowser=true' ) < 0 && /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test( navigator.userAgent ) );
+      return window.MobileUI ? MobileUI.enabled : /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
     },
 
     saveGame: function() {
@@ -598,6 +601,71 @@
 
     activeModule: null,
 
+    // Slides remain 700px wide; their vertical extent follows the visible content.
+    initLayout: function() {
+      if(Engine._layoutReady) return;
+      Engine._layoutReady = true;
+      var observed = new WeakSet();
+      var resizeObserver = window.ResizeObserver ? new ResizeObserver(Engine.queueLayout) : null;
+      var observePanels = function() {
+        if(resizeObserver) {
+          $('#header, .location, .location > *, #storesContainer').each(function() {
+            if(!observed.has(this)) { observed.add(this); resizeObserver.observe(this); }
+          });
+        }
+        Engine.queueLayout();
+      };
+      Engine._layoutObserver = new MutationObserver(observePanels);
+      Engine._layoutObserver.observe(document.getElementById('wrapper'), { childList: true, subtree: true });
+      window.addEventListener('resize', Engine.queueLayout);
+      observePanels();
+    },
+
+    queueLayout: function() {
+      if(!Engine._layoutReady || Engine._layoutFrame) return;
+      Engine._layoutFrame = window.requestAnimationFrame(function() {
+        Engine._layoutFrame = null;
+        Engine.updateLayout();
+      });
+    },
+
+    updateLayout: function() {
+      var content = document.getElementById('content');
+      if(!content) return;
+      if(window.MobileUI && MobileUI.enabled) {
+        $('#content, #main, #worldPanel').css('height', '');
+        return;
+      }
+      var module = Engine.activeModule;
+      if(!module || !module.panel || !module.panel.length) return;
+      var setHeight = function(element, height) {
+        if(element && element.style.height !== height + 'px') element.style.height = height + 'px';
+      };
+      if(module === Space) { setHeight(content, 700); return; }
+      var panel = module.panel[0], top = panel.getBoundingClientRect().top, bottom = 0;
+      // Absolute columns (crafting, workers, resources) do not size their parents.
+      module.panel.children().each(function() {
+        if(window.getComputedStyle(this).display !== 'none') {
+          bottom = Math.max(bottom, this.getBoundingClientRect().bottom - top +
+            (parseFloat(window.getComputedStyle(this).marginBottom) || 0));
+        }
+      });
+      if(module !== World) {
+        var stores = document.getElementById('storesContainer');
+        if(stores) bottom = Math.max(bottom, stores.getBoundingClientRect().bottom - top);
+      }
+      var height = Math.max(700, Math.ceil(bottom + (module === World ? 0 : $('#header').outerHeight(true)) + 20));
+      setHeight(module === World ? panel : document.getElementById('main'), height);
+      setHeight(content, height);
+    },
+
+    // Keep presentation in sync for both tab navigation and expedition/flight transitions.
+    setActiveModule: function(module) {
+      Engine.activeModule = module;
+      if(window.MobileUI) MobileUI.refresh();
+      Engine.queueLayout();
+    },
+
     travelTo: function(module) {
       if(Engine.activeModule == module) {
         return;
@@ -630,7 +698,7 @@
         $('div#weapons').animate({opacity: 1}, 300);
       }
 
-      Engine.activeModule = module;
+      Engine.setActiveModule(module);
       module.onArrival(diff);
       Notifications.printQueue(module);
     },
@@ -648,17 +716,18 @@
       if(typeof(transition_diff) === 'undefined') transition_diff = 1;
 
       if(top_container === null) {
-        stores.animate({top: '0px'}, {queue: false, duration: 300 * transition_diff});
+        stores.animate({top: '0px'}, {queue: false, duration: 300 * transition_diff, complete: Engine.queueLayout});
       }
       else if(!top_container.length) {
-        stores.animate({top: '0px'}, {queue: false, duration: 300 * transition_diff});
+        stores.animate({top: '0px'}, {queue: false, duration: 300 * transition_diff, complete: Engine.queueLayout});
       }
       else {
         stores.animate({
           top: top_container.height() + 26 + 'px'
         }, {
           queue: false,
-          duration: 300 * transition_diff
+          duration: 300 * transition_diff,
+          complete: Engine.queueLayout
         });
       }
     },

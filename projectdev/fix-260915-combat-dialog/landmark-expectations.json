@@ -1,0 +1,1663 @@
+{
+  "method": "Finite-sum conditional expectation accounting for boundary rejection; ignores occupied-cell rejection.",
+  "definitions": [
+    {
+      "type": "IRON_MINE",
+      "n": 1,
+      "a": 5,
+      "b": 5,
+      "name": "铁矿"
+    },
+    {
+      "type": "COAL_MINE",
+      "n": 1,
+      "a": 10,
+      "b": 10,
+      "name": "煤矿"
+    },
+    {
+      "type": "SULPHUR_MINE",
+      "n": 1,
+      "a": 20,
+      "b": 20,
+      "name": "硫磺矿"
+    },
+    {
+      "type": "HOUSE",
+      "n": 10,
+      "a": 3,
+      "b": 20,
+      "name": "破旧小屋"
+    },
+    {
+      "type": "CAVE",
+      "n": 10,
+      "a": 3,
+      "b": 20,
+      "name": "潮湿洞穴"
+    },
+    {
+      "type": "TOWN",
+      "n": 15,
+      "a": 15,
+      "b": 25,
+      "name": "废弃小镇"
+    },
+    {
+      "type": "CITY",
+      "n": 20,
+      "a": 20,
+      "b": 40,
+      "name": "被毁的城市"
+    },
+    {
+      "type": "SHIP",
+      "n": 1,
+      "a": 35,
+      "b": 35,
+      "name": "坠毁星舰"
+    },
+    {
+      "type": "BOREHOLE",
+      "n": 20,
+      "a": 35,
+      "b": 60,
+      "name": "巨坑"
+    },
+    {
+      "type": "BATTLEFIELD",
+      "n": 20,
+      "a": 35,
+      "b": 60,
+      "name": "战场"
+    },
+    {
+      "type": "SWAMP",
+      "n": 1,
+      "a": 15,
+      "b": 35,
+      "name": "迷雾沼泽"
+    },
+    {
+      "type": "EXECUTIONER",
+      "n": 1,
+      "a": 50,
+      "b": 50,
+      "name": "残破战舰"
+    },
+    {
+      "type": "CRYSTAL_WORKS",
+      "n": 1,
+      "a": 25,
+      "b": 25,
+      "name": "废弃晶体厂"
+    },
+    {
+      "type": "CHEMICAL_WORKS",
+      "n": 1,
+      "a": 30,
+      "b": 30,
+      "name": "化学工场"
+    },
+    {
+      "type": "ASSEMBLY_WORKS",
+      "n": 1,
+      "a": 35,
+      "b": 35,
+      "name": "精密装配厂"
+    },
+    {
+      "type": "SCOUT_SHIP",
+      "n": 1,
+      "a": 40,
+      "b": 40,
+      "name": "坠毁侦察舰"
+    },
+    {
+      "type": "CARGO_SHIP",
+      "n": 1,
+      "a": 45,
+      "b": 45,
+      "name": "掩埋运输舰"
+    },
+    {
+      "type": "FORTRESS",
+      "n": 20,
+      "a": 35,
+      "b": 60,
+      "name": "军事要塞"
+    },
+    {
+      "type": "WAREHOUSE",
+      "n": 10,
+      "a": 25,
+      "b": 35,
+      "name": "仓库"
+    }
+  ],
+  "current": {
+    "radius": 30,
+    "total": 136,
+    "bands": [
+      {
+        "low": 1,
+        "high": 10,
+        "cells": 220,
+        "expected": 10.888888888888888,
+        "per100Cells": 4.949494949494949
+      },
+      {
+        "low": 11,
+        "high": 20,
+        "cells": 620,
+        "expected": 21.696361107949112,
+        "per100Cells": 3.4994130819272757
+      },
+      {
+        "low": 21,
+        "high": 30,
+        "cells": 1020,
+        "expected": 26.29004677691111,
+        "per100Cells": 2.5774555663638345
+      },
+      {
+        "low": 31,
+        "high": 40,
+        "cells": 1020,
+        "expected": 42.5029095047636,
+        "per100Cells": 4.166951912231726
+      },
+      {
+        "low": 41,
+        "high": 50,
+        "cells": 620,
+        "expected": 27.17048356379658,
+        "per100Cells": 4.382336058676867
+      },
+      {
+        "low": 51,
+        "high": 60,
+        "cells": 220,
+        "expected": 7.451310157690709,
+        "per100Cells": 3.386959162586686
+      }
+    ],
+    "perDistance": [
+      {
+        "distance": 0,
+        "cells": 1,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 1,
+        "cells": 4,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 2,
+        "cells": 8,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 3,
+        "cells": 12,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 4,
+        "cells": 16,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 5,
+        "cells": 20,
+        "expected": 2.111111111111111,
+        "byType": {
+          "IRON_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 6,
+        "cells": 24,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 7,
+        "cells": 28,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 8,
+        "cells": 32,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 9,
+        "cells": 36,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 10,
+        "cells": 40,
+        "expected": 2.111111111111111,
+        "byType": {
+          "COAL_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 11,
+        "cells": 44,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 12,
+        "cells": 48,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 13,
+        "cells": 52,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 14,
+        "cells": 56,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 15,
+        "cells": 60,
+        "expected": 2.5244160164918847,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 16,
+        "cells": 64,
+        "expected": 2.5244160164918847,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 17,
+        "cells": 68,
+        "expected": 2.5244160164918847,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 18,
+        "cells": 72,
+        "expected": 2.5244160164918847,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 19,
+        "cells": 76,
+        "expected": 2.5244160164918847,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 20,
+        "cells": 80,
+        "expected": 4.629836581045246,
+        "byType": {
+          "SULPHUR_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 21,
+        "cells": 84,
+        "expected": 2.5187254699341346,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 22,
+        "cells": 88,
+        "expected": 2.5187254699341346,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 23,
+        "cells": 92,
+        "expected": 2.5187254699341346,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 24,
+        "cells": 96,
+        "expected": 2.5187254699341346,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905
+        }
+      },
+      {
+        "distance": 25,
+        "cells": 100,
+        "expected": 4.505554452559398,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "CRYSTAL_WORKS": 1,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 26,
+        "cells": 104,
+        "expected": 2.1419180889230347,
+        "byType": {
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 27,
+        "cells": 108,
+        "expected": 2.1419180889230347,
+        "byType": {
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 28,
+        "cells": 112,
+        "expected": 2.1419180889230347,
+        "byType": {
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 29,
+        "cells": 116,
+        "expected": 2.1419180889230347,
+        "byType": {
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 30,
+        "cells": 120,
+        "expected": 3.1419180889230347,
+        "byType": {
+          "CITY": 1.1054205645533612,
+          "SWAMP": 0.049668541744409905,
+          "CHEMICAL_WORKS": 1,
+          "WAREHOUSE": 0.9868289826252636
+        }
+      },
+      {
+        "distance": 31,
+        "cells": 120,
+        "expected": 2.008048208365345,
+        "byType": {
+          "CITY": 1.0363317792687763,
+          "SWAMP": 0.046564257885384285,
+          "WAREHOUSE": 0.9251521712111846
+        }
+      },
+      {
+        "distance": 32,
+        "cells": 116,
+        "expected": 1.8822916539020609,
+        "byType": {
+          "CITY": 0.9714301930923478,
+          "SWAMP": 0.043648112442057185,
+          "WAREHOUSE": 0.8672133483676558
+        }
+      },
+      {
+        "distance": 33,
+        "cells": 112,
+        "expected": 1.7639325438189697,
+        "byType": {
+          "CITY": 0.9103463472792387,
+          "SWAMP": 0.040903504965984626,
+          "WAREHOUSE": 0.8126826915737464
+        }
+      },
+      {
+        "distance": 34,
+        "cells": 108,
+        "expected": 1.6523368114549126,
+        "byType": {
+          "CITY": 0.8527530069411645,
+          "SWAMP": 0.0383157322028305,
+          "WAREHOUSE": 0.7612680723109176
+        }
+      },
+      {
+        "distance": 35,
+        "cells": 104,
+        "expected": 8.918013102923387,
+        "byType": {
+          "CITY": 0.7983592966218721,
+          "SHIP": 1,
+          "BOREHOLE": 1.790357420307806,
+          "BATTLEFIELD": 1.790357420307806,
+          "SWAMP": 0.03587172459318493,
+          "ASSEMBLY_WORKS": 1,
+          "FORTRESS": 1.790357420307806,
+          "WAREHOUSE": 0.7127098207849126
+        }
+      },
+      {
+        "distance": 36,
+        "cells": 100,
+        "expected": 5.771817465478962,
+        "byType": {
+          "CITY": 0.7469057868603792,
+          "BOREHOLE": 1.6749705595395274,
+          "BATTLEFIELD": 1.6749705595395274,
+          "FORTRESS": 1.6749705595395274
+        }
+      },
+      {
+        "distance": 37,
+        "cells": 96,
+        "expected": 5.395130430889809,
+        "byType": {
+          "CITY": 0.6981603565600177,
+          "BOREHOLE": 1.5656566914432637,
+          "BATTLEFIELD": 1.5656566914432637,
+          "FORTRESS": 1.5656566914432637
+        }
+      },
+      {
+        "distance": 38,
+        "cells": 92,
+        "expected": 5.037760680125741,
+        "byType": {
+          "CITY": 0.651914691916085,
+          "BOREHOLE": 1.4619486627365519,
+          "BATTLEFIELD": 1.4619486627365519,
+          "FORTRESS": 1.4619486627365519
+        }
+      },
+      {
+        "distance": 39,
+        "cells": 88,
+        "expected": 4.698259416899875,
+        "byType": {
+          "CITY": 0.6079813105043488,
+          "BOREHOLE": 1.3634260354651755,
+          "BATTLEFIELD": 1.3634260354651755,
+          "FORTRESS": 1.3634260354651755
+        }
+      },
+      {
+        "distance": 40,
+        "cells": 84,
+        "expected": 5.3753191909045395,
+        "byType": {
+          "CITY": 0.5661910208687948,
+          "BOREHOLE": 1.269709390011915,
+          "BATTLEFIELD": 1.269709390011915,
+          "SCOUT_SHIP": 1,
+          "FORTRESS": 1.269709390011915
+        }
+      },
+      {
+        "distance": 41,
+        "cells": 80,
+        "expected": 3.5413663258835726,
+        "byType": {
+          "BOREHOLE": 1.1804554419611908,
+          "BATTLEFIELD": 1.1804554419611908,
+          "FORTRESS": 1.1804554419611908
+        }
+      },
+      {
+        "distance": 42,
+        "cells": 76,
+        "expected": 3.286058520994292,
+        "byType": {
+          "BOREHOLE": 1.0953528403314305,
+          "BATTLEFIELD": 1.0953528403314305,
+          "FORTRESS": 1.0953528403314305
+        }
+      },
+      {
+        "distance": 43,
+        "cells": 72,
+        "expected": 3.042355616327251,
+        "byType": {
+          "BOREHOLE": 1.0141185387757503,
+          "BATTLEFIELD": 1.0141185387757503,
+          "FORTRESS": 1.0141185387757503
+        }
+      },
+      {
+        "distance": 44,
+        "cells": 68,
+        "expected": 2.8094839518676338,
+        "byType": {
+          "BOREHOLE": 0.9364946506225447,
+          "BATTLEFIELD": 0.9364946506225447,
+          "FORTRESS": 0.9364946506225447
+        }
+      },
+      {
+        "distance": 45,
+        "cells": 64,
+        "expected": 3.5867371423845222,
+        "byType": {
+          "BOREHOLE": 0.8622457141281742,
+          "BATTLEFIELD": 0.8622457141281742,
+          "CARGO_SHIP": 1,
+          "FORTRESS": 0.8622457141281742
+        }
+      },
+      {
+        "distance": 46,
+        "cells": 60,
+        "expected": 2.37346892053899,
+        "byType": {
+          "BOREHOLE": 0.79115630684633,
+          "BATTLEFIELD": 0.79115630684633,
+          "FORTRESS": 0.79115630684633
+        }
+      },
+      {
+        "distance": 47,
+        "cells": 56,
+        "expected": 2.169086874603688,
+        "byType": {
+          "BOREHOLE": 0.7230289582012295,
+          "BATTLEFIELD": 0.7230289582012295,
+          "FORTRESS": 0.7230289582012295
+        }
+      },
+      {
+        "distance": 48,
+        "cells": 52,
+        "expected": 1.9730469529922763,
+        "byType": {
+          "BOREHOLE": 0.6576823176640921,
+          "BATTLEFIELD": 0.6576823176640921,
+          "FORTRESS": 0.6576823176640921
+        }
+      },
+      {
+        "distance": 49,
+        "cells": 48,
+        "expected": 1.7848486282453204,
+        "byType": {
+          "BOREHOLE": 0.5949495427484401,
+          "BATTLEFIELD": 0.5949495427484401,
+          "FORTRESS": 0.5949495427484401
+        }
+      },
+      {
+        "distance": 50,
+        "cells": 44,
+        "expected": 2.6040306299590297,
+        "byType": {
+          "BOREHOLE": 0.53467687665301,
+          "BATTLEFIELD": 0.53467687665301,
+          "EXECUTIONER": 1,
+          "FORTRESS": 0.53467687665301
+        }
+      },
+      {
+        "distance": 51,
+        "cells": 40,
+        "expected": 1.4301671700683658,
+        "byType": {
+          "BOREHOLE": 0.4767223900227886,
+          "BATTLEFIELD": 0.4767223900227886,
+          "FORTRESS": 0.4767223900227886
+        }
+      },
+      {
+        "distance": 52,
+        "cells": 36,
+        "expected": 1.2628645954565947,
+        "byType": {
+          "BOREHOLE": 0.4209548651521982,
+          "BATTLEFIELD": 0.4209548651521982,
+          "FORTRESS": 0.4209548651521982
+        }
+      },
+      {
+        "distance": 53,
+        "cells": 32,
+        "expected": 1.1017584124971114,
+        "byType": {
+          "BOREHOLE": 0.3672528041657038,
+          "BATTLEFIELD": 0.3672528041657038,
+          "FORTRESS": 0.3672528041657038
+        }
+      },
+      {
+        "distance": 54,
+        "cells": 28,
+        "expected": 0.9465106361907001,
+        "byType": {
+          "BOREHOLE": 0.3155035453969,
+          "BATTLEFIELD": 0.3155035453969,
+          "FORTRESS": 0.3155035453969
+        }
+      },
+      {
+        "distance": 55,
+        "cells": 24,
+        "expected": 0.7968074233238038,
+        "byType": {
+          "BOREHOLE": 0.26560247444126794,
+          "BATTLEFIELD": 0.26560247444126794,
+          "FORTRESS": 0.26560247444126794
+        }
+      },
+      {
+        "distance": 56,
+        "cells": 20,
+        "expected": 0.6523569547680265,
+        "byType": {
+          "BOREHOLE": 0.21745231825600883,
+          "BATTLEFIELD": 0.21745231825600883,
+          "FORTRESS": 0.21745231825600883
+        }
+      },
+      {
+        "distance": 57,
+        "cells": 16,
+        "expected": 0.5128875368521036,
+        "byType": {
+          "BOREHOLE": 0.17096251228403456,
+          "BATTLEFIELD": 0.17096251228403456,
+          "FORTRESS": 0.17096251228403456
+        }
+      },
+      {
+        "distance": 58,
+        "cells": 12,
+        "expected": 0.37814589581468655,
+        "byType": {
+          "BOREHOLE": 0.12604863193822885,
+          "BATTLEFIELD": 0.12604863193822885,
+          "FORTRESS": 0.12604863193822885
+        }
+      },
+      {
+        "distance": 59,
+        "cells": 8,
+        "expected": 0.24789564281185006,
+        "byType": {
+          "BOREHOLE": 0.08263188093728335,
+          "BATTLEFIELD": 0.08263188093728335,
+          "FORTRESS": 0.08263188093728335
+        }
+      },
+      {
+        "distance": 60,
+        "cells": 4,
+        "expected": 0.12191588990746725,
+        "byType": {
+          "BOREHOLE": 0.04063862996915575,
+          "BATTLEFIELD": 0.04063862996915575,
+          "FORTRESS": 0.04063862996915575
+        }
+      }
+    ]
+  },
+  "proposed": {
+    "radius": 45,
+    "total": 136,
+    "bands": [
+      {
+        "low": 1,
+        "high": 10,
+        "cells": 220,
+        "expected": 10.888888888888888,
+        "per100Cells": 4.949494949494949
+      },
+      {
+        "low": 11,
+        "high": 20,
+        "cells": 620,
+        "expected": 21.531024531024528,
+        "per100Cells": 3.4727458921007304
+      },
+      {
+        "low": 21,
+        "high": 30,
+        "cells": 1020,
+        "expected": 24.272727272727277,
+        "per100Cells": 2.379679144385027
+      },
+      {
+        "low": 31,
+        "high": 40,
+        "cells": 1420,
+        "expected": 33.88114518723344,
+        "per100Cells": 2.385996139946017
+      },
+      {
+        "low": 41,
+        "high": 50,
+        "cells": 1720,
+        "expected": 27.953405274032374,
+        "per100Cells": 1.6251979810483939
+      },
+      {
+        "low": 51,
+        "high": 60,
+        "cells": 1420,
+        "expected": 17.472808846093507,
+        "per100Cells": 1.2304794962037682
+      },
+      {
+        "low": 61,
+        "high": 70,
+        "cells": 1020,
+        "expected": 0,
+        "per100Cells": 0
+      },
+      {
+        "low": 71,
+        "high": 80,
+        "cells": 620,
+        "expected": 0,
+        "per100Cells": 0
+      },
+      {
+        "low": 81,
+        "high": 90,
+        "cells": 220,
+        "expected": 0,
+        "per100Cells": 0
+      }
+    ],
+    "perDistance": [
+      {
+        "distance": 0,
+        "cells": 1,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 1,
+        "cells": 4,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 2,
+        "cells": 8,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 3,
+        "cells": 12,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 4,
+        "cells": 16,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 5,
+        "cells": 20,
+        "expected": 2.111111111111111,
+        "byType": {
+          "IRON_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 6,
+        "cells": 24,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 7,
+        "cells": 28,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 8,
+        "cells": 32,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 9,
+        "cells": 36,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 10,
+        "cells": 40,
+        "expected": 2.111111111111111,
+        "byType": {
+          "COAL_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 11,
+        "cells": 44,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 12,
+        "cells": 48,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 13,
+        "cells": 52,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 14,
+        "cells": 56,
+        "expected": 1.1111111111111112,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556
+        }
+      },
+      {
+        "distance": 15,
+        "cells": 60,
+        "expected": 2.5223665223665224,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 16,
+        "cells": 64,
+        "expected": 2.5223665223665224,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 17,
+        "cells": 68,
+        "expected": 2.5223665223665224,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 18,
+        "cells": 72,
+        "expected": 2.5223665223665224,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 19,
+        "cells": 76,
+        "expected": 2.5223665223665224,
+        "byType": {
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 20,
+        "cells": 80,
+        "expected": 4.474747474747475,
+        "byType": {
+          "SULPHUR_MINE": 1,
+          "HOUSE": 0.5555555555555556,
+          "CAVE": 0.5555555555555556,
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 21,
+        "cells": 84,
+        "expected": 2.3636363636363633,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 22,
+        "cells": 88,
+        "expected": 2.3636363636363633,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 23,
+        "cells": 92,
+        "expected": 2.3636363636363633,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 24,
+        "cells": 96,
+        "expected": 2.3636363636363633,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616
+        }
+      },
+      {
+        "distance": 25,
+        "cells": 100,
+        "expected": 4.2727272727272725,
+        "byType": {
+          "TOWN": 1.3636363636363635,
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "CRYSTAL_WORKS": 1,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 26,
+        "cells": 104,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 27,
+        "cells": 108,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 28,
+        "cells": 112,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 29,
+        "cells": 116,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 30,
+        "cells": 120,
+        "expected": 2.909090909090909,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "CHEMICAL_WORKS": 1,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 31,
+        "cells": 124,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 32,
+        "cells": 128,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 33,
+        "cells": 132,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 34,
+        "cells": 136,
+        "expected": 1.9090909090909092,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SWAMP": 0.047619047619047616,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 35,
+        "cells": 140,
+        "expected": 6.6713885557365975,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "SHIP": 1,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "SWAMP": 0.047619047619047616,
+          "ASSEMBLY_WORKS": 1,
+          "FORTRESS": 0.9207658822152296,
+          "WAREHOUSE": 0.9090909090909091
+        }
+      },
+      {
+        "distance": 36,
+        "cells": 144,
+        "expected": 3.7146785990266413,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 37,
+        "cells": 148,
+        "expected": 3.7146785990266413,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 38,
+        "cells": 152,
+        "expected": 3.7146785990266413,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 39,
+        "cells": 156,
+        "expected": 3.7146785990266413,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 40,
+        "cells": 160,
+        "expected": 4.714678599026641,
+        "byType": {
+          "CITY": 0.9523809523809523,
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "SCOUT_SHIP": 1,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 41,
+        "cells": 164,
+        "expected": 2.7622976466456888,
+        "byType": {
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 42,
+        "cells": 168,
+        "expected": 2.7622976466456888,
+        "byType": {
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 43,
+        "cells": 172,
+        "expected": 2.7622976466456888,
+        "byType": {
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 44,
+        "cells": 176,
+        "expected": 2.7622976466456888,
+        "byType": {
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 45,
+        "cells": 180,
+        "expected": 3.7622976466456888,
+        "byType": {
+          "BOREHOLE": 0.9207658822152296,
+          "BATTLEFIELD": 0.9207658822152296,
+          "CARGO_SHIP": 1,
+          "FORTRESS": 0.9207658822152296
+        }
+      },
+      {
+        "distance": 46,
+        "cells": 180,
+        "expected": 2.644753065937362,
+        "byType": {
+          "BOREHOLE": 0.8815843553124539,
+          "BATTLEFIELD": 0.8815843553124539,
+          "FORTRESS": 0.8815843553124539
+        }
+      },
+      {
+        "distance": 47,
+        "cells": 176,
+        "expected": 2.5321061760918813,
+        "byType": {
+          "BOREHOLE": 0.844035392030627,
+          "BATTLEFIELD": 0.844035392030627,
+          "FORTRESS": 0.844035392030627
+        }
+      },
+      {
+        "distance": 48,
+        "cells": 172,
+        "expected": 2.4240571184849924,
+        "byType": {
+          "BOREHOLE": 0.8080190394949974,
+          "BATTLEFIELD": 0.8080190394949974,
+          "FORTRESS": 0.8080190394949974
+        }
+      },
+      {
+        "distance": 49,
+        "cells": 168,
+        "expected": 2.320330023182379,
+        "byType": {
+          "BOREHOLE": 0.7734433410607929,
+          "BATTLEFIELD": 0.7734433410607929,
+          "FORTRESS": 0.7734433410607929
+        }
+      },
+      {
+        "distance": 50,
+        "cells": 164,
+        "expected": 3.220670657107319,
+        "byType": {
+          "BOREHOLE": 0.7402235523691062,
+          "BATTLEFIELD": 0.7402235523691062,
+          "EXECUTIONER": 1,
+          "FORTRESS": 0.7402235523691062
+        }
+      },
+      {
+        "distance": 51,
+        "cells": 160,
+        "expected": 2.124844343573607,
+        "byType": {
+          "BOREHOLE": 0.708281447857869,
+          "BATTLEFIELD": 0.708281447857869,
+          "FORTRESS": 0.708281447857869
+        }
+      },
+      {
+        "distance": 52,
+        "cells": 156,
+        "expected": 2.032634117343054,
+        "byType": {
+          "BOREHOLE": 0.677544705781018,
+          "BATTLEFIELD": 0.677544705781018,
+          "FORTRESS": 0.677544705781018
+        }
+      },
+      {
+        "distance": 53,
+        "cells": 152,
+        "expected": 1.943839084676596,
+        "byType": {
+          "BOREHOLE": 0.6479463615588653,
+          "BATTLEFIELD": 0.6479463615588653,
+          "FORTRESS": 0.6479463615588653
+        }
+      },
+      {
+        "distance": 54,
+        "cells": 148,
+        "expected": 1.8582729622889183,
+        "byType": {
+          "BOREHOLE": 0.6194243207629727,
+          "BATTLEFIELD": 0.6194243207629727,
+          "FORTRESS": 0.6194243207629727
+        }
+      },
+      {
+        "distance": 55,
+        "cells": 144,
+        "expected": 1.7757627728436574,
+        "byType": {
+          "BOREHOLE": 0.5919209242812191,
+          "BATTLEFIELD": 0.5919209242812191,
+          "FORTRESS": 0.5919209242812191
+        }
+      },
+      {
+        "distance": 56,
+        "cells": 140,
+        "expected": 1.696147677764897,
+        "byType": {
+          "BOREHOLE": 0.5653825592549656,
+          "BATTLEFIELD": 0.5653825592549656,
+          "FORTRESS": 0.5653825592549656
+        }
+      },
+      {
+        "distance": 57,
+        "cells": 136,
+        "expected": 1.6192779307923002,
+        "byType": {
+          "BOREHOLE": 0.5397593102641001,
+          "BATTLEFIELD": 0.5397593102641001,
+          "FORTRESS": 0.5397593102641001
+        }
+      },
+      {
+        "distance": 58,
+        "cells": 132,
+        "expected": 1.545013937954368,
+        "byType": {
+          "BOREHOLE": 0.5150046459847893,
+          "BATTLEFIELD": 0.5150046459847893,
+          "FORTRESS": 0.5150046459847893
+        }
+      },
+      {
+        "distance": 59,
+        "cells": 128,
+        "expected": 1.4732254115443673,
+        "byType": {
+          "BOREHOLE": 0.4910751371814558,
+          "BATTLEFIELD": 0.4910751371814558,
+          "FORTRESS": 0.4910751371814558
+        }
+      },
+      {
+        "distance": 60,
+        "cells": 124,
+        "expected": 1.4037906073117434,
+        "byType": {
+          "BOREHOLE": 0.4679302024372478,
+          "BATTLEFIELD": 0.4679302024372478,
+          "FORTRESS": 0.4679302024372478
+        }
+      },
+      {
+        "distance": 61,
+        "cells": 120,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 62,
+        "cells": 116,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 63,
+        "cells": 112,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 64,
+        "cells": 108,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 65,
+        "cells": 104,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 66,
+        "cells": 100,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 67,
+        "cells": 96,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 68,
+        "cells": 92,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 69,
+        "cells": 88,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 70,
+        "cells": 84,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 71,
+        "cells": 80,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 72,
+        "cells": 76,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 73,
+        "cells": 72,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 74,
+        "cells": 68,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 75,
+        "cells": 64,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 76,
+        "cells": 60,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 77,
+        "cells": 56,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 78,
+        "cells": 52,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 79,
+        "cells": 48,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 80,
+        "cells": 44,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 81,
+        "cells": 40,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 82,
+        "cells": 36,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 83,
+        "cells": 32,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 84,
+        "cells": 28,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 85,
+        "cells": 24,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 86,
+        "cells": 20,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 87,
+        "cells": 16,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 88,
+        "cells": 12,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 89,
+        "cells": 8,
+        "expected": 0,
+        "byType": {}
+      },
+      {
+        "distance": 90,
+        "cells": 4,
+        "expected": 0,
+        "byType": {}
+      }
+    ]
+  }
+}

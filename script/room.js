@@ -10,6 +10,16 @@ var Room = {
 	_NEED_WOOD_DELAY: 15 * 1000, // from when the stranger shows up, to when you need wood
 	buttons: {},
 	Craftables: {
+		'bunkhouse': {
+			name: _('bunkhouse'), type: 'building', maximum: 2,
+			availableMsg: _('the old frames could shelter more people.'),
+			buildMsg: _('a bunkhouse stands beside the huts. room for ten more.'),
+			maxMsg: _('the two bunkhouses are full of beds.'),
+			cost: function() {
+				var n = $SM.get('game.buildings.bunkhouse', true);
+				return { wood: 1000 + n * 500, steel: 50 + n * 25, leather: 100 + n * 50 };
+			}
+		},
 		'trap': {
 			name: _('trap'),
 			button: null,
@@ -485,6 +495,8 @@ var Room = {
 	},
 
 	MiscItems: {
+		'crystal': { name: _('crystal'), type: 'good' },
+		'lattice shard': { name: _('lattice shard'), type: 'special' },
 		'laser rifle': {
 			type: 'weapon'
 		}
@@ -801,7 +813,7 @@ var Room = {
 		if (stores.length === 0) {
 			stores = $('<div>').attr({
 				'id': 'stores',
-				'data-legend': _('stores')
+				'data-legend': _('resources')
 			}).css('opacity', 0);
 			needsAppend = true;
 		}
@@ -824,7 +836,7 @@ var Room = {
 			}).css('opacity', 0);
 			wNeedsAppend = true;
 		}
-		for (var k in $SM.get('stores')) {
+		for (var k of $SM.orderedKeys('resources', Object.keys($SM.get('stores') || {}))) {
 
 			if (k.indexOf('blueprint') > 0) {
 				// don't show blueprints
@@ -881,19 +893,7 @@ var Room = {
 				$('<div>').addClass('row_key').text(lk).appendTo(row);
 				$('<div>').addClass('row_val').text(Math.floor(num)).appendTo(row);
 				$('<div>').addClass('clear').appendTo(row);
-				var curPrev = null;
-				location.children().each(function (i) {
-					var child = $(this);
-					var cName = child.children('.row_key').text();
-					if (cName < lk) {
-						curPrev = child.attr('id');
-					}
-				});
-				if (curPrev == null) {
-					row.prependTo(location);
-				} else {
-					row.insertAfter(location.find('#' + curPrev));
-				}
+				row.appendTo(location);
 				newRow = true;
 			} else {
 				$('div#' + row.attr('id') + ' > div.row_val', location).text(Math.floor(num));
@@ -973,6 +973,7 @@ var Room = {
 	buy: function (buyBtn) {
 		var thing = $(buyBtn).attr('buildThing');
 		var good = Room.TradeGoods[thing];
+		if (!good) return false;
 		var numThings = $SM.get('stores["' + thing + '"]', true);
 		if (numThings < 0) numThings = 0;
 		if (good.maximum <= numThings) {
@@ -991,10 +992,9 @@ var Room = {
 			}
 		}
 		$SM.setM('stores', storeMod);
+		$SM.add('stores["' + thing + '"]', 1);
 
 		Notifications.notify(Room, good.buildMsg);
-
-		$SM.add('stores["' + thing + '"]', 1);
 
 		// audio
 		AudioEngine.playSound(AudioLibrary.BUY);
@@ -1002,6 +1002,7 @@ var Room = {
 
 	build: function (buildBtn) {
 		var thing = $(buildBtn).attr('buildThing');
+		if (thing === 'bunkhouse' && !$SM.get('features.industry.assembly')) return false;
 		if ($SM.get('game.temperature.value') <= Room.TempEnum.Cold.value) {
 			Notifications.notify(Room, _("builder just shivers"));
 			return false;
@@ -1071,6 +1072,7 @@ var Room = {
 	},
 
 	craftUnlocked: function (thing) {
+		if (thing === 'bunkhouse' && !$SM.get('features.industry.assembly')) return false;
 		if (Room.buttons[thing]) {
 			return true;
 		}
@@ -1103,6 +1105,7 @@ var Room = {
 	},
 
 	buyUnlocked: function (thing) {
+		if (!Room.TradeGoods[thing]) return false;
 		if (Room.buttons[thing]) {
 			return true;
 		} else if ($SM.get('game.buildings["trading post"]', true) > 0) {
@@ -1136,7 +1139,7 @@ var Room = {
 			bNeedsAppend = true;
 		}
 
-		for (var k in Room.Craftables) {
+		for (var k of $SM.orderedKeys('construction', Object.keys(Room.Craftables).filter(Room.craftUnlocked))) {
 			craftable = Room.Craftables[k];
 			var max = $SM.num(k, craftable) + 1 > craftable.maximum;
 			if (craftable.button == null) {
@@ -1211,7 +1214,7 @@ var Room = {
 		if (cNeedsAppend && craftSection.children().length > 0) {
 			craftSection.appendTo('div#roomPanel').animate({ opacity: 1 }, 300, 'linear');
 		}
-		if (bNeedsAppend && buildSection.children().length > 0) {
+		if (bNeedsAppend && buySection.children().length > 0) {
 			buySection.appendTo('div#roomPanel').animate({ opacity: 1 }, 300, 'linear');
 		}
 	},

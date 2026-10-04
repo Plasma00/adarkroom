@@ -11,8 +11,10 @@ html {
 	height: 100%;
 }
 
+html:not(.mobile) { scrollbar-gutter: stable; }
+
 body {
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
 }
 
@@ -80,9 +82,14 @@ div#header {
 }
 
 .menu {
-	position: fixed;
-	right: 10px;
-	bottom: 10px;
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	gap: 10px 20px;
+	max-width: 920px;
+	margin: 24px auto;
+	padding: 0 10px;
 	color: #666;
 	z-index: 10;
 }
@@ -90,7 +97,7 @@ div#header {
 .menu span {
 	cursor: pointer;
 	float: right;
-	margin-left: 20px;
+	margin-left: 0;
 }
 
 .customSelect {
@@ -431,12 +438,20 @@ div.tooltip:hover {
 /* Events */
 
 .eventPanel {
+	outline: none;
 	background: none repeat scroll 0 0 white;
-	border: 2px solid transparent;
-	left: 250px;
+	border: 2px solid currentColor;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 	padding: 20px;
-	position: absolute;
-	top: 90px;
+	position: fixed;
+	top: min(90px, 8vh);
+	max-height: calc(84vh - 44px);
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+	overscroll-behavior: contain;
+	box-shadow: 5px 5px 5px #666;
 	width: 335px;
 	z-index: 20;
 }
@@ -446,6 +461,7 @@ body.noMask .eventPanel {
 }
 
 .eventPanel:before {
+	display: none;
 	background-color:white;
 	opacity: 0.6;
 	content: " ";
@@ -462,6 +478,7 @@ body.noMask .eventPanel:before {
 }
 
 .eventPanel:after {
+	display: none;
 	position: absolute;
 	top: -2px;
 	left: -2px;
@@ -490,9 +507,13 @@ body.noMask .eventPanel .button {
 .eventTitle {
 	display: inline-block;
 	font-weight: bold;
-	position: absolute;
-	top: -12px;
+	position: relative;
+	margin-bottom: 16px;
 }
+
+#eventBackdrop { display: none; }
+.event-open #eventBackdrop { display: block; position: fixed; inset: 0; z-index: 19; background: rgba(0,0,0,.45); }
+.event-open body { overflow: hidden; }
 
 body.noMask .eventTitle {
 	color: white;
@@ -636,10 +657,34 @@ body.noMask #description {
 	left: 0px;
 }
 
+/* A drop menu may introduce scrolling, but must never wrap the take button. */
+#lootButtons > .lootRow {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	align-items: start;
+	gap: 10px;
+}
+#lootButtons > .lootRow > .button {
+	float: none;
+	box-sizing: border-box;
+	width: 100% !important;
+	min-width: 0;
+	margin: 0 0 5px;
+	overflow-wrap: anywhere;
+}
+#lootButtons > .lootRow > .clear { display: none; }
+
 #dropMenu {
 	background: none repeat scroll 0 0 white;
 	border: 1px solid black;
-	position: absolute;
+	/* Expand downward inside the hovered button so every choice remains reachable. */
+	position: relative;
+	margin-top: 8px;
+	box-sizing: border-box;
+	width: 100%;
+	max-height: min(240px, 35vh);
+	overflow-y: auto;
+	overscroll-behavior: contain;
 	z-index: 100;
 	padding-top: 5px;
 	text-align: left;

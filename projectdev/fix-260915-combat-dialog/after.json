@@ -1,0 +1,9 @@
+[
+  {
+    "variant": "normal",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 29.8,
+    "maxOpenMs": 61.8,
+    "medianNextFrameMs": 80.2
+  }
+]

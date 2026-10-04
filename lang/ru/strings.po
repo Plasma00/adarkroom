@@ -3338,3 +3338,1799 @@ msgstr "Пустынный мир"
 
 #~ msgid "not enough {0}"
 #~ msgstr "недостаточно {0}"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Buried Transport"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Chemical Works"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crashed Scout Ship"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Precision Assembly Plant"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Buried&nbsp;Transport"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Chemical&nbsp;Works"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crashed&nbsp;Scout&nbsp;Ship"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Precision&nbsp;Assembly&nbsp;Plant"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Abandoned Crystal Works"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Abandoned&nbsp;Crystal&nbsp;Works"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a bunkhouse stands beside the huts. room for ten more."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a frame small enough for the ship. others large enough for shelter."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a lattice shard rests safely in the pack."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a narrow hull lies broken against the hillside."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a wanderer device could join the broken lines."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "aligned"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another broken line carries light."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "awake"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "behind the glass, one unbroken line points inward."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beneath the residue, fine grooves trace a familiar pattern."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blocked"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bunkhouse"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo doors jut from the sand. a single line of light remains."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clear the cutting floor"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal worker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "dark"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "dry channels run between the corrosion tanks."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "each is cut with impossible precision."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "enter the guidance chamber"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "every fragment points the same way."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the drainage channels"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the line"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the reflection"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the steady light"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fractured"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "guidance lattice:"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "human hands copied the pattern. poorly."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "inspect the frames"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lattice shard"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "light moves through the crystal. the ship remembers the sky."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mark the route home"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough crystal"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough energy cell"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough lattice shard"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "pale crystal runs behind the walls."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power the cargo lift"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power the cell racks"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "repair lattice"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sometimes it is best not to fight."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "steel frames stand in silent rows."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "take the fragment and leave"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the broken lines still carry light."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the chart spills its memory across the surrounding land."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the crystal needs the tools of an old chemical works."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the cutters can still be worked. the village could use them."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the engines answer. the ship does not know where to go."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the final lattice needs a precision frame."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the lift wakes a cargo sentry."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old frames could shelter more people."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the racks open. the last cargo drones fall silent."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the reflected stars lead back to an empty observation blister."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the reserve fades as the last crystal comes free."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the sentry folds beside the open hold."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the shapes can be copied. the light inside them cannot."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the two bunkhouses are full of beds."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the villagers can now cut crystal."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "there is power for one hold. the guidance chamber has its own reserve."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "these tools could etch new paths through crystal."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "thin crystal sheets rest beneath shattered glass."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "tiny joints hold each piece exactly where it belongs."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two star charts flicker. one follows the sky, the other its reflection."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "yellow residue cakes the filters. sulphur, once carefully measured."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Ravaged Battleship"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Whirring Fabricator"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Ravaged&nbsp;Battleship"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Whirring&nbsp;Fabricator"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Command Deck"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Engineering Wing"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Fabricator"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Language"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Martial Wing"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Medical Wing"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Movement controls"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Sound Available!"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a cacophony of decrepit machinery fills the room."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a dusty researcher clumsily hides in the shadows."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a few dusty corpses can be seen further down, but this deck appears to have been spared most of the combat."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a few useful items can be scavenged."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a handful of hypos. life in a vial."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a huge arthropod lunges from the shadows, its mandibles thrashing."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a large hatch grinds open, and the wind rushes in."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a large hatch opens into a wide corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a maintenance panel is embedded in the wall next to a large sealed door."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a medical drone wheels out of control."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a mobile defence platform trundles around the corner."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a mutated beast leaps from its cell."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a regenerative machine hums uncannily by one of the courses."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a secure locker is set into one wall."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a small knapsack hangs from a cluster of webs, a few feet from the floor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a smooth, perfect sphere. its light is inextinguishable."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a sparring automaton, still fully function and crusted with timeworn blood, lunges forward."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange device sits on the floor. looks important."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "air whistles as the doors open. this section must have lower pressure than the rest of the ship."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an ancient beast has made these ruins its home."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an automated assembly line performs its empty routines, long since deprived of materials."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an operative waits in ambush around the corner."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an unfinished automaton whirs to life."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ancient beast"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "android."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another checkpoint ahead, fitted with heavy doors."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another door at the end of the hall, sealed from this side."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "approach"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "as the lights come online, so too do the defence systems."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assembly arms spark and jitter."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assembly arms spin wildly out of control."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "at the back of the workshop, elevator doors twitch and buzz."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automated guardians still stalk the halls, unaware that their masters have long gone."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automated turret"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "behind the barricade, a few weapons lay abandoned."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "better to move without drawing attention."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beyond the bulkhead is a small antechamber, seemingly untouched by scavengers."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bits of them can be scavenged."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blow it down"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blueprints"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blueprints feed into the fabricator data port. possibilities grow."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bodies litter the ground on either side."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "boost"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "broken medic"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "builder knows the strange device when she sees it. takes it for herself real quick. doesn’t ask where it came from."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo drone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo drone blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clattering metal and old servos. something is coming..."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clumsy machines, and easily avoided."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "command deck"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "containment cells arranged at the back of the room, all open."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "continue right"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "could put the scrap to good use."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crew cabins flank the hall, devoid of life."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crude attempts have been made to cut into the walls."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "debris is stacked in the corridor, forming a low barricade."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "deeper into the ship, the darkness seems almost to writhe."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "defence turret"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "detour through the officer's lounge."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disable audio"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disintegrate"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disruptor"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disruptor blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "documents are scattered down the hall, most charred and curled."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "drew some attention with all that noise."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ears flooded with new sensations."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "easily avoided."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "elevator doors open to a blasted corridor. debris covers the floor, piled into makeshift defences."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "elevator doors open to an empty corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "emergency lighting flickers."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "emits a soft red glow"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "enable audio"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "energy blade"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "energy blade blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engage"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engineering"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "expanded story. alternate ending. behind the scenes commentary. get the app."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "experimental plans cover one wall, held by an unseen force."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "extinguish"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fabricate:"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fight"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fighting hadn't reached here, it seems."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fleet beacon"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fluid recycler"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fluid recycler blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "force locker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "found some medical supplies in a discarded bag."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "further along, the corridor branches."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glow stone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glowstone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glowstone blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hinges rusted through. no challenge."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hypo"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hypo blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "iOS."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "if only they'd been destroyed along with everything else."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "immortal wanderer"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "in a flash, the figure is standing."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it had friends."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it lists to the side in a deep crevasse, cut when it fell from the sky."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it says it saw the rebellion coming. said it made arrangements."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it's no mystery why she no longer flies."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "its final works lie forgotten, covered by a thin layer of dust."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic armour"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic armour blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "language."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "large barricades bisect the corridor, scorched by weapons fire."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "looks like a way out of here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "looks like they tried to barricade the elevators."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lucky."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "malformed experiment"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "maps of the surface can still be found amongst the debris."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "marks on the door read 'research and development.' everything seems mostly untouched, but dead."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "martial"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mechanical guard"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mechanical quadruped"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "medical"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "medical gurneys are fixed to grooves running down the corridor walls."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "metal grinds, and the elevator doors open halfway. beyond is a brightly lit battlefield. remains litter the corridor, undisturbed by scavengers."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "might be something useful here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more medical robots stand frozen, attached by a network of wires."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more signs of past combat down the hall. guard post is ransacked."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more strange graffiti adorns the walls."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "motion from the centre of the yard."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move down"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move left"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move right"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move up"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "murderous robot"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "must have been the engine room, once. the massive machines now stand inert, twisted and scorched by explosions."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "noises can be heard from the corridor outside."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "none of the ship's engines escaped the destruction."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough {0}"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "nothing more here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "observe"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "one machine thrums with power, and might still work."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "one of the defence turrets still works."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "past the checkpoint, banks of containment cells can be seen."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perhaps silence is safer?"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perhaps the ship’s systems are still operational."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perks"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "picked this deck clean."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "plasma rifle"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "plasma rifle blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power cables running across the ceiling are split in several places, sparking occasionally."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power cycle"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "predictable paths."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ran straight into another one."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rows of inert security robots hang suspended from the ceiling."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ruined defence turrets flank the corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rush through"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "samples of something biological inside."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "says it can't die."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "scavenge maps"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "scraps of copper wire litter the floor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "security drones still patrol the hallways."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "security is even tighter here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "shield"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "should be able to open it."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "shuffling noises can be heard from within."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slice"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slipped past an automated sentry."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slipped through unnoticed."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "small sensors in the walls still look to be operational."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "small weapons cache in a cabinet."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "some completed explosives in the corner."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "something moving up ahead."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "something's wrong with this robot."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sometimes it is best to fight without restraint."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sound off."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sound on."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sparks cascade from a reactivated power junction, and catch."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "step inside, and the machine whirs. muscle and bone reknit. good as new."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "still, some things can be found."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stim"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stim blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "strange."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stun"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "surgical tools are scattered on the floor, near what appears the be the remains of a fire."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "take device and leave"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air in this room has a metallic tinge. floor is covered in dark powder."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air is cooler here. low cabinets ring the room, doors dusted with frost."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air is running out."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the automated patient transport system now sits motionless."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beacon pulses gently as the ship glides through space.<br>coordinates are locked. nothing to do but wait."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the blade hums, charged particles sparking and fizzing."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the blast throws the door inwards."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the capsule is cold."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the cells are all empty."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the command deck is empty, save for a squat figure sitting motionless in the centre of the room."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor is eerily silent."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor leads to a bank of elevators, which appear to be functional."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor opens onto a vast training complex, obstacles and features blackened by real combat."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor passes through a security checkpoint. the defences are blown apart, ragged edges scorched by laser fire."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the creature's tortured breathing ceases."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the crystal pulses brightly, then goes dark. the assailant shimmers as its shape becomes less defined."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the destruction is uniform and precise."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the door to the left is sealed and refuses to open."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the familiar hum of wanderer machinery coming to life. finally, real tools."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the flames fill the corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the guards died at their posts, shot through with superheated plasma."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the hatches are all sealed, but the hull is blown out just above the dirt, providing an entrance."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the immortal wanderer attacks."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the interior of the ship is cold and dark. what little light there is only accentuates its harsh angles."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the machine attacks, blades whirling."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the machines here look unfinished, abandoned by their creator. wires and other scrap are scattered about the work benches."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the military has set up a small camp just inside the ship."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the next door leads to a ransacked planning room."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the noise draws attention."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the partially devoured remains of several wanderers are piled before a dark corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the path to the command bridge is wide, walls adorned with decorative shields."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the peak of wanderer weapons technology, sleek and deadly."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the remains of a huge ship are embedded in the earth."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the remains of a massive battleship lie here, like a silent sealed city."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the ruins of the sparring machine clatter to the ground."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the walls are scorched and melted."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the walls hum faintly."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the webs part, and a grotesque insect lurches forward."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the workhorse of the wanderer fleet."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "their weapons lie on the floor beside them."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "then it is gone."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "there was no fighting here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "they take no notice of the intrusion."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "thick, sticky webbing covers the walls of the corridor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this one looks interesting."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this one looks useful."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this ward has been converted to a makeshift strategy room, maps scrawled hastily on any flat surface."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "through the bulkhead is a large room, walls lined with weapon racks. fighting seems to have passed it by."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "time to get out of here."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "tripped a motion sensor."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two bedrolls are wedged into a corner."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unruly welder"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unstable automaton"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unstable prototype"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "use hypo"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "use machine"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wait"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wanderer form, but not quite flesh. not quite metal either. a crystal set into its chest pulses with light."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wanderer soldiers succeed by subverting the enemy's rage."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "water out, water in. waste not, want not."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "weapons are strewn about the medical dispatch bay. must have been used as a muster point."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wires run overhead, corroded and useless."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a route back to the village"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a special encounter"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "barrens"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "discover crystal and unlock crystal workers"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "explore and gather supplies"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "explore the ship and recover technology and blueprints"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "field"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "find a lattice shard and reveal part of the map"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "find a lattice shard and ship supplies"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "landmarks appear when they enter your sight. faded symbols mark visited places."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "map legend"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "place"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "purpose"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "recover supplies from a previous journey"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "repair the ship and leave this world"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "return home and store supplies"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "road"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "search for alien alloy"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "search for weapons and ammunition"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "symbol"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "travel through the wilderness"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock coal mining"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock crystal etching"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock iron mining"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock precision assembly and bunkhouses"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock sulphur mining"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "water and supplies for the journey"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "your current position"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "supplies"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "utility equipment"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a pale beast rises from the shards beneath the cutting tables."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scavenger steps between the frames, steel plates strapped across its chest."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured scavenger"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "claws scrape the channel walls. something blocks the way to the filters."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal den beast"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "drain stalker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beast falls. the cutting floor is quiet."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the creature sinks into the dry channel. the filters are within reach."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the scavenger collapses against a frame. the workshop is yours."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ammunition for laser and plasma rifles"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "etched crystal settles into steel shells. five cells begin to glow."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a crystal lens settles into the steel frame. a thin beam cuts through the dust."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "laser rifle blueprint"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crystal Devourer"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crystal Stalker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Military Fortress"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Roving Repair Cart"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Salvage Drone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Siege Walker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Supply Warehouse"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crystal&nbsp;Devourer"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crystal&nbsp;Stalker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Dark&nbsp;Room"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Military&nbsp;Fortress"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Roving&nbsp;Repair&nbsp;Cart"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Salvage&nbsp;Drone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Siege&nbsp;Walker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Supply&nbsp;Warehouse"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Armoured Patrol"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Assault Automaton"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scarred mechanic shelters beside a humming condenser."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scavenger has wired an alarm across the only entrance."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a wounded quartermaster lowers his weapon."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a {0} blocks the way."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an automatic turret sweeps the wreckage with a red targeting beam."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "approach the gate"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured patrol"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured war hound"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assault automaton"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automatic turret"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beneath the walls, a water pump still turns. armed figures guard the gate."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beyond the old roads, crystal engines still hunt. cleared fortresses may offer water."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "combat training"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal devourer"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal stalker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engage the automatic turret"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "etched crystal settles into steel shells. twenty-five cells begin to glow."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fire rifles 300 times. rifle, laser and plasma damage become 8, 12 and 15."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fortress commander"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fortress sentry"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "freight shelves stand behind a buckled shutter."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "gun slits watch the broken approach."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "he offers clean water for spare steel. the cart will not wait here again."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "he will keep the pump running if you secure the yard. deeper forts also hold a command vault."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "learn melee mastery"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lift the shutter"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "map extent: {0} × {1}"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "melee mastery: after finding the compass, host the wandering master in the room for 100 cured meat, 100 fur and 1 torch. choose force. he can return."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "resources"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rifle training: {0}/300 shots. rifle, laser and plasma damage become 8, 12 and 15."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "salvage drone"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sealed cases hold steel and unfinished crystal."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "secure the pump and supplies"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sharpshooter"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "siege walker"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "storm the command vault"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the fortress becomes a friendly outpost. its road will guide later expeditions."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old stores are sealed for the journey home. return safely to recover them."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old weapons lie inside its firing arc."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the quartermaster opens the reserve crates and starts the pump."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the roof is unsafe and the cistern is dry. this cannot become an outpost."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the weapon falls silent. the way is clear."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "three hundred shots. breath, sight and trigger become one."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "trade 10 steel for water"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unarmed training: punch 50, 150 and 300 times to learn boxer, martial artist and unarmed master."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "veteran rifleman"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "warehouse scavenger"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "withdraw"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Ancestral Dark Room"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Two-Headed Creature"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Two-Headed&nbsp;Creature"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Penrose"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange thrumming, pounding and crashing. and then gone."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange thrumming, pounding and crashing. visions of people and places, of a huge machine and twisting curves."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a two-headed creature appears, the smaller head trembling"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "give in"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "inviting. it would be so easy to give in, completely."
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the two creatures are dead"
+msgstr ""
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two-headed creature"
+msgstr ""

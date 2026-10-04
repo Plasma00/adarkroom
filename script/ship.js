@@ -7,6 +7,8 @@ var Ship = {
 	ALLOY_PER_THRUSTER: 1,
 	BASE_HULL: 0,
 	BASE_THRUSTERS: 1,
+	LATTICE_COST: { 'lattice shard': 1, crystal: 4, steel: 10, sulphur: 20, 'energy cell': 3, 'alien alloy': 1 },
+	LATTICE_STATES: [_('dark'), _('fractured'), _('aligned'), _('awake')],
 	name: _("Ship"),
 	init: function(options) {
 		this.options = $.extend(
@@ -18,7 +20,8 @@ var Ship = {
 			$SM.set('features.location.spaceShip', true);
 			$SM.setM('game.spaceShip', {
 				hull: Ship.BASE_HULL,
-				thrusters: Ship.BASE_THRUSTERS
+				thrusters: Ship.BASE_THRUSTERS,
+				lattice: 0
 			});
 		}
 		
@@ -44,7 +47,17 @@ var Ship = {
 		$('<div>').addClass('row_val').text($SM.get('game.spaceShip.thrusters')).appendTo(engineRow);
 		$('<div>').addClass('clear').appendTo(engineRow);
 		
-		// Draw the reinforce button
+		// Draw the guidance lattice and its repair requirements.
+		var latticeRow = $('<div>').attr('id', 'latticeRow').appendTo(Ship.panel);
+		$('<div>').addClass('row_key').text(_('guidance lattice:')).appendTo(latticeRow);
+		$('<div>').addClass('row_val').appendTo(latticeRow);
+		$('<div>').addClass('clear').appendTo(latticeRow);
+		$('<div>').attr('id', 'latticeHint').appendTo(Ship.panel);
+		new Button.Button({
+			id: 'latticeButton', text: _('repair lattice'), click: Ship.repairLattice,
+			width: '150px', cost: Ship.LATTICE_COST
+		}).appendTo(Ship.panel);
+
 		new Button.Button({
 			id: 'reinforceButton',
 			text: _('reinforce hull'),
@@ -80,6 +93,7 @@ var Ship = {
 		
 		//subscribe to stateUpdates
 		$.Dispatch('stateUpdate').subscribe(Ship.handleStateUpdates);
+		Ship.updateLattice();
 	},
 	
 	options: {}, // Nothing for now
@@ -108,9 +122,7 @@ var Ship = {
 		}
 		$SM.add('stores["alien alloy"]', -Ship.ALLOY_PER_HULL);
 		$SM.add('game.spaceShip.hull', 1);
-		if($SM.get('game.spaceShip.hull') > 0) {
-			Button.setDisabled($('#liftoffButton', Ship.panel), false);
-		}
+		Ship.updateLattice();
 		$('#hullRow .row_val', Ship.panel).text($SM.get('game.spaceShip.hull'));
 		AudioEngine.playSound(AudioLibrary.REINFORCE_HULL);
 	},
@@ -127,10 +139,56 @@ var Ship = {
 	},
 	
 	getMaxHull: function() {
-		return $SM.get('game.spaceShip.hull');
+		return $SM.get('game.spaceShip.hull', true);
+	},
+
+	canLiftOff: function() {
+		return $SM.get('game.spaceShip.hull', true) > 0 && $SM.get('game.spaceShip.lattice') === 3;
+	},
+
+	canRepairLattice: function() {
+		var stage = $SM.get('game.spaceShip.lattice', true);
+		return stage >= 0 && stage < 3 && $SM.get('features.location.fabricator') &&
+			$SM.get('features.industry.etching') && (stage < 2 || $SM.get('features.industry.assembly')) &&
+			Object.keys(Ship.LATTICE_COST).every(key => $SM.get('stores["' + key + '"]', true) >= Ship.LATTICE_COST[key]);
+	},
+
+	repairLattice: function() {
+		if (!Ship.canRepairLattice()) return false;
+		// Suppress saves and observers until both inventory and stage have changed.
+		var changes = {};
+		Object.keys(Ship.LATTICE_COST).forEach(key => { changes[key] = -Ship.LATTICE_COST[key]; });
+		$SM.addM('stores', changes, true);
+		$SM.add('game.spaceShip.lattice', 1, true);
+		Engine.saveGame();
+		$SM.fireUpdate('stores');
+		$SM.fireUpdate('game.spaceShip');
+		Notifications.notify(Ship, $SM.get('game.spaceShip.lattice') === 3 ?
+			_('light moves through the crystal. the ship remembers the sky.') : _('another broken line carries light.'));
+		return true;
+	},
+
+	updateLattice: function() {
+		var stage = $SM.get('game.spaceShip.lattice', true);
+		$('#latticeRow .row_val', Ship.panel).text(Ship.LATTICE_STATES[stage]);
+		var hint = '';
+		if (stage < 3) {
+			if (!$SM.get('features.location.fabricator')) hint = _('a wanderer device could join the broken lines.');
+			else if (!$SM.get('features.industry.etching')) hint = _('the crystal needs the tools of an old chemical works.');
+			else if (stage === 2 && !$SM.get('features.industry.assembly')) hint = _('the final lattice needs a precision frame.');
+			else hint = _('the engines answer. the ship does not know where to go.');
+		}
+		$('#latticeHint', Ship.panel).text(hint);
+		Button.setDisabled($('#latticeButton', Ship.panel), !Ship.canRepairLattice());
+		Button.setDisabled($('#liftoffButton', Ship.panel), !Ship.canLiftOff());
 	},
 	
 	checkLiftOff: function() {
+		if (!Ship.canLiftOff()) {
+			Notifications.notify(Ship, _('the engines answer. the ship does not know where to go.'));
+			Button.clearCooldown($('#liftoffButton'));
+			return false;
+		}
 		if(!$SM.get('game.spaceShip.seenWarning')) {
 			Events.startEvent({
 				title: _('Ready to Leave?'),
@@ -165,13 +223,14 @@ var Ship = {
 	},
 	
 	liftOff: function () {
+		if (!Ship.canLiftOff()) return false;
 		$('#outerSlider').animate({top: '700px'}, 300);
 		Space.onArrival();
-		Engine.activeModule = Space;
+		Engine.setActiveModule(Space);
 		AudioEngine.playSound(AudioLibrary.LIFT_OFF);
 	},
 	
 	handleStateUpdates: function(e){
-		
+		Ship.updateLattice();
 	}
 };

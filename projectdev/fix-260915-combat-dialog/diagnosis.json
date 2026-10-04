@@ -1,0 +1,44 @@
+[
+  {
+    "variant": "normal",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 67.9,
+    "maxOpenMs": 88.5,
+    "medianNextFrameMs": 135.3
+  },
+  {
+    "variant": "contain",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 67.4,
+    "maxOpenMs": 87.2,
+    "medianNextFrameMs": 137.3
+  },
+  {
+    "variant": "stableScrollbar",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 63.7,
+    "maxOpenMs": 67.9,
+    "medianNextFrameMs": 124.5
+  },
+  {
+    "variant": "noInert",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 21.6,
+    "maxOpenMs": 22.8,
+    "medianNextFrameMs": 70.5
+  },
+  {
+    "variant": "noAnimation",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 64.8,
+    "maxOpenMs": 74.9,
+    "medianNextFrameMs": 133.6
+  },
+  {
+    "variant": "scopedInert",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 29.1,
+    "maxOpenMs": 29.5,
+    "medianNextFrameMs": 84.3
+  }
+]

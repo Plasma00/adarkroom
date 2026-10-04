@@ -1,0 +1,23 @@
+{
+  "goal": "Implement the core crystal expansion from the supplied development plan",
+  "archetype": "build-feature",
+  "status": "verified",
+  "terminal": "stop-at-verified",
+  "verification": {
+    "npm test": { "exit_code": 0, "logic_tests": 12, "content_validation": "passed" },
+    "npm run test:browser": { "exit_code": 0, "browser_tests": 7, "browser": "Microsoft Edge, headless" },
+    "git diff --check": { "exit_code": 0 }
+  },
+  "independent_checks": [
+    "Autosave separation and atomic quest source/inventory commit",
+    "Cargo combat route and expedition death rollback",
+    "Ordinary and fleet beacon endings clear expansion inheritance",
+    "Missing-audio fallback during space volume changes"
+  ],
+  "limits": [
+    "Initial balance defaults; no unaccelerated playthrough or economy tuning",
+    "New strings outside Simplified Chinese use English fallback",
+    "Existing Express/qs dependency chain reports two moderate npm audit findings"
+  ],
+  "remote_actions": []
+}

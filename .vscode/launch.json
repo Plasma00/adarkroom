@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "A Dark Room: 启动服务器并在 VS Code 中调试",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dev-server.js",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "serverReadyAction": {
+        "pattern": "Listening on port ([0-9]+)",
+        "action": "startDebugging",
+        "name": "A Dark Room: VS Code 源码调试",
+        "killOnServerStop": true
+      }
+    },
+    {
+      "name": "A Dark Room: VS Code 源码调试",
+      "type": "editor-browser",
+      "request": "launch",
+      "url": "http://127.0.0.1:8080/?lang=zh_cn",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "A Dark Room: Edge 显示，VS Code 源码调试",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://127.0.0.1:8080/?lang=zh_cn",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

@@ -8,20 +8,37 @@ var Score = {
 		this.options = $.extend(this.options, options);
 	},
 
-	calculateScore : function() {
-		var scoreUnadded = Prestige.getStores(false);
-		var fullScore = 0;
-		
-		var factor = [1, 1.5, 1, 2, 2, 3, 3, 2, 2, 2, 2, 1.5, 1, 
-			     1, 10, 30, 50, 100, 150, 150, 3, 3, 5, 4];
-		for(var i = 0; i< factor.length; i++){
-			fullScore += scoreUnadded[i] * factor[i];
-		}
-		
-		fullScore = fullScore + $SM.get('stores["alien alloy"]', true) * 10;
-		fullScore = fullScore + $SM.get('stores["fleet beacon"]', true) * 500;
-		fullScore = fullScore + Ship.getMaxHull() * 50;
-		return Math.floor(fullScore);
+	weights: {
+		'wood': 1,
+		'fur': 1.5,
+		'meat': 1,
+		'iron': 2,
+		'coal': 2,
+		'sulphur': 3,
+		'steel': 3,
+		'cured meat': 2,
+		'scales': 2,
+		'teeth': 2,
+		'leather': 2,
+		'bait': 1.5,
+		'torch': 1,
+		'cloth': 1,
+		'bone spear': 10,
+		'iron sword': 30,
+		'steel sword': 50,
+		'bayonet': 100,
+		'rifle': 150,
+		'laser rifle': 150,
+		'bullets': 3,
+		'energy cell': 3,
+		'grenade': 5,
+		'bolas': 4,
+		'alien alloy': 10, 'fleet beacon': 500, crystal: 5
+	},
+	calculateScore: function() {
+		var total = Object.keys(Score.weights).reduce((sum, key) =>
+			sum + $SM.get('stores["' + key + '"]', true) * Score.weights[key], 0);
+		return Math.floor(total + Ship.getMaxHull() * 50);
 	},
 
 	save: function() {

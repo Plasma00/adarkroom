@@ -1,6 +1,22 @@
 var World = {
-  RADIUS: 30,
-  VILLAGE_POS: [30, 30],
+  RADIUS: 45,
+  LANDMARK_SEPARATION: 5,
+  INNER_LANDMARK_RADIUS: 10,
+  INNER_LANDMARK_SEPARATION: 3,
+  MAP_GENERATION_ATTEMPTS: 8,
+  VILLAGE_POS: [0, 0],
+  toIndex: n => n + World.RADIUS,
+  toCoord: i => i - World.RADIUS,
+  isInBounds: (x, y) => Number.isInteger(x) && Number.isInteger(y) &&
+    x >= -World.RADIUS && x <= World.RADIUS && y >= -World.RADIUS && y <= World.RADIUS,
+  getTile: (map, x, y) => World.isInBounds(x, y) ? map[World.toIndex(x)][World.toIndex(y)] : undefined,
+  setTile: (map, x, y, value) => {
+    if (!World.isInBounds(x, y)) return false;
+    map[World.toIndex(x)][World.toIndex(y)] = value;
+    return true;
+  },
+  getMask: (mask, x, y) => !!World.getTile(mask, x, y),
+  setMask: (mask, x, y, value) => World.setTile(mask, x, y, value),
   TILE: {
     VILLAGE: 'A',
     IRON_MINE: 'I',
@@ -20,7 +36,14 @@ var World = {
     BATTLEFIELD: 'F',
     SWAMP: 'M',
     CACHE: 'U',
-    EXECUTIONER: 'X'
+    EXECUTIONER: 'X',
+    CRYSTAL_WORKS: 'K',
+    CHEMICAL_WORKS: 'E',
+    ASSEMBLY_WORKS: 'D',
+    SCOUT_SHIP: 'R',
+    CARGO_SHIP: 'T',
+    FORTRESS: 'Z',
+    WAREHOUSE: 'G'
   },
   TILE_PROBS: {},
   LANDMARKS: {},
@@ -130,6 +153,9 @@ var World = {
       options
     );
 
+    var savedMap = $SM.get('game.world.map');
+    World.RADIUS = savedMap ? ($SM.get('game.world.radius') || (savedMap.length - 1) / 2) : 45;
+
     // Setup probabilities. Sum must equal 1.
     World.TILE_PROBS[World.TILE.FOREST] = 0.15;
     World.TILE_PROBS[World.TILE.FIELD] = 0.35;
@@ -140,25 +166,54 @@ var World = {
     World.LANDMARKS[World.TILE.IRON_MINE] = { num: 1, minRadius: 5, maxRadius: 5, scene: 'ironmine', label:  _('Iron&nbsp;Mine') };
     World.LANDMARKS[World.TILE.COAL_MINE] = { num: 1, minRadius: 10, maxRadius: 10, scene: 'coalmine', label:  _('Coal&nbsp;Mine') };
     World.LANDMARKS[World.TILE.SULPHUR_MINE] = { num: 1, minRadius: 20, maxRadius: 20, scene: 'sulphurmine', label:  _('Sulphur&nbsp;Mine') };
-    World.LANDMARKS[World.TILE.HOUSE] = { num: 10, minRadius: 0, maxRadius: World.RADIUS * 1.5, scene: 'house', label:  _('An&nbsp;Old&nbsp;House') };
-    World.LANDMARKS[World.TILE.CAVE] = { num: 5, minRadius: 3, maxRadius: 10, scene: 'cave', label:  _('A&nbsp;Damp&nbsp;Cave') };
-    World.LANDMARKS[World.TILE.TOWN] = { num: 10, minRadius: 10, maxRadius: 20, scene: 'town', label:  _('An&nbsp;Abandoned&nbsp;Town') };
-    World.LANDMARKS[World.TILE.CITY] = { num: 20, minRadius: 20, maxRadius: World.RADIUS * 1.5, scene: 'city', label:  _('A&nbsp;Ruined&nbsp;City') };
-    World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 28, maxRadius: 28, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
-    World.LANDMARKS[World.TILE.BOREHOLE] = { num: 10, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A&nbsp;Borehole')};
-    World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 5, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
-    World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
-    World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 28, maxRadius: 28, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
+    World.LANDMARKS[World.TILE.HOUSE] = { num: 10, minRadius: 3, maxRadius: 20, scene: 'house', label:  _('An&nbsp;Old&nbsp;House') };
+    World.LANDMARKS[World.TILE.CAVE] = { num: 10, minRadius: 3, maxRadius: 20, scene: 'cave', label:  _('A&nbsp;Damp&nbsp;Cave') };
+    World.LANDMARKS[World.TILE.TOWN] = { num: 15, minRadius: 15, maxRadius: 25, scene: 'town', label:  _('An&nbsp;Abandoned&nbsp;Town') };
+    World.LANDMARKS[World.TILE.CITY] = { num: 20, minRadius: 20, maxRadius: 40, scene: 'city', label:  _('A&nbsp;Ruined&nbsp;City') };
+    World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 35, maxRadius: 35, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
+    World.LANDMARKS[World.TILE.BOREHOLE] = { num: 20, minRadius: 35, maxRadius: 60, scene: 'borehole', label:  _('A&nbsp;Borehole')};
+    World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 20, minRadius: 35, maxRadius: 60, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
+    World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: 35, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
+    World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 50, maxRadius: 50, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
+    World.LANDMARKS[World.TILE.CRYSTAL_WORKS] = { num: 1, minRadius: 25, maxRadius: 25, scene: 'crystalworks', label: _('Abandoned&nbsp;Crystal&nbsp;Works') };
+    World.LANDMARKS[World.TILE.CHEMICAL_WORKS] = { num: 1, minRadius: 30, maxRadius: 30, scene: 'chemicalworks', label: _('A&nbsp;Chemical&nbsp;Works') };
+    World.LANDMARKS[World.TILE.ASSEMBLY_WORKS] = { num: 1, minRadius: 35, maxRadius: 35, scene: 'assemblyworks', label: _('A&nbsp;Precision&nbsp;Assembly&nbsp;Plant') };
+    World.LANDMARKS[World.TILE.SCOUT_SHIP] = { num: 1, minRadius: 40, maxRadius: 40, scene: 'scoutship', label: _('A&nbsp;Crashed&nbsp;Scout&nbsp;Ship') };
+    World.LANDMARKS[World.TILE.CARGO_SHIP] = { num: 1, minRadius: 45, maxRadius: 45, scene: 'cargoship', label: _('A&nbsp;Buried&nbsp;Transport') };
+
+    World.LANDMARKS[World.TILE.FORTRESS] = { num: 20, minRadius: 35, maxRadius: 60, scene: 'fortress', label: _('A Military Fortress') };
+    World.LANDMARKS[World.TILE.WAREHOUSE] = { num: 10, minRadius: 25, maxRadius: 35, scene: 'warehouse', label: _('A Supply Warehouse') };
 
     // Only add the cache if there is prestige data
-    if($SM.get('previous.stores')) {
-      World.LANDMARKS[World.TILE.CACHE] = { num: 1, minRadius: 10, maxRadius: World.RADIUS * 1.5, scene: 'cache', label:  _('A&nbsp;Destroyed&nbsp;Village')};
+    if(Prestige.getCaches().length) {
+      World.LANDMARKS[World.TILE.CACHE] = { num: Prestige.getCaches().length, minRadius: 55, maxRadius: 60, scene: 'cache', label: _('An Ancestral Dark Room')};
+    } else {
+      delete World.LANDMARKS[World.TILE.CACHE];
+    }
+
+    // Keep existing worlds intact; new worlds span -45..45 (walking distance 90).
+    if (World.RADIUS === 45) {
+      // Double ordinary exploration sites only; unique sites and inherited caches retain their counts.
+      ['H', 'V', 'O', 'Y', 'G', 'Z', 'B', 'F'].forEach(function(tile) {
+        World.LANDMARKS[tile].num *= 2;
+      });
+      var ranges = { I: [5, 5], C: [10, 10], S: [20, 20], H: [3, 25],
+        V: [5, 32], O: [18, 40], Y: [30, 55], G: [32, 44], Z: [45, 90],
+        W: [45, 49], B: [45, 90], F: [45, 90], M: [20, 35], X: [65, 75],
+        K: [32, 36], E: [38, 42], D: [45, 49], R: [55, 65], T: [75, 90], U: [75, 90] };
+      Object.keys(ranges).forEach(function(tile) {
+        if (World.LANDMARKS[tile]) {
+          World.LANDMARKS[tile].minRadius = ranges[tile][0];
+          World.LANDMARKS[tile].maxRadius = ranges[tile][1];
+        }
+      });
     }
 
     if(typeof $SM.get('features.location.world') == 'undefined') {
       $SM.set('features.location.world', true);
       $SM.set('features.executioner', true);
       $SM.setM('game.world', {
+        radius: World.RADIUS,
         map: World.generateMap(),
         mask: World.newMask()
       });
@@ -174,6 +229,8 @@ var World = {
       $SM.set('features.executioner', true);
     }
 
+    World.ensureExpansionLandmarks();
+
     // Create the World panel
     this.panel = $('<div>').attr('id', "worldPanel").addClass('location').appendTo('#outerSlider');
 
@@ -185,6 +242,7 @@ var World = {
     $('<div>').attr('id', 'backpackTitle').appendTo(outer);
     $('<div>').attr('id', 'backpackSpace').appendTo(outer);
     $('<div>').attr('id', 'healthCounter').appendTo(outer);
+    World.createMapLegend();
 
     Engine.updateOuterSlider();
 
@@ -203,8 +261,105 @@ var World = {
 
   clearDungeon: function() {
     Engine.event('progress', 'dungeon cleared');
-    World.state.map[World.curPos[0]][World.curPos[1]] = World.TILE.OUTPOST;
+    World.setTile(World.state.map, World.curPos[0], World.curPos[1], World.TILE.OUTPOST);
     World.drawRoad();
+  },
+
+  createMapLegend: function() {
+    var legend = $('<section>').attr('id', 'mapLegend').attr('aria-labelledby', 'mapLegendTitle').appendTo(World.panel);
+    $('<h2>').attr('id', 'mapLegendTitle').text(_('map legend')).appendTo(legend);
+    $('<ul>').appendTo(legend);
+  },
+
+  updateMapLegend: function() {
+    if(!World.state) return;
+    // Remember types within the expedition, just like revealed terrain. Safe returns persist them.
+    var known = World.state.discoveredSymbols || (World.state.discoveredSymbols = {});
+    known['@'] = true;
+    for(var x = -World.RADIUS; x <= World.RADIUS; x++) {
+      for(var y = -World.RADIUS; y <= World.RADIUS; y++) {
+        if(World.getMask(World.state.mask, x, y) || (World.curPos[0] === x && World.curPos[1] === y)) {
+          known[World.getTile(World.state.map, x, y).charAt(0)] = true;
+        }
+      }
+    }
+    var entries = [
+      ['@', _('Wanderer')],
+      [World.TILE.VILLAGE, _('The&nbsp;Village')],
+      [World.TILE.ROAD, _('road')],
+      [World.TILE.FOREST, _('forest')],
+      [World.TILE.FIELD, _('field')],
+      [World.TILE.BARRENS, _('barrens')]
+    ];
+    Object.keys(World.LANDMARKS).forEach(function(tile) {
+      entries.push([tile, World.LANDMARKS[tile].label]);
+    });
+    var list = $('#mapLegend ul');
+    var signature = JSON.stringify(entries.filter(function(entry) { return known[entry[0]]; }));
+    if(list[0] && World._legendElement === list[0] && World._legendSignature === signature) return;
+    list.empty();
+    World._legendElement = list[0];
+    World._legendSignature = signature;
+    entries.forEach(function(entry) {
+      if(!known[entry[0]]) return;
+      var row = $('<li>').attr('data-symbol', entry[0]).appendTo(list);
+      $('<span>').addClass('mapSymbol').text(entry[0]).appendTo(row);
+      $('<span>').text(' — ' + entry[1].replace(/&nbsp;/g, ' ')).appendTo(row);
+    });
+  },
+
+  ensureExpansionLandmarks: function() {
+    if ($SM.get('game.world.crystalExpansion')) return;
+    // Work on a copy so an exhausted terrain band cannot leave a partial migration.
+    var map = $SM.get('game.world.map').map(row => row.slice());
+    ['CRYSTAL_WORKS', 'CHEMICAL_WORKS', 'ASSEMBLY_WORKS', 'SCOUT_SHIP', 'CARGO_SHIP'].forEach(key => {
+      var tile = World.TILE[key], landmark = World.LANDMARKS[tile];
+      if (!World.mapSearch(tile, map, 1).length) World.placeLandmark(landmark.minRadius, landmark.maxRadius, tile, map);
+    });
+    $SM.setM('game.world', { map: map, crystalExpansion: true, radius: World.RADIUS });
+  },
+
+  claimLatticeShard: function(source) {
+    var sources = World.state.shardSources || (World.state.shardSources = {});
+    if (sources[source]) return false;
+    sources[source] = true;
+    Path.outfit['lattice shard'] = (Path.outfit['lattice shard'] || 0) + 1;
+    Notifications.notify(World, _('a lattice shard rests safely in the pack.'));
+    World.updateSupplies();
+    return true;
+  },
+
+  commitWorld: function() {
+    // Quest inventory and its source ledger must enter the save together.
+    var previous = $SM.get('game.world.shardSources') || {};
+    var sources = World.state.shardSources || {};
+    var gained = Object.keys(sources).filter(source => sources[source] && !previous[source]).length;
+    if (gained > 0) $SM.add('stores["lattice shard"]', gained, true);
+    delete Path.outfit['lattice shard'];
+    Prestige.redeemCaches();
+    $SM.setM('game.world', World.state, true);
+    Engine.saveGame();
+    $SM.fireUpdate('game.world');
+    $SM.fireUpdate('stores');
+  },
+
+  completeIndustry: function(feature) {
+    var industry = World.state.industry || (World.state.industry = {});
+    industry[feature] = true;
+    World.markVisited(World.curPos[0], World.curPos[1]);
+    World.drawRoad();
+  },
+
+  redeemIndustry: function() {
+    var industry = World.state.industry || {};
+    Object.keys(industry).forEach(key => {
+      if (industry[key]) $SM.set('features.industry.' + key, true);
+    });
+    if (industry.crystal && typeof $SM.get('game.workers["crystal worker"]') !== 'number') {
+      $SM.set('game.workers["crystal worker"]', 0);
+      Notifications.notify(null, _('the villagers can now cut crystal.'));
+    }
+    Room.updateBuildButtons();
   },
 
   drawRoad: function() {
@@ -222,9 +377,9 @@ var World = {
       for (var i = 0; i < Math.pow(World.getDistance(startPos, World.VILLAGE_POS) + 2, 2); i++) {
         searchX = startPos[0] + x;
         searchY = startPos[1] + y;
-        if (0 < searchX && searchX < World.RADIUS * 2 && 0 < searchY && searchY < World.RADIUS * 2) {
+        if (World.isInBounds(searchX, searchY)) {
           // check for road
-          var tile = World.state.map[searchX][searchY];
+          var tile = World.getTile(World.state.map, searchX, searchY);
           if (
              tile === World.TILE.ROAD ||
             (tile === World.TILE.OUTPOST && !(x === 0 && y === 0))  || // outposts are connected to roads
@@ -263,13 +418,13 @@ var World = {
     }
 
     for(var x = 0; x < Math.abs(xDist); x++) {
-      if(World.isTerrain(World.state.map[closestRoad[0] + (xDir*x)][yIntersect])) {
-        World.state.map[closestRoad[0] + (xDir*x)][yIntersect] = World.TILE.ROAD;
+      if(World.isTerrain(World.getTile(World.state.map, closestRoad[0] + (xDir*x), yIntersect))) {
+        World.setTile(World.state.map, closestRoad[0] + (xDir*x), yIntersect, World.TILE.ROAD);
       }
     }
     for(var y = 0; y < Math.abs(yDist); y++) {
-      if(World.isTerrain(World.state.map[xIntersect][closestRoad[1] + (yDir*y)])) {
-        World.state.map[xIntersect][closestRoad[1] + (yDir*y)] = World.TILE.ROAD;
+      if(World.isTerrain(World.getTile(World.state.map, xIntersect, closestRoad[1] + (yDir*y)))) {
+        World.setTile(World.state.map, xIntersect, closestRoad[1] + (yDir*y), World.TILE.ROAD);
       }
     }
     World.drawMap();
@@ -353,31 +508,36 @@ var World = {
 
   moveNorth: function() {
     Engine.log('North');
-    if(World.curPos[1] > 0) World.move(World.NORTH);
+    World.move(World.NORTH);
   },
 
   moveSouth: function() {
     Engine.log('South');
-    if(World.curPos[1] < World.RADIUS * 2) World.move(World.SOUTH);
+    World.move(World.SOUTH);
   },
 
   moveWest: function() {
     Engine.log('West');
-    if(World.curPos[0] > 0) World.move(World.WEST);
+    World.move(World.WEST);
   },
 
   moveEast: function() {
     Engine.log('East');
-    if(World.curPos[0] < World.RADIUS * 2) World.move(World.EAST);
+    World.move(World.EAST);
   },
 
   move: function(direction) {
-    var oldTile = World.state.map[World.curPos[0]][World.curPos[1]];
+    if (!World.isInBounds(World.curPos[0] + direction[0], World.curPos[1] + direction[1])) return false;
+    var oldTile = World.getTile(World.state.map, World.curPos[0], World.curPos[1]);
     World.curPos[0] += direction[0];
     World.curPos[1] += direction[1];
-    World.narrateMove(oldTile, World.state.map[World.curPos[0]][World.curPos[1]]);
+    World.narrateMove(oldTile, World.getTile(World.state.map, World.curPos[0], World.curPos[1]));
     World.lightMap(World.curPos[0], World.curPos[1], World.state.mask);
     World.drawMap();
+    if(World.getDistance() >= 45 && !World.state.frontierReached) {
+      World.state.frontierReached = true;
+      Notifications.notify(World, _('beyond the old roads, crystal engines still hunt. cleared fortresses may offer water.'));
+    }
     World.doSpace();
 
     // play random footstep
@@ -433,10 +593,13 @@ var World = {
   },
 
   click: function(event) {
+    if(Engine.keyLock || Events.activeEvent()) return;
     var map = $('#map'),
+      view = World.getMapView(),
+      gridOrigin = map.children('.mapCell').first().offset() || map.offset(),
       // measure clicks relative to the centre of the current location
-      centreX = map.offset().left + map.width() * World.curPos[0] / (World.RADIUS * 2),
-      centreY = map.offset().top + map.height() * World.curPos[1] / (World.RADIUS * 2),
+      centreX = gridOrigin.left + map.width() * (World.curPos[0] - view.min + 0.5) / view.size,
+      centreY = gridOrigin.top + map.height() * (World.curPos[1] - view.min + 0.5) / view.size,
       clickX = event.pageX - centreX,
       clickY = event.pageY - centreY;
     if (clickX > clickY && clickX < -clickY) {
@@ -469,7 +632,7 @@ var World = {
         World.danger = false;
         return true;
       }
-      if(World.getDistance < 18 && $SM.get('stores["i armour"]', true) > 0) {
+      if(World.getDistance() < 18 && $SM.get('stores["i armour"]', true) > 0) {
         World.danger = false;
         return true;
       }
@@ -566,11 +729,13 @@ var World = {
   },
 
   doSpace: function() {
-    var curTile = World.state.map[World.curPos[0]][World.curPos[1]];
+    var curTile = World.getTile(World.state.map, World.curPos[0], World.curPos[1]);
 
     if(curTile == World.TILE.VILLAGE) {
       World.goHome();
     } else if(curTile === World.TILE.EXECUTIONER) {
+      // Old saves may already have completed the introductory expedition.
+      if (World.state.executioner) World.claimLatticeShard('executioner');
       const scene = World.state.executioner ? 'executioner-antechamber' : 'executioner-intro';
       const sceneData = Events.Executioner[scene];
       Events.startEvent(sceneData);
@@ -592,11 +757,21 @@ var World = {
   },
 
   getTerrain: function() {
-    return World.state.map[World.curPos[0]][World.curPos[1]];
+    return World.getTile(World.state.map, World.curPos[0], World.curPos[1]);
   },
 
   getDamage: function(thing) {
-    return World.Weapons[thing].damage;
+    var weapon = World.Weapons[thing], damage = weapon.damage;
+    if(typeof damage !== 'number') return damage;
+    var guns = { rifle: 8, 'laser rifle': 12, 'plasma rifle': 15 };
+    if($SM.hasPerk('sharpshooter') && guns[thing]) damage = guns[thing];
+    if(weapon.type === 'unarmed') {
+      if($SM.hasPerk('boxer')) damage *= 2;
+      if($SM.hasPerk('martial artist')) damage *= 3;
+      if($SM.hasPerk('unarmed master')) damage *= 2;
+    }
+    if(weapon.type === 'melee' && $SM.hasPerk('barbarian')) damage = Math.floor(damage * 1.5);
+    return damage;
   },
 
   narrateMove: function(oldTile, newTile) {
@@ -643,7 +818,7 @@ var World = {
     for(var i = 0; i <= World.RADIUS * 2; i++) {
       mask[i] = new Array(World.RADIUS * 2 + 1);
     }
-    World.lightMap(World.RADIUS, World.RADIUS, mask);
+    World.setMask(mask, 0, 0, true);
     return mask;
   },
 
@@ -655,13 +830,11 @@ var World = {
   },
 
   uncoverMap: function(x, y, r, mask) {
-    mask[x][y] = true;
+    World.setMask(mask, x, y, true);
     for(var i = -r; i <= r; i++) {
       for(var j = -r + Math.abs(i); j <= r - Math.abs(i); j++) {
-        if(y + j >= 0 && y + j <= World.RADIUS * 2 &&
-            x + i <= World.RADIUS * 2 &&
-            x + i >= 0) {
-          mask[x+i][y+j] = true;
+        if(World.isInBounds(x + i, y + j)) {
+          World.setMask(mask, x+i, y+j, true);
         }
       }
     }
@@ -672,9 +845,9 @@ var World = {
       var dark; 
       var mask = $SM.get('game.world.mask');
       loop:
-      for(var i = 0; i < mask.length; i++) {
-        for(var j = 0; j < mask[i].length; j++) {
-          if(!mask[i][j]) {
+      for(var i = -World.RADIUS; i <= World.RADIUS; i++) {
+        for(var j = -World.RADIUS; j <= World.RADIUS; j++) {
+          if(!World.getMask(mask, i, j)) {
             dark = true;
             break loop;
           }
@@ -685,83 +858,86 @@ var World = {
   },
 
   applyMap: function() {
-    if(!World.seenAll){
-      var x,y,mask = $SM.get('game.world.mask');
-      do {
-        x = Math.floor(Math.random() * (World.RADIUS * 2 + 1));
-        y = Math.floor(Math.random() * (World.RADIUS * 2 + 1));
-      } while (mask[x][y]);
-      World.uncoverMap(x, y, 5, mask);
+    var mask = $SM.get('game.world.mask'), unseen = [];
+    for (var x = -World.RADIUS; x <= World.RADIUS; x++) {
+      for (var y = -World.RADIUS; y <= World.RADIUS; y++) {
+        if (!World.getMask(mask, x, y)) unseen.push([x, y]);
+      }
+    }
+    if (unseen.length) {
+      var pos = unseen[Math.floor(Math.random() * unseen.length)];
+      World.uncoverMap(pos[0], pos[1], 5, mask);
     }
     World.testMap();
   },
 
   generateMap: function() {
+    // Retry the complete candidate world, never drop a site or relax its constraints.
+    for (var attempt = 1; attempt <= World.MAP_GENERATION_ATTEMPTS; attempt++) {
+      World.mapGenerationAttempts = attempt;
+      try { return World.generateMapAttempt(); }
+      catch (error) {
+        if (error.code !== 'LANDMARK_PLACEMENT' || attempt === World.MAP_GENERATION_ATTEMPTS) throw error;
+      }
+    }
+  },
+
+  generateMapAttempt: function() {
     var map = new Array(World.RADIUS * 2 + 1);
     for(var i = 0; i <= World.RADIUS * 2; i++) {
       map[i] = new Array(World.RADIUS * 2 + 1);
     }
     // The Village is always at the exact center
     // Spiral out from there
-    map[World.RADIUS][World.RADIUS] = World.TILE.VILLAGE;
+    World.setTile(map, 0, 0, World.TILE.VILLAGE);
     for(var r = 1; r <= World.RADIUS; r++) {
       for(var t = 0; t < r * 8; t++) {
         var x, y;
         if(t < 2 * r) {
-          x = World.RADIUS - r + t;
-          y = World.RADIUS - r;
+          x = -r + t;
+          y = -r;
         } else if(t < 4 * r) {
-          x = World.RADIUS + r;
-          y = World.RADIUS - (3 * r) + t;
+          x = r;
+          y = -(3 * r) + t;
         } else if(t < 6 * r) {
-          x = World.RADIUS + (5 * r) - t;
-          y = World.RADIUS + r;
+          x = (5 * r) - t;
+          y = r;
         } else {
-          x = World.RADIUS - r;
-          y = World.RADIUS + (7 * r) - t;
+          x = -r;
+          y = (7 * r) - t;
         }
 
-        map[x][y] = World.chooseTile(x, y, map);
+        World.setTile(map, x, y, World.chooseTile(x, y, map));
       }
     }
 
-    // Place landmarks
-    for(var k in World.LANDMARKS) {
+    // Reserve the mines and unique quest locations before the common sites.
+    var types = Object.keys(World.LANDMARKS).filter(function(k) { return World.LANDMARKS[k].num; });
+    types.sort(function(a, b) {
+      var first = World.LANDMARKS[a], second = World.LANDMARKS[b];
+      return (first.num > 1) - (second.num > 1) ||
+        (first.maxRadius - first.minRadius) - (second.maxRadius - second.minRadius);
+    });
+    var placement = World.createLandmarkPlacement(map);
+    for(var i = 0; i < types.length; i++) {
+      var k = types[i];
       var landmark = World.LANDMARKS[k];
+      var quadrants = landmark.num >= 4 ? [0, 0, 0, 0] : null;
       for(var l = 0; l < landmark.num; l++) {
-        var pos = World.placeLandmark(landmark.minRadius, landmark.maxRadius, k, map);
+        World.placeLandmark(landmark.minRadius, landmark.maxRadius, k, map, quadrants, placement);
       }
     }
 
     return map;
   },
 
-  mapSearch: function(target,map,required){
-    var max = World.LANDMARKS[target].num;
-    if(!max){
-      // this restrict the research to numerable landmarks
-      return null;
-    }
-    // restrict research if only a fixed number (usually 1) is required
-    max = (required) ? Math.min(required,max) : max;
-    var index = 0;
+  mapSearch: function(target, map, required) {
     var targets = [];
-    search: // label for coordinate research
-    for(var i = 0; i <= World.RADIUS * 2; i++){
-      for(var j = 0; j <= World.RADIUS * 2; j++){
-        if(map[i][j].charAt(0) === target){
-          // search result is stored as an object;
-          // items are listed as they appear in the map, tl-br
-          // each item has relative coordinates and a compass-type direction
-          targets[index] = {
-            x : i - World.RADIUS,
-            y : j - World.RADIUS,
-          };
-          index++;
-          if(index === max){
-            // optimisation: stop the research if maximum number of items has been reached
-            break search;
-          }
+    for (var x = -World.RADIUS; x <= World.RADIUS; x++) {
+      for (var y = -World.RADIUS; y <= World.RADIUS; y++) {
+        if ((World.getTile(map, x, y) || '').charAt(0) === target) {
+          targets.push({ x: x, y: y });
+          if (required && targets.length >= required) return targets;
         }
       }
     }
@@ -782,24 +958,68 @@ var World = {
     return dir;
   },
 
-  placeLandmark: function(minRadius, maxRadius, landmark, map) {
+  landmarkQuadrant: function(x, y) {
+    // Assign each axis to one quadrant, preserving rotational symmetry.
+    return x > 0 && y >= 0 ? 0 : x <= 0 && y > 0 ? 1 : x < 0 && y <= 0 ? 2 : 3;
+  },
 
-    var x = World.RADIUS, y = World.RADIUS;
-    while(!World.isTerrain(map[x][y])) {
-      var r = Math.floor(Math.random() * (maxRadius - minRadius)) + minRadius;
-      var xDist = Math.floor(Math.random() * r);
-      var yDist = r - xDist;
-      if(Math.random() < 0.5) xDist = -xDist;
-      if(Math.random() < 0.5) yDist = -yDist;
-      x = World.RADIUS + xDist;
-      if(x < 0) x = 0;
-      if(x > World.RADIUS * 2) x = World.RADIUS * 2;
-      y = World.RADIUS + yDist;
-      if(y < 0) y = 0;
-      if(y > World.RADIUS * 2) y = World.RADIUS * 2;
+  landmarkSeparation: function(x, y, otherX, otherY) {
+    // The inner exception is symmetric: crossing the d=10 boundary still requires five.
+    if (World.RADIUS < 45 || (Math.abs(x) + Math.abs(y) <= World.INNER_LANDMARK_RADIUS &&
+        Math.abs(otherX) + Math.abs(otherY) <= World.INNER_LANDMARK_RADIUS)) {
+      return World.INNER_LANDMARK_SEPARATION;
     }
-    map[x][y] = landmark;
-    return [x, y];
+    return World.LANDMARK_SEPARATION;
+  },
+
+  blockLandmarkSpace: function(blocked, x, y) {
+    var radius = World.RADIUS;
+    for (var dx = 1 - World.LANDMARK_SEPARATION; dx < World.LANDMARK_SEPARATION; dx++) {
+      var reach = World.LANDMARK_SEPARATION - 1 - Math.abs(dx);
+      for (var dy = -reach; dy <= reach; dy++) {
+        if (x + dx < -radius || x + dx > radius || y + dy < -radius || y + dy > radius) continue;
+        if (Math.abs(dx) + Math.abs(dy) >= World.landmarkSeparation(x, y, x + dx, y + dy)) continue;
+        blocked[x + dx + radius][y + dy + radius] = true;
+      }
+    }
+  },
+
+  createLandmarkPlacement: function(map) {
+    var radius = World.RADIUS, size = radius * 2 + 1;
+    var blocked = Array.from({ length: size }, function() { return new Array(size).fill(false); });
+    for (var x = -radius; x <= radius; x++) for (var y = -radius; y <= radius; y++) {
+      if (!World.isTerrain(map[x + radius][y + radius])) World.blockLandmarkSpace(blocked, x, y);
+    }
+    return blocked;
+  },
+
+  placeLandmark: function(minRadius, maxRadius, landmark, map, quadrants, placement) {
+    // Enumerate legal cells: no radius bias, unbounded retries or relaxed spacing.
+    var candidates = [[], [], [], []], radius = World.RADIUS;
+    var blocked = placement || World.createLandmarkPlacement(map);
+    for (var x = -radius; x <= radius; x++) {
+      for (var y = -radius; y <= radius; y++) {
+        var d = Math.abs(x) + Math.abs(y);
+        if (d >= minRadius && d <= maxRadius && !blocked[x + radius][y + radius]) {
+          candidates[World.landmarkQuadrant(x, y)].push([x, y]);
+        }
+      }
+    }
+    var eligible = [];
+    var least = quadrants ? Math.min.apply(null, quadrants) : 0;
+    for (var q = 0; q < 4; q++) {
+      if (!quadrants || quadrants[q] === least) eligible = eligible.concat(candidates[q]);
+    }
+    if (!eligible.length) {
+      var error = new Error('No terrain available for landmark ' + landmark + ' with required spacing');
+      error.code = 'LANDMARK_PLACEMENT';
+      throw error;
+    }
+    var pos = eligible[Math.floor(Math.random() * eligible.length)];
+    World.setTile(map, pos[0], pos[1], landmark);
+    World.blockLandmarkSpace(blocked, pos[0], pos[1]);
+    if (quadrants) quadrants[World.landmarkQuadrant(pos[0], pos[1])]++;
+    return pos;
   },
 
   isTerrain: function(tile) {
@@ -809,10 +1029,8 @@ var World = {
   chooseTile: function(x, y, map) {
 
     var adjacent = [
-      y > 0 ? map[x][y-1] : null,
-      y < World.RADIUS * 2 ? map[x][y+1] : null,
-      x < World.RADIUS * 2 ? map[x+1][y] : null,
-      x > 0 ? map[x-1][y] : null
+      World.getTile(map, x, y-1), World.getTile(map, x, y+1),
+      World.getTile(map, x+1, y), World.getTile(map, x-1, y)
     ];
 
     var chances = {};
@@ -863,7 +1081,21 @@ var World = {
   },
 
   markVisited: function(x, y) {
-    World.state.map[x][y] = World.state.map[x][y] + '!';
+    World.setTile(World.state.map, x, y, World.getTile(World.state.map, x, y).charAt(0) + '!');
+  },
+
+  getMapView: function() {
+    var farthest = Math.max(Math.abs(World.curPos[0]), Math.abs(World.curPos[1]));
+    for(var x = -World.RADIUS; x <= World.RADIUS; x++) {
+      for(var y = -World.RADIUS; y <= World.RADIUS; y++) {
+        if(World.getMask(World.state.mask, x, y)) farthest = Math.max(farthest, Math.abs(x), Math.abs(y));
+      }
+    }
+    var size = Math.min(World.RADIUS * 2 + 1,
+      Math.max(World.state.mapViewSize || 10, 10 * Math.ceil((2 * farthest + 4) / 10)));
+    World.state.mapViewSize = size;
+    var min = -Math.floor(size / 2);
+    return { size: size, min: min, max: min + size - 1 };
   },
 
   drawMap: function() {
@@ -873,50 +1105,75 @@ var World = {
       // register click handler
       map.click(World.click);
     }
+    var view = World.getMapView();
+    // Render caches belong to the DOM, not the save. Rebuild only when the grid size
+    // or element changes; all other redraws compare cells against their last output.
+    var cache = World._mapRender;
+    var rebuild = !map[0] || !cache || cache.element !== map[0] || cache.size !== view.size;
+    if(rebuild) {
+      // The bundled jQuery predates CSS custom properties.
+      if(map[0]) map[0].style.setProperty('--map-cells', String(view.size));
+      map.attr('data-cells', view.size);
+    }
+    var contents = [], index = 0;
     var mapString = "";
-    for(var j = 0; j <= World.RADIUS * 2; j++) {
-      for(var i = 0; i <= World.RADIUS * 2; i++) {
+    for(var j = view.min; j <= view.max; j++) {
+      for(var i = view.min; i <= view.max; i++) {
+        var cell = '';
         var ttClass = "";
-        if(i > World.RADIUS) {
+        if(i > 0) {
           ttClass += " left";
         } else {
           ttClass += " right";
         }
-        if(j > World.RADIUS) {
+        if(j > 0) {
           ttClass += " top";
         } else {
           ttClass += " bottom";
         }
         if(World.curPos[0] == i && World.curPos[1] == j) {
-          mapString += '<span class="landmark">@<div class="tooltip ' + ttClass + '">'+_('Wanderer')+'</div></span>';
-        } else if(World.state.mask[i][j]) {
-          var c = World.state.map[i][j];
+          cell = '<span class="landmark">@<div class="tooltip ' + ttClass + '">'+_('Wanderer')+'</div></span>';
+        } else if(World.getMask(World.state.mask, i, j)) {
+          var c = World.getTile(World.state.map, i, j);
           switch(c) {
             case World.TILE.VILLAGE:
-              mapString += '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">'+_('The&nbsp;Village')+'</div></span>';
+              cell = '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">'+_('The&nbsp;Village')+'</div></span>';
               break;
             default:
               if(typeof World.LANDMARKS[c] != 'undefined' && (c != World.TILE.OUTPOST || !World.outpostUsed(i, j))) {
-                mapString += '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">' + World.LANDMARKS[c].label + '</div></span>';
+                cell = '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">' + World.LANDMARKS[c].label + '</div></span>';
               } else {
                 if(c.length > 1) {
                   c = c[0];
                 }
-                mapString += c;
+                cell = c;
               }
               break;
           }
         } else {
-          mapString += '&nbsp;';
+          cell = '&nbsp;';
         }
+        if(rebuild) mapString += '<span class="mapCell">' + cell + '</span>';
+        else if(cache.contents[index] !== cell) cache.cells[index].innerHTML = cell;
+        contents.push(cell);
+        index++;
       }
-      mapString += '<br/>';
+      if(rebuild && j < view.max) mapString += '<br/>';
     }
-    map.html(mapString);
+    if(rebuild) {
+      map.html(mapString);
+      if(map[0]) World._mapRender = { element: map[0], size: view.size, contents: contents,
+        cells: map[0].querySelectorAll('.mapCell') };
+    } else cache.contents = contents;
+    var scale = $('#mapScale');
+    if(!scale.length) scale = $('<div>').attr('id', 'mapScale').appendTo('#worldOuter');
+    if(rebuild) scale.text(_('map extent: {0} × {1}', view.size, view.size));
+    World.updateMapLegend();
   },
 
   die: function() {
     if(!World.dead) {
+      Events.clearTimeouts();
       World.dead = true;
       Engine.log('player death');
       Engine.event('game event', 'death');
@@ -931,7 +1188,7 @@ var World = {
         $('#outerSlider').css('left', '0px');
         $('#locationSlider').css('left', '0px');
         $('#storesContainer').css({'top': '0px', 'right': '0px'});
-        Engine.activeModule = Room;
+        Engine.setActiveModule(Room);
         $('div.headerButton').removeClass('selected');
         Room.tab.addClass('selected');
         Engine.setTimeout(function(){
@@ -947,7 +1204,7 @@ var World = {
 
   goHome: function() {
     // Home safe! Commit the changes.
-    $SM.setM('game.world', World.state);
+    World.commitWorld();
     World.testMap();
 
     if(World.state.sulphurmine && $SM.get('game.buildings["sulphur mine"]', true) === 0) {
@@ -972,6 +1229,7 @@ var World = {
       Engine.event('progress', 'fabricator');
     }
     World.redeemBlueprints();
+    World.redeemIndustry();
     World.state = null;
 
     if(Path.outfit['cured meat'] > 0) {
@@ -981,7 +1239,7 @@ var World = {
     World.returnOutfit();
 
     $('#outerSlider').animate({left: '0px'}, 300);
-    Engine.activeModule = Path;
+    Engine.setActiveModule(Path);
     Path.onArrival();
     Engine.restoreNavigation = true;
   },
@@ -997,6 +1255,7 @@ var World = {
     };
 
     redeem('hypo blueprint', 'hypo');
+    redeem('laser rifle blueprint', 'laser rifle');
     redeem('kinetic armour blueprint', 'kinetic armour');
     redeem('disruptor blueprint', 'disruptor');
     redeem('plasma rifle blueprint', 'plasma rifle');
@@ -1004,17 +1263,19 @@ var World = {
     redeem('glowstone blueprint', 'glowstone');
 
     if (redeemed) {
-      Notifications.notify(null, 'blueprints feed into the fabricator data port. possibilities grow.');
+      Notifications.notify(null, _('blueprints feed into the fabricator data port. possibilities grow.'));
     }
   },
 
   returnOutfit: () => {
     for(var k in Path.outfit) {
+      if (k === 'lattice shard') continue; // Delivered atomically with the source ledger.
       $SM.add('stores["'+k+'"]', Path.outfit[k]);
       if(World.leaveItAtHome(k)) {
         Path.outfit[k] = 0;
       }
     }
+    $SM.set('outfit', $.extend({}, Path.outfit));
   },
 
   leaveItAtHome: function(thing) {
@@ -1078,6 +1339,8 @@ var World = {
     Engine.keyLock = false;
     // Explore in a temporary world-state. We'll commit the changes if you return home safe.
     World.state = $.extend(true, {}, $SM.get('game.world'));
+    // State.outfit holds village loadout preferences, never uncommitted expedition loot.
+    Path.outfit = $.extend({}, Path.outfit);
     World.setWater(World.getMaxWater());
     World.setHp(World.getMaxHealth());
     World.foodMove = 0;

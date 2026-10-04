@@ -1,0 +1,84 @@
+{
+  "samplesPerScenario": 50,
+  "scenarios": [
+    0,
+    5
+  ],
+  "maps": 100,
+  "minSeparation": 3,
+  "meanDensity": 1.6425120772946862,
+  "maxBulkDeviation": 0.09265654648956367,
+  "maxQuadrantSpread": 6,
+  "quadrantMeans": [
+    34,
+    34,
+    34.12,
+    33.88
+  ],
+  "bands": [
+    {
+      "min": 1,
+      "max": 10,
+      "cells": 220,
+      "mean": 4.12,
+      "per100Cells": 1.8727272727272728
+    },
+    {
+      "min": 11,
+      "max": 20,
+      "cells": 620,
+      "mean": 9.96,
+      "per100Cells": 1.6064516129032258
+    },
+    {
+      "min": 21,
+      "max": 30,
+      "cells": 1020,
+      "mean": 15.74,
+      "per100Cells": 1.5431372549019609
+    },
+    {
+      "min": 31,
+      "max": 40,
+      "cells": 1420,
+      "mean": 24.7,
+      "per100Cells": 1.7394366197183098
+    },
+    {
+      "min": 41,
+      "max": 50,
+      "cells": 1720,
+      "mean": 28.26,
+      "per100Cells": 1.6430232558139535
+    },
+    {
+      "min": 51,
+      "max": 60,
+      "cells": 1420,
+      "mean": 25.1,
+      "per100Cells": 1.767605633802817
+    },
+    {
+      "min": 61,
+      "max": 70,
+      "cells": 1020,
+      "mean": 15.4,
+      "per100Cells": 1.5098039215686274
+    },
+    {
+      "min": 71,
+      "max": 80,
+      "cells": 620,
+      "mean": 9.24,
+      "per100Cells": 1.4903225806451612
+    },
+    {
+      "min": 81,
+      "max": 90,
+      "cells": 220,
+      "mean": 3.48,
+      "per100Cells": 1.5818181818181818
+    }
+  ],
+  "elapsedMs": 168988
+}

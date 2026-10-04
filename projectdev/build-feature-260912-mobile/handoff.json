@@ -1,0 +1,15 @@
+{
+  "archetype": "build-feature",
+  "status": "CONVERGED",
+  "scope": "Android mobile responsive frontend",
+  "terminal": "stop-at-verified",
+  "verification": {
+    "npm test": "passed: 12 Node tests and content validation",
+    "npm run test:browser": "passed: 13 browser scenarios",
+    "npx playwright test tests/browser/mobile.spec.js": "passed: all 6 mobile scenarios after the final visualViewport update",
+    "git diff --check": "passed"
+  },
+  "limitations": ["No physical Android or embedded WebView verification"],
+  "documentation": "doc/mobile-frontend.md",
+  "deployed": false
+}

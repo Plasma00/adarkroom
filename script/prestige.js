@@ -8,75 +8,117 @@ var Prestige = {
 		this.options = $.extend(this.options, options);
 	},
 	
-	storesMap: [
-		{ store: 'wood', type: 'g' },
-		{ store: 'fur', type: 'g' },
-		{ store: 'meat', type: 'g' },
-		{ store: 'iron', type: 'g' },
-		{ store: 'coal', type: 'g' },
-		{ store: 'sulphur', type: 'g' },
-		{ store: 'steel', type: 'g' },
-		{ store: 'cured meat', type: 'g' },
-		{ store: 'scales', type: 'g' },
-		{ store: 'teeth', type: 'g' },
-		{ store: 'leather', type: 'g' },
-		{ store: 'bait', type: 'g' },
-		{ store: 'torch', type: 'g' },
-		{ store: 'cloth', type: 'g' },
-		{ store: 'bone spear', type: 'w' },
-		{ store: 'iron sword', type: 'w' },
-		{ store: 'steel sword', type: 'w' },
-		{ store: 'bayonet', type: 'w' },
-		{ store: 'rifle', type: 'w' },
-		{ store: 'laser rifle', type: 'w' },
-		{ store: 'bullets', type: 'a' },
-		{ store: 'energy cell', type: 'a' },
-		{ store: 'grenade', type: 'a' },
-		{ store: 'bolas', type: 'a' }
-	],
-	
+	storesMap: {
+		'crystal': 'g',
+		'wood': 'g',
+		'fur': 'g',
+		'meat': 'g',
+		'iron': 'g',
+		'coal': 'g',
+		'sulphur': 'g',
+		'steel': 'g',
+		'cured meat': 'g',
+		'scales': 'g',
+		'teeth': 'g',
+		'leather': 'g',
+		'bait': 'g',
+		'torch': 'g',
+		'cloth': 'g',
+		'bone spear': 'w',
+		'iron sword': 'w',
+		'steel sword': 'w',
+		'bayonet': 'w',
+		'rifle': 'w',
+		'laser rifle': 'w',
+		'bullets': 'a',
+		'energy cell': 'a',
+		'grenade': 'a',
+		'bolas': 'a'
+	},
+	// Frozen order for saves made before item IDs replaced positional arrays.
+	legacyStoreOrder: ['wood', 'fur', 'meat', 'iron', 'coal', 'sulphur', 'steel', 'cured meat', 'scales', 'teeth', 'leather', 'bait', 'torch', 'cloth', 'bone spear', 'iron sword', 'steel sword', 'bayonet', 'rifle', 'laser rifle', 'bullets', 'energy cell', 'grenade', 'bolas'],
 	getStores: function(reduce) {
-		var stores = [];
-		
-		for(var i in this.storesMap) {
-			var s = this.storesMap[i];
-			stores.push(Math.floor($SM.get('stores["' + s.store + '"]', true) / 
-					(reduce ? this.randGen(s.type) : 1)));
-		}
-		
+		var stores = {};
+		Object.keys(this.storesMap).forEach(key => {
+			stores[key] = Math.floor($SM.get('stores["' + key + '"]', true) /
+				(reduce ? this.randGen(this.storesMap[key]) : 1));
+		});
 		return stores;
 	},
-	
+
 	get: function() {
 		return {
 			stores: $SM.get('previous.stores'),
+			caches: Prestige.getCaches(),
 			score: $SM.get('previous.score')
 		};
 	},
 	
 	set: function(prestige) {
 		$SM.set('previous.stores', prestige.stores);
+		$SM.set('previous.caches', prestige.caches || []);
 		$SM.set('previous.score', prestige.score);
 	},
 	
 	save: function() {
-		$SM.set('previous.stores', this.getStores(true));
+		var stores = this.getStores(true);
+		var caches = Prestige.getCaches().slice(-4);
+		caches.push({ stores: stores });
+		$SM.set('previous.caches', caches, true);
+		$SM.set('previous.stores', stores);
 		$SM.set('previous.score', Score.totalScore());
 	},
   
-	collectStores : function() {
-		var prevStores = $SM.get('previous.stores');
-		if(prevStores != null) {
-			var toAdd = {};
-			for(var i in this.storesMap) {
-				var s = this.storesMap[i];
-				toAdd[s.store] = prevStores[i];
+	getCaches: function() {
+		var caches = $SM.get('previous.caches');
+		if(Array.isArray(caches) && caches.length) return caches.slice(-5);
+		var legacy = $SM.get('previous.stores');
+		return legacy && Object.keys(legacy).length ? [{ stores: legacy }] : [];
+	},
+
+	cacheStores: function(previous) {
+		var result = {};
+		Object.keys(this.storesMap).forEach(function(key) {
+			var value = Array.isArray(previous) ? previous[Prestige.legacyStoreOrder.indexOf(key)] : previous[key];
+			if(Number.isFinite(value) && value > 0) result[key] = value;
+		});
+		return result;
+	},
+
+	redeemCaches: function() {
+		var committed = $SM.get('game.world.cacheClaims') || {};
+		var claims = World.state.cacheClaims || {};
+		var caches = Prestige.getCaches();
+		Object.keys(claims).forEach(function(index) {
+			if(claims[index] && !committed[index] && caches[index]) {
+				$SM.addM('stores', Prestige.cacheStores(caches[index].stores), true);
 			}
-			$SM.addM('stores', toAdd);
-			
-			// Loading the stores clears em from the save
-			prevStores.length = 0;
+		});
+	},
+
+	collectStores: function() {
+		if(World.state && World.curPos) {
+			var sites = World.mapSearch(World.TILE.CACHE, World.state.map);
+			var index = sites.findIndex(function(p) { return p.x === World.curPos[0] && p.y === World.curPos[1]; });
+			if(index < 0 || !Prestige.getCaches()[index]) return;
+			var claims = World.state.cacheClaims || (World.state.cacheClaims = {});
+			if(!claims[index]) {
+				claims[index] = true;
+				Notifications.notify(World, _('the old stores are sealed for the journey home. return safely to recover them.'));
+			}
+			return;
 		}
+		// Legacy direct collection, outside a world expedition.
+		var previous = $SM.get('previous.stores');
+		if (!previous) return;
+		var toAdd = {};
+		Object.keys(this.storesMap).forEach(key => {
+			var value = Array.isArray(previous) ? previous[this.legacyStoreOrder.indexOf(key)] : previous[key];
+			if (Number.isFinite(value) && value > 0) toAdd[key] = value;
+		});
+		$SM.addM('stores', toAdd, true);
+		$SM.set('previous.stores', {});
+		$SM.fireUpdate('stores');
 	},
 
 	randGen : function(storeType) {

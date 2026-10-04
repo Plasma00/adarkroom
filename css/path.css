@@ -62,7 +62,9 @@ div.perkRow .row_key {
 	padding-top: 10px;
 	position: relative;
 	top: -10px;
-	max-height: 660px;
 	width: 475px;
-	overflow-y: auto;
+	overflow: visible;
 }
+
+.outfitGroup { margin-top: 18px; }
+.outfitGroup h3 { font-size: 15px; font-weight: normal; border-bottom: 1px solid #888; padding-bottom: 5px; margin: 0 0 10px; }

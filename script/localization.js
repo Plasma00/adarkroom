@@ -1,6 +1,10 @@
 (function(){
 	//only used for poedit to find translatable strings
 	var keywords = [ 
+		_('not enough crystal'),
+		_('not enough lattice shard'),
+		_('not enough energy cell'),
+		_('not enough alien alloy'),
 		_('saved.'),
 		_('wood'),
 		_('builder'),

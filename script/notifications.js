@@ -29,7 +29,7 @@ var Notifications = {
 	// Allow notification to the player
 	notify: function(module, text, noQueue) {
 		if(typeof text == 'undefined') return;
-		if(text.slice(-1) != ".") text += ".";
+		if(!/[.。！？!?…]$/.test(text)) text += ".";
 		if(module != null && Engine.activeModule != module) {
 			if(!noQueue) {
 				if(typeof this.notifyQueue[module] == 'undefined') {
@@ -44,6 +44,8 @@ var Notifications = {
 	},
 	
 	clearHidden: function() {
+		// A queued notification animation can finish after the ending removes its panel.
+		if (!$('#notifyGradient').length) return;
 	
 		// To fix some memory usage issues, we clear notifications that have been hidden.
 		

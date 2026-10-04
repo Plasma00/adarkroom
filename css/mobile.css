@@ -1,0 +1,149 @@
+/* All overrides are scoped; the desktop layout and the game's 700px coordinates remain intact. */
+#mobileControls, #mobileLanguage { display: none; }
+.mobile { -webkit-text-size-adjust: 100%; }
+.mobile body { height: auto; min-height: 100%; line-height: 1.45; }
+.mobile div#wrapper {
+  box-sizing: border-box; width: 100%; max-width: 724px;
+  padding: max(12px, env(safe-area-inset-top)) 12px 16px;
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+}
+.mobile div#content { height: auto; overflow: visible; }
+.mobile div#outerSlider, .mobile div#locationSlider {
+  position: relative; left: 0 !important; top: 0 !important; width: 100% !important;
+}
+.mobile div#outerSlider > div, .mobile div.location {
+  float: none; width: 100%; height: auto; overflow: visible;
+}
+.mobile div.location { display: none; }
+.mobile div.location.mobile-active { display: block; }
+.mobile div#header {
+  display: flex; flex-wrap: wrap; gap: 4px 0; height: auto; padding-bottom: 18px;
+}
+.mobile div.headerButton {
+  float: none; display: flex; align-items: center; box-sizing: border-box;
+  min-height: 44px; margin: 0; padding: 6px 12px; max-width: 100%;
+}
+.mobile div.headerButton:first-child { padding-left: 0; }
+.mobile div#notifications {
+  position: relative; top: auto; left: auto; width: 100%; height: 112px;
+  margin: 0 0 16px; font-size: 15px; line-height: 1.5;
+}
+.mobile #notifyGradient { pointer-events: none; z-index: 1; }
+.mobile div#saveNotify { z-index: 15; pointer-events: none; }
+.mobile div#buildBtns, .mobile div#craftBtns, .mobile div#buyBtns,
+.mobile div#workers, .mobile div#village, .mobile div#storesContainer,
+.mobile div#perks, .mobile div#blueprints, .mobile div#fabricateButtons {
+  position: relative; top: auto !important; left: auto; right: auto !important;
+  width: auto; margin: 24px 0 0;
+}
+.mobile div#stores, .mobile div#weapons, .mobile div#outfitting {
+  box-sizing: border-box; width: 100%;
+}
+.mobile div#pathScroller { top: 0; width: 100%; max-height: none; overflow: visible; }
+.mobile div#perks { margin-bottom: 20px; }
+.mobile div.button {
+  box-sizing: border-box; width: 100% !important; min-height: 44px;
+  padding: 10px 12px; margin: 0 0 10px; touch-action: manipulation;
+}
+/* Recipe costs remain available without requiring hover on a touch screen. */
+.mobile #buildBtns .tooltip, .mobile #craftBtns .tooltip,
+.mobile #buyBtns .tooltip, .mobile #fabricateButtons .tooltip {
+  display: flow-root !important; position: static; box-sizing: border-box; width: 100%;
+  margin-top: 6px; padding: 6px 0 0; border: 0; border-top: 1px dotted;
+  box-shadow: none; background: transparent; color: inherit; font-size: 13px;
+  pointer-events: none;
+}
+.mobile .workerRow, .mobile .outfitRow {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  margin: 12px 0; min-height: 44px;
+}
+.mobile .workerRow > .row_key, .mobile .outfitRow > .row_key { float: none; flex: 1; min-width: 90px; }
+.mobile .workerRow > .row_val, .mobile .outfitRow > .row_val {
+  float: none; padding: 0; display: flex; align-items: center; gap: 3px;
+}
+.mobile .workerRow > .tooltip, .mobile .outfitRow > .tooltip {
+  position: static; flex-basis: 100%; width: auto; box-shadow: none; margin-top: 4px;
+}
+.mobile .upBtn, .mobile .dnBtn, .mobile .upManyBtn, .mobile .dnManyBtn {
+  position: relative; inset: auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; box-sizing: border-box; border: 1px solid currentColor;
+  touch-action: manipulation;
+}
+.mobile .upBtn:after, .mobile .dnBtn:after, .mobile .upManyBtn:after, .mobile .dnManyBtn:after { display: none; }
+.mobile .upBtn:before, .mobile .dnBtn:before, .mobile .upManyBtn:before, .mobile .dnManyBtn:before {
+  position: static; border: 0; margin: 0; width: auto; height: auto; font: 16px sans-serif;
+}
+.mobile .upBtn:before { content: '+'; }
+.mobile .dnBtn:before { content: '−'; }
+.mobile .upManyBtn:before { content: '+10'; }
+.mobile .dnManyBtn:before { content: '−10'; }
+.mobile .disabled { opacity: 0.6; }
+.mobile .menu {
+  position: relative; inset: auto; display: flex; flex-wrap: wrap; justify-content: center;
+  flex-direction: row;
+  gap: 4px 16px; max-width: 700px; margin: 12px auto;
+  padding: 0 12px max(16px, env(safe-area-inset-bottom));
+}
+.mobile .menu > .menuBtn {
+  float: none; margin: 0; min-height: 44px; display: inline-flex; align-items: center;
+  touch-action: manipulation;
+}
+.mobile .menu .customSelect { display: none; }
+.mobile select#mobileLanguage { display: block; background: inherit; color: inherit; max-width: 100%; font-size: 16px; }
+.mobile .logo { position: relative; left: 12px; display: inline-block; }
+.mobile .eventPanel {
+  position: fixed; box-sizing: border-box; left: 12px; right: 12px;
+  top: calc(var(--mobile-viewport-top, 0px) + max(16px, env(safe-area-inset-top))); width: auto !important;
+  max-width: 560px; margin: 0 auto; max-height: calc(100vh - 32px);
+  max-height: calc(var(--mobile-viewport-height, 100dvh) - max(16px, env(safe-area-inset-top)) - max(16px, env(safe-area-inset-bottom)));
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: 16px; border: 2px solid currentColor; box-shadow: 3px 3px 8px #666;
+  left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right));
+}
+.mobile .eventPanel:before, .mobile .eventPanel:after { display: none; }
+.mobile .eventTitle { position: relative; top: auto; margin-bottom: 16px; }
+.mobile .eventPanel .button { float: none; margin: 0 0 10px; }
+.mobile #description { overflow-wrap: anywhere; }
+.mobile .fighter .hp { white-space: nowrap; overflow-wrap: normal; left: 50%; margin-left: 0; transform: translateX(-50%); }
+.mobile #description textarea { box-sizing: border-box; font-size: 16px; max-height: 40vh; }
+.mobile-world #main, .mobile-space #main { display: none; }
+.mobile #worldOuter { display: block; width: 100%; }
+.mobile #map { --map-width: var(--mobile-map-width); }
+.mobile #bagspace-world { box-sizing: border-box; width: 100% !important; height: auto; min-height: 62px; }
+.mobile #bagspace-world > div { display: flow-root; }
+.mobile #backpackTitle, .mobile #backpackSpace, .mobile #healthCounter { font-size: 13px; }
+.mobile #map .tooltip { font-size: 14px; }
+.mobile-world #mobileControls, .mobile-space #mobileControls {
+  display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(2, 48px);
+  gap: 6px; justify-content: center; margin: 16px 0;
+}
+.mobile #mobileControls button {
+  color: var(--mobile-control-fg, black); background: var(--mobile-control-bg, white);
+  border: 1px solid currentColor; border-radius: 0;
+  font: 24px sans-serif; touch-action: none; user-select: none;
+}
+.mobile #mobileControls button:active { background: #8885; }
+.mobile #mobileControls [data-direction=up] { grid-column: 2; }
+.mobile #mobileControls [data-direction=left] { grid-column: 1; grid-row: 2; }
+.mobile #mobileControls [data-direction=down] { grid-column: 2; grid-row: 2; }
+.mobile #mobileControls [data-direction=right] { grid-column: 3; grid-row: 2; }
+.mobile-space div#outerSlider { height: var(--mobile-space-size); }
+.mobile div#outerSlider > div#spacePanel {
+  position: absolute !important; top: 0; left: calc((100% - var(--mobile-space-size)) / 2);
+  width: 700px; height: 700px; overflow: hidden;
+  transform: scale(var(--mobile-space-scale)); transform-origin: top left;
+}
+.mobile-space div#notifications { height: 56px; }
+.mobile #starsContainer { pointer-events: none; }
+.mobile #hullRemaining {
+  font-size: calc(14px / var(--mobile-space-scale));
+  width: calc(95px / var(--mobile-space-scale));
+}
+@media (orientation: landscape) and (min-width: 600px) {
+  .mobile-space div#content { width: calc(100% - 192px); }
+  .mobile-space #mobileControls { position: absolute; right: 12px; top: 84px; }
+}
+.mobile .outroContainer, .mobile .centerCont { box-sizing: border-box; width: 100%; padding: 24px 16px; }
+.mobile .endGame { font-size: 28px; overflow-wrap: anywhere; }
+.mobile .endGameOption { display: inline-block; min-height: 44px; }

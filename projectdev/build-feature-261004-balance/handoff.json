@@ -1,0 +1,21 @@
+{
+  "archetype": "build-feature",
+  "status": "verified",
+  "predicateMet": true,
+  "pending_verify": false,
+  "findings": {
+    "errors": 0,
+    "untested_gaps": false
+  },
+  "limitations": [
+    "Long-form economy/playthrough not simulated",
+    "Finite map samples do not prove all seeds"
+  ],
+  "checks": {
+    "logic": 33,
+    "browserCovered": 36,
+    "maps": 300,
+    "combatCases": 20,
+    "combatTrialsPerCase": 5000
+  }
+}

@@ -175,7 +175,7 @@ var AudioEngine = {
         }
         AudioEngine.loadAudioFile(src)
             .then(function (buffer) {
-                AudioEngine._playBackgroundMusic(buffer);
+                if (buffer) AudioEngine._playBackgroundMusic(buffer);
             });
     },
     playEventMusic: function (src) {
@@ -184,7 +184,7 @@ var AudioEngine = {
         }
         AudioEngine.loadAudioFile(src)
             .then(function (buffer) {
-                AudioEngine._playEventMusic(buffer);
+                if (buffer) AudioEngine._playEventMusic(buffer);
             });
     },
     stopEventMusic: function () {
@@ -199,56 +199,31 @@ var AudioEngine = {
         }
         AudioEngine.loadAudioFile(src)
             .then(function (buffer) {
-                AudioEngine._playSound(buffer);
+                if (buffer) AudioEngine._playSound(buffer);
             });
     },
     loadAudioFile: function (src) {
-        if (src.indexOf('http') === -1) {
-            var path = window.location.protocol + '//' + window.location.hostname + (window.location.port ?(':' + window.location.port) : '') + window.location.pathname;
-            if(path.endsWith('index.html')){
-                path = path.slice(0, - 10); 
-            }
-            src = path + src;
-        }
-        if (AudioEngine.AUDIO_BUFFER_CACHE[src]) {
-            return new Promise(function (resolve, reject) {
-                resolve(AudioEngine.AUDIO_BUFFER_CACHE[src]);
+        if (!src || !AudioEngine._audioContext) return Promise.resolve(null);
+        var url = new URL(src, window.location.href).href;
+        if (AudioEngine.AUDIO_BUFFER_CACHE[url]) return Promise.resolve(AudioEngine.AUDIO_BUFFER_CACHE[url]);
+        return fetch(url).then(function(response) {
+            if (!response.ok) throw new Error('missing audio');
+            return response.arrayBuffer();
+        }).then(function(buffer) {
+            // The callback API works on both older Safari and current browsers.
+            return new Promise(function(resolve, reject) {
+                AudioEngine._audioContext.decodeAudioData(buffer, resolve, reject);
             });
-        } else {
-            var request = new Request(src);
-            return fetch(request).then(function (response) {
-                return response.arrayBuffer();
-            }).then(function (buffer) {
-                if (buffer.byteLength === 0) {
-                    console.error('cannot load audio from ' + src);
-                    return AudioEngine._getMissingAudioBuffer();
-                }
-
-                var decodeAudioDataPromise = AudioEngine._audioContext.decodeAudioData(buffer, function (decodedData) {
-                    AudioEngine.AUDIO_BUFFER_CACHE[src] = decodedData;
-                    return AudioEngine.AUDIO_BUFFER_CACHE[src];
-                });
-
-                // Safari WebAudio does not return a promise based API for
-                // decodeAudioData, so we need to fake it if we want to play
-                // audio immediately on first fetch
-                if (decodeAudioDataPromise) {
-                    return decodeAudioDataPromise;
-                } else {
-                    return new Promise(function (resolve, reject) {
-                        var fakePromiseId = setInterval(function() {
-                            if (AudioEngine.AUDIO_BUFFER_CACHE[src]) {
-                                resolve(AudioEngine.AUDIO_BUFFER_CACHE[src]);
-                                clearInterval(fakePromiseId);
-                            }
-                        }, 20);
-                    });
-                }
-            });
-        }
+        }).then(function(decoded) {
+            AudioEngine.AUDIO_BUFFER_CACHE[url] = decoded;
+            return decoded;
+        }).catch(function() {
+            // Missing optional assets remain silent and cannot interrupt gameplay.
+            return null;
+        });
     },
     setBackgroundMusicVolume: function (volume, s) {
-        if (AudioEngine._master == null) return;  // master may not be ready yet
+        if (AudioEngine._master == null || !AudioEngine._currentBackgroundMusic) return;
         if (volume === undefined) {
             volume = 1.0;
         }

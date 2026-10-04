@@ -124,7 +124,7 @@ msgstr "学会了如何更快速地出拳"
 
 #: script/engine.js:32
 msgid "barbarian"
-msgstr "野蛮人"
+msgstr "近战大师"
 
 #: script/engine.js:33
 msgid "melee weapons deal more damage"
@@ -754,7 +754,7 @@ msgstr "人口 "
 
 #: script/outside.js:457
 msgid "forest"
-msgstr "树林"
+msgstr "森林"
 
 #: script/outside.js:460
 msgid "village"
@@ -1106,7 +1106,7 @@ msgstr "房间"
 
 #: script/room.js:485 script/room.js:604
 msgid "A Dark Room"
-msgstr "小黑屋"
+msgstr "生火间"
 
 #: script/room.js:498
 msgid "light fire"
@@ -3335,3 +3335,1787 @@ msgstr "这里留存着前代人的所有劳动果实"
 #: script/events/setpieces.js:3559
 msgid "ripe for the picking."
 msgstr "是时候采摘它们了"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Buried Transport"
+msgstr "掩埋运输舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Chemical Works"
+msgstr "化学工场"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crashed Scout Ship"
+msgstr "坠毁侦察舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Precision Assembly Plant"
+msgstr "精密装配厂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Buried&nbsp;Transport"
+msgstr "掩埋运输舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Chemical&nbsp;Works"
+msgstr "化学工场"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crashed&nbsp;Scout&nbsp;Ship"
+msgstr "坠毁侦察舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Precision&nbsp;Assembly&nbsp;Plant"
+msgstr "精密装配厂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Abandoned Crystal Works"
+msgstr "废弃晶体厂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Abandoned&nbsp;Crystal&nbsp;Works"
+msgstr "废弃晶体厂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a bunkhouse stands beside the huts. room for ten more."
+msgstr "工棚立在小屋旁，又能住下十个人。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a frame small enough for the ship. others large enough for shelter."
+msgstr "小框架能装进飞船，大框架足以撑起住处。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a lattice shard rests safely in the pack."
+msgstr "一块晶格碎片稳稳收进了行囊。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a narrow hull lies broken against the hillside."
+msgstr "狭长的舰体断裂在山坡上。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a wanderer device could join the broken lines."
+msgstr "流浪者的装置或许能接起这些断线。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "aligned"
+msgstr "对齐"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another broken line carries light."
+msgstr "又一条断线亮了起来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "awake"
+msgstr "苏醒"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "behind the glass, one unbroken line points inward."
+msgstr "玻璃后面，一条完整的线指向舰内。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beneath the residue, fine grooves trace a familiar pattern."
+msgstr "残渣之下，细槽勾勒出熟悉的纹路。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blocked"
+msgstr "格挡"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bunkhouse"
+msgstr "工棚"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo doors jut from the sand. a single line of light remains."
+msgstr "货舱门露出沙地，只剩一线微光。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clear the cutting floor"
+msgstr "清理切割车间"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal"
+msgstr "晶体"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal worker"
+msgstr "晶体工"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "dark"
+msgstr "暗淡"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "dry channels run between the corrosion tanks."
+msgstr "干涸的沟渠穿过腐蚀槽之间。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "each is cut with impossible precision."
+msgstr "每片都切割得精确无比。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "enter the guidance chamber"
+msgstr "进入航向室"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "every fragment points the same way."
+msgstr "每块碎片都指向同一个方向。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the drainage channels"
+msgstr "沿排水沟前行"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the line"
+msgstr "沿线前行"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the reflection"
+msgstr "追随倒影"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "follow the steady light"
+msgstr "追随稳定的光"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fractured"
+msgstr "残缺"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "guidance lattice:"
+msgstr "航向晶格："
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "human hands copied the pattern. poorly."
+msgstr "人类的双手仿制了这些纹路，粗陋不堪。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "inspect the frames"
+msgstr "检查框架"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lattice shard"
+msgstr "晶格碎片"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "light moves through the crystal. the ship remembers the sky."
+msgstr "光流过晶体，飞船记起了天空。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mark the route home"
+msgstr "标记归途"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough crystal"
+msgstr "晶体不足"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough energy cell"
+msgstr "能量电池不足"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough lattice shard"
+msgstr "晶格碎片不足"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "pale crystal runs behind the walls."
+msgstr "苍白的晶体沿墙后延伸。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power the cargo lift"
+msgstr "为货运升降机供电"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power the cell racks"
+msgstr "为电池架供电"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "repair lattice"
+msgstr "修复晶格"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sometimes it is best not to fight."
+msgstr "有时，最好避开战斗。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "steel frames stand in silent rows."
+msgstr "钢制框架无声地排成行。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "take the fragment and leave"
+msgstr "带上碎片离开"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the broken lines still carry light."
+msgstr "断裂的纹路仍传递着光。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the chart spills its memory across the surrounding land."
+msgstr "航图展开记忆，照亮了周围的土地。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the crystal needs the tools of an old chemical works."
+msgstr "晶体的加工需要旧化学工场的工具。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the cutters can still be worked. the village could use them."
+msgstr "切割器还能用，村里用得上。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the engines answer. the ship does not know where to go."
+msgstr "引擎有了回应，飞船却不知该往哪里去。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the final lattice needs a precision frame."
+msgstr "完整晶格还需要精密的装配框架。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the lift wakes a cargo sentry."
+msgstr "升降机唤醒了货舱哨兵。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old frames could shelter more people."
+msgstr "这些旧框架能为更多人遮风避雨。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the racks open. the last cargo drones fall silent."
+msgstr "电池架打开了，最后的货运无人机归于沉寂。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the reflected stars lead back to an empty observation blister."
+msgstr "倒映的星光通向空荡荡的观察舱。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the reserve fades as the last crystal comes free."
+msgstr "最后一块晶体松脱，备用的光也熄灭了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the sentry folds beside the open hold."
+msgstr "哨兵倒在敞开的货舱旁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the shapes can be copied. the light inside them cannot."
+msgstr "形状可以仿制，里面的光却不能。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the two bunkhouses are full of beds."
+msgstr "两座工棚都摆满了床。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the villagers can now cut crystal."
+msgstr "村民如今能切割晶体了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "there is power for one hold. the guidance chamber has its own reserve."
+msgstr "余电只够开启一个货舱，航向室另有储备。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "these tools could etch new paths through crystal."
+msgstr "这些工具能在晶体中刻出新的路径。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "thin crystal sheets rest beneath shattered glass."
+msgstr "碎玻璃下躺着薄薄的晶片。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "tiny joints hold each piece exactly where it belongs."
+msgstr "细小的接头把每个部件固定在恰当的位置。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two star charts flicker. one follows the sky, the other its reflection."
+msgstr "两幅航图闪烁着，一幅追随天空，另一幅追随它的倒影。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "yellow residue cakes the filters. sulphur, once carefully measured."
+msgstr "黄色残渣凝在过滤器上，是曾被仔细称量的硫磺。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Ravaged Battleship"
+msgstr "残破战舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Whirring Fabricator"
+msgstr "嗡鸣制造台"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Ravaged&nbsp;Battleship"
+msgstr "残破战舰"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Whirring&nbsp;Fabricator"
+msgstr "嗡鸣制造台"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Command Deck"
+msgstr "指挥甲板"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Engineering Wing"
+msgstr "工程区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Fabricator"
+msgstr "制造台"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Language"
+msgstr "语言"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Martial Wing"
+msgstr "军事区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Medical Wing"
+msgstr "医疗区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Movement controls"
+msgstr "方向控制"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Sound Available!"
+msgstr "声音已就绪！"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a cacophony of decrepit machinery fills the room."
+msgstr "老旧机器的刺耳噪声充满房间。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a dusty researcher clumsily hides in the shadows."
+msgstr "满身尘土的研究员笨拙地躲进阴影。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a few dusty corpses can be seen further down, but this deck appears to have been spared most of the combat."
+msgstr "远处可见几具蒙尘的尸体，但这层甲板似乎躲过了大部分战火。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a few useful items can be scavenged."
+msgstr "还能搜到几件有用的东西。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a handful of hypos. life in a vial."
+msgstr "一把针剂。小瓶里装着生机。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a huge arthropod lunges from the shadows, its mandibles thrashing."
+msgstr "巨大的节肢怪物从阴影中扑来，颚肢疯狂挥舞。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a large hatch grinds open, and the wind rushes in."
+msgstr "巨大的舱门轧轧开启，风涌了进来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a large hatch opens into a wide corridor."
+msgstr "巨大的舱门开启，露出宽阔的走廊。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a maintenance panel is embedded in the wall next to a large sealed door."
+msgstr "巨大的密封门旁，墙上嵌着一块维护面板。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a medical drone wheels out of control."
+msgstr "一台医疗无人机失控地冲了出来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a mobile defence platform trundles around the corner."
+msgstr "一座移动防御平台从拐角缓缓驶出。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a mutated beast leaps from its cell."
+msgstr "一头变异野兽从收容室里跃出。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a regenerative machine hums uncannily by one of the courses."
+msgstr "一条训练道旁，再生机器发出古怪的嗡鸣。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a secure locker is set into one wall."
+msgstr "墙上嵌着一个保险柜。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a small knapsack hangs from a cluster of webs, a few feet from the floor."
+msgstr "一个小背包挂在蛛网间，离地几英尺。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a smooth, perfect sphere. its light is inextinguishable."
+msgstr "光滑而完美的球体，光芒永不熄灭。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a sparring automaton, still fully function and crusted with timeworn blood, lunges forward."
+msgstr "一台功能完好的陪练自动机扑了过来，机身结着陈年的血痂。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange device sits on the floor. looks important."
+msgstr "地上放着一件奇怪的装置，看起来很重要。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "air whistles as the doors open. this section must have lower pressure than the rest of the ship."
+msgstr "门开启时，气流呼啸。这里的气压一定低于舰内其他区域。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an ancient beast has made these ruins its home."
+msgstr "一头远古巨兽把这片废墟当成了巢穴。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an automated assembly line performs its empty routines, long since deprived of materials."
+msgstr "自动装配线早已耗尽原料，却仍在徒劳地重复工序。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an operative waits in ambush around the corner."
+msgstr "一名特工埋伏在拐角后。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an unfinished automaton whirs to life."
+msgstr "一台未完成的自动机嗡鸣着苏醒。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ancient beast"
+msgstr "远古巨兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another checkpoint ahead, fitted with heavy doors."
+msgstr "前方又是一道关卡，装着沉重的门。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "another door at the end of the hall, sealed from this side."
+msgstr "走廊尽头还有一扇门，从这一侧封住了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "approach"
+msgstr "靠近"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "as the lights come online, so too do the defence systems."
+msgstr "灯光亮起，防御系统也随之苏醒。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assembly arms spark and jitter."
+msgstr "装配机械臂颤动着，迸出火花。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assembly arms spin wildly out of control."
+msgstr "装配机械臂失控地疯狂旋转。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "at the back of the workshop, elevator doors twitch and buzz."
+msgstr "车间后方的电梯门抖动着，发出嗡嗡声。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automated guardians still stalk the halls, unaware that their masters have long gone."
+msgstr "自动守卫仍在走廊中游荡，不知主人早已离去。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automated turret"
+msgstr "自动炮塔"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "behind the barricade, a few weapons lay abandoned."
+msgstr "路障后丢着几件武器。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "better to move without drawing attention."
+msgstr "还是悄悄行动为好。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beyond the bulkhead is a small antechamber, seemingly untouched by scavengers."
+msgstr "舱壁后是一间小前室，似乎还没有拾荒者来过。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bits of them can be scavenged."
+msgstr "还能拆下些零件。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blow it down"
+msgstr "炸开门"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blueprints"
+msgstr "蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "blueprints feed into the fabricator data port. possibilities grow."
+msgstr "蓝图送入制造台的数据接口，更多造物成为可能。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "bodies litter the ground on either side."
+msgstr "两侧地面上满是尸体。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "boost"
+msgstr "强化"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "broken medic"
+msgstr "故障医疗机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "builder knows the strange device when she sees it. takes it for herself real quick. doesn’t ask where it came from."
+msgstr "建造者一眼就认出了这件奇怪的装置，立刻拿了过去，没问是从哪里找到的。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo drone"
+msgstr "货运无人机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "cargo drone blueprint"
+msgstr "货运无人机蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clattering metal and old servos. something is coming..."
+msgstr "金属碰撞，老旧伺服器作响。有东西过来了……"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "clumsy machines, and easily avoided."
+msgstr "机器笨拙，很容易绕开。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "command deck"
+msgstr "指挥甲板"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "containment cells arranged at the back of the room, all open."
+msgstr "房间后方排列着收容室，门全都开着。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "continue right"
+msgstr "向右前进"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "could put the scrap to good use."
+msgstr "这些废料还能派上用场。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crew cabins flank the hall, devoid of life."
+msgstr "走廊两侧是船员舱室，毫无生机。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crude attempts have been made to cut into the walls."
+msgstr "有人曾用粗陋的手段试图切开墙壁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "debris is stacked in the corridor, forming a low barricade."
+msgstr "残骸堆在走廊里，垒成低矮的路障。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "deeper into the ship, the darkness seems almost to writhe."
+msgstr "越往舰内深入，黑暗越像是在蠕动。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "defence turret"
+msgstr "防御炮塔"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "detour through the officer's lounge."
+msgstr "绕道经过军官休息室。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disable audio"
+msgstr "关闭声音"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disintegrate"
+msgstr "瓦解"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disruptor"
+msgstr "干扰器"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "disruptor blueprint"
+msgstr "干扰器蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "documents are scattered down the hall, most charred and curled."
+msgstr "文件散落在走廊上，大多烧焦卷曲。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "drew some attention with all that noise."
+msgstr "动静太大，引来了注意。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ears flooded with new sensations."
+msgstr "陌生的声响涌入耳中。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "easily avoided."
+msgstr "很容易避开。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "elevator doors open to a blasted corridor. debris covers the floor, piled into makeshift defences."
+msgstr "电梯门外是被炸毁的走廊。残骸铺满地面，被堆成临时工事。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "elevator doors open to an empty corridor."
+msgstr "电梯门开启，外面是一条空荡荡的走廊。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "emergency lighting flickers."
+msgstr "应急灯忽明忽暗。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "emits a soft red glow"
+msgstr "散发柔和的红光"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "enable audio"
+msgstr "开启声音"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "energy blade"
+msgstr "能量刃"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "energy blade blueprint"
+msgstr "能量刃蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engage"
+msgstr "迎战"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engineering"
+msgstr "工程区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "experimental plans cover one wall, held by an unseen force."
+msgstr "实验图纸铺满一面墙，被某种无形的力量固定着。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "extinguish"
+msgstr "灭火"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fabricate:"
+msgstr "制造："
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fight"
+msgstr "战斗"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fighting hadn't reached here, it seems."
+msgstr "战火似乎未曾抵达这里。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fleet beacon"
+msgstr "舰队信标"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fluid recycler"
+msgstr "液体回收器"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fluid recycler blueprint"
+msgstr "液体回收器蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "force locker"
+msgstr "撬开柜子"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "found some medical supplies in a discarded bag."
+msgstr "在丢弃的包里找到了一些医疗用品。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "further along, the corridor branches."
+msgstr "再往前，走廊分成两条。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glow stone"
+msgstr "辉光石"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glowstone"
+msgstr "辉光石"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "glowstone blueprint"
+msgstr "辉光石蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hinges rusted through. no challenge."
+msgstr "铰链已经锈透，毫不费力。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hypo"
+msgstr "治疗针剂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "hypo blueprint"
+msgstr "治疗针剂蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "if only they'd been destroyed along with everything else."
+msgstr "要是它们也和其他东西一起毁掉就好了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "immortal wanderer"
+msgstr "不朽流浪者"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "in a flash, the figure is standing."
+msgstr "一瞬间，那身影站了起来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it had friends."
+msgstr "它还有同伴。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it lists to the side in a deep crevasse, cut when it fell from the sky."
+msgstr "它倾斜在深深的裂谷中，那是坠落时在大地上犁出的伤口。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it says it saw the rebellion coming. said it made arrangements."
+msgstr "它说早已预见叛乱，说自己做了安排。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "it's no mystery why she no longer flies."
+msgstr "它为何再也飞不起来，已经不言而喻。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "its final works lie forgotten, covered by a thin layer of dust."
+msgstr "最后一批成品被遗忘在这里，蒙着薄薄的灰尘。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic"
+msgstr "动能"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic armour"
+msgstr "动能护甲"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "kinetic armour blueprint"
+msgstr "动能护甲蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "language."
+msgstr "语言"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "large barricades bisect the corridor, scorched by weapons fire."
+msgstr "巨大的路障截断走廊，被炮火熏得焦黑。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "looks like a way out of here."
+msgstr "看来是条出路。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "looks like they tried to barricade the elevators."
+msgstr "他们似乎试图封锁电梯。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lucky."
+msgstr "运气不错。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "malformed experiment"
+msgstr "畸形实验体"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "maps of the surface can still be found amongst the debris."
+msgstr "残骸中还能找到地表地图。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "marks on the door read 'research and development.' everything seems mostly untouched, but dead."
+msgstr "门上写着“研究与开发”。里面大多完好，却毫无生气。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "martial"
+msgstr "军事区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mechanical guard"
+msgstr "机械守卫"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "mechanical quadruped"
+msgstr "四足机械兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "medical"
+msgstr "医疗区"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "medical gurneys are fixed to grooves running down the corridor walls."
+msgstr "医用推床固定在沿走廊墙壁延伸的导轨上。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "metal grinds, and the elevator doors open halfway. beyond is a brightly lit battlefield. remains litter the corridor, undisturbed by scavengers."
+msgstr "金属摩擦，电梯门开到一半。外面是灯火通明的战场，残骸散落走廊，还没有拾荒者来过。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "might be something useful here."
+msgstr "这里也许有些有用的东西。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more medical robots stand frozen, attached by a network of wires."
+msgstr "更多医疗机器人僵立着，被电线网络连在一起。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more signs of past combat down the hall. guard post is ransacked."
+msgstr "走廊深处还有战斗的痕迹，哨所被洗劫一空。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "more strange graffiti adorns the walls."
+msgstr "墙上还有更多奇怪的涂鸦。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "motion from the centre of the yard."
+msgstr "场地中央有了动静。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move down"
+msgstr "向下"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move left"
+msgstr "向左"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move right"
+msgstr "向右"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "move up"
+msgstr "向上"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "murderous robot"
+msgstr "杀戮机器人"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "must have been the engine room, once. the massive machines now stand inert, twisted and scorched by explosions."
+msgstr "这里曾经应该是引擎室。巨型机器如今一动不动，被爆炸扭曲、烧焦。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "noises can be heard from the corridor outside."
+msgstr "外面的走廊传来声响。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "none of the ship's engines escaped the destruction."
+msgstr "舰上没有一台引擎逃过摧毁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "not enough {0}"
+msgstr "{0}不足"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "nothing more here."
+msgstr "这里没有别的了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "observe"
+msgstr "观察"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "one machine thrums with power, and might still work."
+msgstr "一台机器低鸣着，似乎还能工作。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "one of the defence turrets still works."
+msgstr "一座防御炮塔仍在运转。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "past the checkpoint, banks of containment cells can be seen."
+msgstr "关卡后是一排排收容室。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
+msgstr "过了关卡，走廊除了零星涂鸦，几乎完好无损。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perhaps silence is safer?"
+msgstr "或许寂静更安全？"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perhaps the ship’s systems are still operational."
+msgstr "也许舰上的系统还能运转。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "perks"
+msgstr "专长"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "picked this deck clean."
+msgstr "这层甲板已经搜遍了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "plasma rifle"
+msgstr "等离子步枪"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "plasma rifle blueprint"
+msgstr "等离子步枪蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power cables running across the ceiling are split in several places, sparking occasionally."
+msgstr "天花板上的电缆多处断裂，偶尔迸出火花。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "power cycle"
+msgstr "重启电源"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "predictable paths."
+msgstr "路线很容易预判。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ran straight into another one."
+msgstr "迎面又撞上了一台。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rows of inert security robots hang suspended from the ceiling."
+msgstr "一排排停机的安保机器人悬挂在天花板上。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ruined defence turrets flank the corridor."
+msgstr "走廊两侧是毁坏的防御炮塔。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rush through"
+msgstr "冲过去"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "samples of something biological inside."
+msgstr "里面是某种生物样本。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "says it can't die."
+msgstr "说自己不会死。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "scavenge maps"
+msgstr "搜集地图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "scraps of copper wire litter the floor."
+msgstr "铜线碎屑散落一地。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "security drones still patrol the hallways."
+msgstr "安保无人机仍在走廊间巡逻。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "security is even tighter here."
+msgstr "这里的戒备更加森严。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "shield"
+msgstr "护盾"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "should be able to open it."
+msgstr "应该能打开。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "shuffling noises can be heard from within."
+msgstr "里面传来拖沓的脚步声。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slice"
+msgstr "斩击"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slipped past an automated sentry."
+msgstr "悄悄绕过了一台自动哨兵。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "slipped through unnoticed."
+msgstr "悄无声息地溜了过去。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "small sensors in the walls still look to be operational."
+msgstr "墙上的小型传感器似乎仍在工作。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "small weapons cache in a cabinet."
+msgstr "柜子里藏着少量武器。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "some completed explosives in the corner."
+msgstr "角落里有一些制成的炸药。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "something moving up ahead."
+msgstr "前方有东西在动。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "something's wrong with this robot."
+msgstr "这台机器人有些不对劲。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sometimes it is best to fight without restraint."
+msgstr "有时，放手一搏才是上策。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sound off."
+msgstr "关闭声音"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sound on."
+msgstr "开启声音"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sparks cascade from a reactivated power junction, and catch."
+msgstr "重新通电的接线处火花四溅，燃起了火。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "step inside, and the machine whirs. muscle and bone reknit. good as new."
+msgstr "走进机器，嗡鸣声响起。肌肉与骨骼重新愈合，完好如初。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "still, some things can be found."
+msgstr "不过，还能找到些东西。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stim"
+msgstr "兴奋剂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stim blueprint"
+msgstr "兴奋剂蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "strange."
+msgstr "奇怪。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "stun"
+msgstr "击晕"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "surgical tools are scattered on the floor, near what appears the be the remains of a fire."
+msgstr "手术器械散落在地，旁边似乎是火堆的残迹。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "take device and leave"
+msgstr "带上装置离开"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air in this room has a metallic tinge. floor is covered in dark powder."
+msgstr "房间里弥漫着金属气味，地面覆满深色粉末。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air is cooler here. low cabinets ring the room, doors dusted with frost."
+msgstr "这里更冷。矮柜环绕房间，柜门覆着薄霜。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the air is running out."
+msgstr "空气快耗尽了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the automated patient transport system now sits motionless."
+msgstr "自动病患转运系统如今纹丝不动。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead."
+msgstr "信标亮起稳定的蓝光，随后暗淡下来。飞船减速。<br>庞大的流浪者母舰队渐渐进入视野。<br>巨型世界舰诡异地漂过残骸云，伤痕累累，死寂无声。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beacon pulses gently as the ship glides through space.<br>coordinates are locked. nothing to do but wait."
+msgstr "飞船滑过太空，信标轻轻闪动。<br>坐标已经锁定。只能等待。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the blade hums, charged particles sparking and fizzing."
+msgstr "刀刃嗡鸣，带电粒子迸出嘶响的火花。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the blast throws the door inwards."
+msgstr "爆炸把门掀进了里面。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the capsule is cold."
+msgstr "舱内冰冷。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the cells are all empty."
+msgstr "收容室全都空了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the command deck is empty, save for a squat figure sitting motionless in the centre of the room."
+msgstr "指挥甲板空空荡荡，只有一个矮壮的身影静坐在房间中央。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor is eerily silent."
+msgstr "走廊寂静得诡异。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor leads to a bank of elevators, which appear to be functional."
+msgstr "走廊通向一排电梯，看起来还能使用。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor opens onto a vast training complex, obstacles and features blackened by real combat."
+msgstr "走廊通向庞大的训练场。真正的战斗把障碍物和设施都熏黑了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the corridor passes through a security checkpoint. the defences are blown apart, ragged edges scorched by laser fire."
+msgstr "走廊穿过一道安检关卡。防御工事已被炸碎，破口边缘被激光灼得焦黑。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the creature's tortured breathing ceases."
+msgstr "生物痛苦的喘息停止了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the crystal pulses brightly, then goes dark. the assailant shimmers as its shape becomes less defined."
+msgstr "晶体骤然亮起，随后熄灭。袭击者闪烁着，轮廓逐渐模糊。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the destruction is uniform and precise."
+msgstr "破坏手法一致而精确。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the door to the left is sealed and refuses to open."
+msgstr "左侧的门封死了，无法开启。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the familiar hum of wanderer machinery coming to life. finally, real tools."
+msgstr "流浪者的机器苏醒，发出熟悉的嗡鸣。终于有了像样的工具。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the flames fill the corridor."
+msgstr "火焰吞没了走廊。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the guards died at their posts, shot through with superheated plasma."
+msgstr "守卫死在岗位上，身体被炽热的等离子体洞穿。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the hatches are all sealed, but the hull is blown out just above the dirt, providing an entrance."
+msgstr "舱门全部封死，但贴近地面的舰体被炸开了，可以从那里进入。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the immortal wanderer attacks."
+msgstr "不朽的流浪者发起了攻击。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the interior of the ship is cold and dark. what little light there is only accentuates its harsh angles."
+msgstr "舰内阴冷黑暗。仅有的一点光，更衬出那些生硬的棱角。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the machine attacks, blades whirling."
+msgstr "机器挥舞旋转的刀刃攻来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the machines here look unfinished, abandoned by their creator. wires and other scrap are scattered about the work benches."
+msgstr "这里的机器似乎尚未完工，就被制造者遗弃了。工作台上散落着电线和杂物。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the military has set up a small camp just inside the ship."
+msgstr "军队在舰内入口附近扎了个小营地。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the next door leads to a ransacked planning room."
+msgstr "下一扇门通向被洗劫的作战室。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the noise draws attention."
+msgstr "声响引来了注意。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the partially devoured remains of several wanderers are piled before a dark corridor."
+msgstr "几具被啃食过的流浪者残骸堆在漆黑的走廊前。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the path to the command bridge is wide, walls adorned with decorative shields."
+msgstr "通往舰桥的道路宽阔，两侧墙上装饰着盾牌。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the peak of wanderer weapons technology, sleek and deadly."
+msgstr "流浪者武器技术的巅峰，精巧而致命。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the remains of a huge ship are embedded in the earth."
+msgstr "巨舰的残骸深嵌在大地里。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the remains of a massive battleship lie here, like a silent sealed city."
+msgstr "庞大战舰的残骸横卧于此，仿佛一座沉默而封闭的城市。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the ruins of the sparring machine clatter to the ground."
+msgstr "陪练机器的残骸轰然散落。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the walls are scorched and melted."
+msgstr "墙壁焦黑，部分已经熔化。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the walls hum faintly."
+msgstr "墙壁发出微弱的嗡鸣。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the webs part, and a grotesque insect lurches forward."
+msgstr "蛛网裂开，一只畸形巨虫踉跄着扑来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the workhorse of the wanderer fleet."
+msgstr "流浪者舰队中任劳任怨的搬运工。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "their weapons lie on the floor beside them."
+msgstr "武器就落在他们身旁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "then it is gone."
+msgstr "接着，它消失了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "there was no fighting here."
+msgstr "这里没有发生战斗。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "they take no notice of the intrusion."
+msgstr "它们对闯入者毫无反应。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "thick, sticky webbing covers the walls of the corridor."
+msgstr "厚重黏稠的蛛网覆满走廊墙壁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this one looks interesting."
+msgstr "这一份似乎值得一看。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this one looks useful."
+msgstr "这一张看起来有用。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "this ward has been converted to a makeshift strategy room, maps scrawled hastily on any flat surface."
+msgstr "病房被改成了临时作战室，所有平面上都草草画着地图。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "through the bulkhead is a large room, walls lined with weapon racks. fighting seems to have passed it by."
+msgstr "舱壁后是一间大房间，墙边摆满武器架。战火似乎绕过了这里。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "time to get out of here."
+msgstr "该离开这里了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "tripped a motion sensor."
+msgstr "触发了运动传感器。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two bedrolls are wedged into a corner."
+msgstr "两卷铺盖挤在角落里。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unruly welder"
+msgstr "失控焊接机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unstable automaton"
+msgstr "失常自动机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unstable prototype"
+msgstr "不稳定原型机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "use hypo"
+msgstr "注射治疗针剂"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "use machine"
+msgstr "使用机器"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wait"
+msgstr "等待"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wanderer form, but not quite flesh. not quite metal either. a crystal set into its chest pulses with light."
+msgstr "流浪者的形体，却不全是血肉，也不全是金属。胸口嵌着的晶体闪动着光。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wanderer soldiers succeed by subverting the enemy's rage."
+msgstr "流浪者士兵将敌人的怒火化为自己的优势。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "water out, water in. waste not, want not."
+msgstr "水流出，又流回。一滴也不浪费。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "weapons are strewn about the medical dispatch bay. must have been used as a muster point."
+msgstr "医疗调度区散落着武器，这里一定曾是集结点。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "wires run overhead, corroded and useless."
+msgstr "头顶布满电线，早已腐蚀报废。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a route back to the village"
+msgstr "通往村庄的路线"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a special encounter"
+msgstr "特殊遭遇"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "barrens"
+msgstr "荒地"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "discover crystal and unlock crystal workers"
+msgstr "发现晶体，解锁晶体工岗位"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "explore and gather supplies"
+msgstr "探索遗迹，搜集物资"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "explore the ship and recover technology and blueprints"
+msgstr "探索战舰，获取技术装置与蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "field"
+msgstr "原野"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "find a lattice shard and reveal part of the map"
+msgstr "获取晶格碎片，照亮部分地图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "find a lattice shard and ship supplies"
+msgstr "获取晶格碎片与舰船物资"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "landmarks appear when they enter your sight. faded symbols mark visited places."
+msgstr "地标进入视野后才会显示；较淡的符号表示已经探索过的地点。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "map legend"
+msgstr "地图图例"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "place"
+msgstr "地点"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "purpose"
+msgstr "功能"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "recover supplies from a previous journey"
+msgstr "取回前次旅程留下的物资"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "repair the ship and leave this world"
+msgstr "修复飞船，离开这个世界"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "return home and store supplies"
+msgstr "返回村庄，存放旅途收获"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "road"
+msgstr "道路"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "search for alien alloy"
+msgstr "搜集外星合金"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "search for weapons and ammunition"
+msgstr "搜集武器与弹药"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "symbol"
+msgstr "符号"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "travel through the wilderness"
+msgstr "旅途中穿越的地形"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock coal mining"
+msgstr "解锁煤矿开采"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock crystal etching"
+msgstr "解锁晶体刻蚀"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock iron mining"
+msgstr "解锁铁矿开采"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock precision assembly and bunkhouses"
+msgstr "解锁精密装配与工棚"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unlock sulphur mining"
+msgstr "解锁硫磺开采"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "water and supplies for the journey"
+msgstr "补充饮水与旅途物资"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "your current position"
+msgstr "你当前所在的位置"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "supplies"
+msgstr "补给"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "utility equipment"
+msgstr "功能性装备"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a pale beast rises from the shards beneath the cutting tables."
+msgstr "一头苍白的野兽从切割台下的晶屑中站起。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scavenger steps between the frames, steel plates strapped across its chest."
+msgstr "一个拾荒者从框架之间走出，胸前绑着钢板。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured scavenger"
+msgstr "披甲拾荒者"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "claws scrape the channel walls. something blocks the way to the filters."
+msgstr "利爪刮擦着沟壁。有什么东西挡住了通往过滤设备的路。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal den beast"
+msgstr "晶屑巢兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "drain stalker"
+msgstr "沟渠潜伏兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the beast falls. the cutting floor is quiet."
+msgstr "野兽倒下了。切割车间恢复了寂静。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the creature sinks into the dry channel. the filters are within reach."
+msgstr "那生物倒进了干涸的沟渠。过滤设备近在眼前。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the scavenger collapses against a frame. the workshop is yours."
+msgstr "拾荒者靠着框架倒下了。车间里再无阻碍。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "ammunition for laser and plasma rifles"
+msgstr "激光步枪和等离子步枪的弹药"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "etched crystal settles into steel shells. five cells begin to glow."
+msgstr "刻蚀过的晶体嵌入钢制外壳。五个能量元件亮了起来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a crystal lens settles into the steel frame. a thin beam cuts through the dust."
+msgstr "晶体透镜嵌入钢制枪架。一束细光穿过尘埃。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "laser rifle blueprint"
+msgstr "激光步枪蓝图"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crystal Devourer"
+msgstr "晶体吞噬兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Crystal Stalker"
+msgstr "晶体潜伏兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Military Fortress"
+msgstr "军事要塞"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Roving Repair Cart"
+msgstr "流动修理车"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Salvage Drone"
+msgstr "回收无人机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Siege Walker"
+msgstr "攻城步行机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Supply Warehouse"
+msgstr "仓库"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crystal&nbsp;Devourer"
+msgstr "晶体吞噬兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Crystal&nbsp;Stalker"
+msgstr "晶体潜伏兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Dark&nbsp;Room"
+msgstr "生火间"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Military&nbsp;Fortress"
+msgstr "军事要塞"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Roving&nbsp;Repair&nbsp;Cart"
+msgstr "流动修理车"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Salvage&nbsp;Drone"
+msgstr "回收无人机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Siege&nbsp;Walker"
+msgstr "攻城步行机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Supply&nbsp;Warehouse"
+msgstr "仓库"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Armoured Patrol"
+msgstr "披甲巡逻兵"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Assault Automaton"
+msgstr "突击机械兵"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scarred mechanic shelters beside a humming condenser."
+msgstr "满身伤疤的技师守在嗡鸣的冷凝器旁。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a scavenger has wired an alarm across the only entrance."
+msgstr "拾荒者在唯一的入口拉起了警报线。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a wounded quartermaster lowers his weapon."
+msgstr "负伤的军需官放下了武器。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a {0} blocks the way."
+msgstr "前方出现了{0}。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "an automatic turret sweeps the wreckage with a red targeting beam."
+msgstr "自动炮台用红色瞄准光束扫过残骸。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "approach the gate"
+msgstr "接近要塞大门"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured patrol"
+msgstr "披甲巡逻兵"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "armoured war hound"
+msgstr "装甲战犬"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "assault automaton"
+msgstr "突击机械兵"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "automatic turret"
+msgstr "自动炮台"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beneath the walls, a water pump still turns. armed figures guard the gate."
+msgstr "墙根下的水泵仍在转动。武装守卫把守着大门。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "beyond the old roads, crystal engines still hunt. cleared fortresses may offer water."
+msgstr "旧道路已到尽头。更远处，晶体驱动的猎杀机器仍在巡游；清剿要塞可以建立补水前哨。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "combat training"
+msgstr "专长训练"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal devourer"
+msgstr "晶体吞噬兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "crystal stalker"
+msgstr "晶体潜伏兽"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "engage the automatic turret"
+msgstr "攻击自动炮台"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "etched crystal settles into steel shells. twenty-five cells begin to glow."
+msgstr "刻蚀过的晶体嵌入钢制外壳。二十五个能量元件亮了起来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fire rifles 300 times. rifle, laser and plasma damage become 8, 12 and 15."
+msgstr "累计使用三种枪射击300次；步枪、激光步枪、等离子步枪伤害变为8、12、15。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fortress commander"
+msgstr "要塞指挥官"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "fortress sentry"
+msgstr "要塞哨兵"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "freight shelves stand behind a buckled shutter."
+msgstr "变形的卷帘门后，货架仍然林立。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "gun slits watch the broken approach."
+msgstr "射击孔对着破碎的进路。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "he offers clean water for spare steel. the cart will not wait here again."
+msgstr "他愿意用净水换取备用钢材。这辆修理车不会再次在这里等候。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "he will keep the pump running if you secure the yard. deeper forts also hold a command vault."
+msgstr "只要肃清庭院，他就会维护水泵。更深处的要塞还藏着指挥所储备库。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "learn melee mastery"
+msgstr "学习近战大师"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "lift the shutter"
+msgstr "抬起卷帘门"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "map extent: {0} × {1}"
+msgstr "地图范围：{0} × {1}"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "melee mastery: after finding the compass, host the wandering master in the room for 100 cured meat, 100 fur and 1 torch. choose force. he can return."
+msgstr "近战大师：获得罗盘后，在生火间等待流浪武师到访。花费100熏肉、100毛皮和1火把留宿，再选择“学习近战大师”。武师会再次来访，不会永久错过。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "resources"
+msgstr "资源"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "rifle training: {0}/300 shots. rifle, laser and plasma damage become 8, 12 and 15."
+msgstr "射击训练：{0}/300次。神枪手使步枪、激光步枪、等离子步枪伤害变为8、12、15。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "salvage drone"
+msgstr "回收无人机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sealed cases hold steel and unfinished crystal."
+msgstr "密封箱里存放着钢材和未加工的晶体。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "secure the pump and supplies"
+msgstr "控制水泵与补给"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "sharpshooter"
+msgstr "神枪手"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "siege walker"
+msgstr "攻城步行机"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "storm the command vault"
+msgstr "突入指挥所储备库"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the fortress becomes a friendly outpost. its road will guide later expeditions."
+msgstr "军事要塞成为了友方前哨。连接村庄的道路将为后续远征指路。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old stores are sealed for the journey home. return safely to recover them."
+msgstr "前人的物资已封存并标记运输路线。安全回村后即可运回。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the old weapons lie inside its firing arc."
+msgstr "古代武器就散落在它的射界之内。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the quartermaster opens the reserve crates and starts the pump."
+msgstr "军需官打开储备箱，启动了水泵。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the roof is unsafe and the cistern is dry. this cannot become an outpost."
+msgstr "屋顶摇摇欲坠，蓄水池早已干涸。这里无法改建为前哨。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the weapon falls silent. the way is clear."
+msgstr "敌人的攻势停了下来。前路已清。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "three hundred shots. breath, sight and trigger become one."
+msgstr "三百次射击之后，呼吸、准星与扳机融为一体。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "trade 10 steel for water"
+msgstr "用10钢换取净水"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "unarmed training: punch 50, 150 and 300 times to learn boxer, martial artist and unarmed master."
+msgstr "徒手训练：累计出拳50、150、300次，依次获得拳击手、武斗家、徒手宗师。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "veteran rifleman"
+msgstr "老练枪手"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "warehouse scavenger"
+msgstr "仓库拾荒者"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "withdraw"
+msgstr "撤离"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "An Ancestral Dark Room"
+msgstr "小黑屋遗址"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A Two-Headed Creature"
+msgstr "双头怪物"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "A&nbsp;Two-Headed&nbsp;Creature"
+msgstr "双头怪物"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "Penrose"
+msgstr "彭罗斯"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange thrumming, pounding and crashing. and then gone."
+msgstr "奇异的嗡鸣、撞击与轰响传来，随后又消失了。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a strange thrumming, pounding and crashing. visions of people and places, of a huge machine and twisting curves."
+msgstr "奇异的嗡鸣、撞击与轰响传来。人群、陌生的地方、巨大的机器与扭曲的曲线在眼前闪现。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "a two-headed creature appears, the smaller head trembling"
+msgstr "一只双头怪物出现了，较小的头颅不停地颤抖。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "give in"
+msgstr "沉入幻象"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "inviting. it would be so easy to give in, completely."
+msgstr "这一切充满诱惑。只要放任自己，就能彻底沉入其中。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "the two creatures are dead"
+msgstr "双头怪物的两个头颅都垂了下来。"
+
+#. Crystal expedition expansion; empty translations use the English source.
+msgid "two-headed creature"
+msgstr "双头怪物"

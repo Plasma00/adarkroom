@@ -3,6 +3,19 @@ body {
 	color: #EEE;
 }
 
+.mobile { --mobile-control-bg: #272823; --mobile-control-fg: #EEE; }
+
+.eventPanel, body.noMask .eventPanel {
+	background-color: #272823;
+	color: #EEE;
+}
+
+.eventPanel textarea, .eventPanel input, .eventPanel select {
+	background-color: #171813;
+	color: #EEE;
+	border: 1px solid #888;
+}
+
 div.headerButton {
 	border-left: 1px solid #EEE;
 }
@@ -156,25 +169,25 @@ div.button.disabled, div.button.disabled:hover {
 }
 
 body.noMask .eventTitle {
-	background-color: #EEE;
-	color: #272823;
+	background-color: #272823;
+	color: #EEE;
 }
 
 body.noMask .eventTitle:after {
-	background-color: #EEE;
+	background-color: #272823;
 }
 
 body.noMask .eventPanel {
-	background-color: #EEE;
+	background-color: #272823;
 }
 
 body.noMask #description {
-	color: #272823;
+	color: #EEE;
 }
 
 body.noMask #buttons > .button {
-	border: 1px solid #272823;
-	color: #272823;
+	border: 1px solid #EEE;
+	color: #EEE;
 }
 
 #stars > div, #starsBack > div {

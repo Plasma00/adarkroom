@@ -43,13 +43,8 @@ Enemies.Executioner = {
     loot: {
       'alien alloy': {
         min: 1,
-        max: 1,
+        max: 2,
         chance: 1
-      },
-      'alien alloy': {
-        min: 2,
-        max: 4,
-        chance: 0.2
       }
     }
   },
@@ -534,9 +529,11 @@ Events.Executioner = {
           _('a large hatch grinds open, and the wind rushes in.'),
           _('a strange device sits on the floor. looks important.')
         ],
+        loot: { 'laser rifle blueprint': { min: 1, max: 1, chance: 1 } },
         onLoad: () => {
           World.drawRoad();
           World.state.executioner = true;
+          World.claimLatticeShard('executioner');
         },
         buttons: {
           'leave': {

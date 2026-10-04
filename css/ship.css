@@ -6,3 +6,6 @@ div#engineRow {
 	width: 70px;
 	margin-bottom: 20px;
 }
+
+#latticeRow { width: 260px; margin-top: 20px; }
+#latticeHint { max-width: 300px; margin: 10px 0 20px; }

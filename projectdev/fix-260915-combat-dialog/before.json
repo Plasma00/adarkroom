@@ -1,0 +1,37 @@
+[
+  {
+    "variant": "normal",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 82,
+    "maxOpenMs": 113.6,
+    "medianNextFrameMs": 173.3
+  },
+  {
+    "variant": "contain",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 64.8,
+    "maxOpenMs": 82.5,
+    "medianNextFrameMs": 131.8
+  },
+  {
+    "variant": "stableScrollbar",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 72.4,
+    "maxOpenMs": 78.9,
+    "medianNextFrameMs": 153.7
+  },
+  {
+    "variant": "noInert",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 23.3,
+    "maxOpenMs": 31.6,
+    "medianNextFrameMs": 80.7
+  },
+  {
+    "variant": "noAnimation",
+    "cpuSlowdown": 4,
+    "medianOpenMs": 68.4,
+    "maxOpenMs": 74.6,
+    "medianNextFrameMs": 141.6
+  }
+]

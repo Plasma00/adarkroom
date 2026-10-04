@@ -3,6 +3,8 @@ var Path = {
 	_STORES_OFFSET: 0,
 	// Everything not in this list weighs 1
 	Weight: {
+		'crystal': 1,
+		'lattice shard': 0, // Quest fragments cannot displace supplies or be discarded for space.
 		'bone spear': 2,
 		'iron sword': 3,
 		'steel sword': 5,
@@ -131,6 +133,17 @@ var Path = {
 		if(!Path.outfit) {
 			Path.outfit = {};
 		}
+		// Preparing a loadout does not withdraw stock; clear obsolete selections only at home.
+		if(Engine.activeModule !== World) Path.clearCrystalSelection();
+		var groups = {};
+		[['weapons', _('weapons')], ['supplies', _('supplies')], ['utility', _('utility equipment')]].forEach(function(group) {
+			var section = $('#outfit_' + group[0]);
+			if(!section.length) {
+				section = $('<div>').attr('id', 'outfit_' + group[0]).addClass('outfitGroup').appendTo(outfit);
+				$('<h3>').text(group[1]).appendTo(section);
+			}
+			groups[group[0]] = section;
+		});
 		
 		// Add the armour row
 		var armour = _("none");
@@ -144,7 +157,7 @@ var Path = {
 			armour = _("leather");
 		var aRow = $('#armourRow');
 		if(aRow.length === 0) {
-			aRow = $('<div>').attr('id', 'armourRow').addClass('outfitRow').prependTo(outfit);
+			aRow = $('<div>').attr('id', 'armourRow').addClass('outfitRow').appendTo(groups.utility);
 			$('<div>').addClass('row_key').text(_('armour')).appendTo(aRow);
 			$('<div>').addClass('row_val').text(armour).appendTo(aRow);
 			$('<div>').addClass('clear').appendTo(aRow);
@@ -155,7 +168,7 @@ var Path = {
 		// Add the water row
 		var wRow = $('#waterRow');
 		if(wRow.length === 0) {
-			wRow = $('<div>').attr('id', 'waterRow').addClass('outfitRow').insertAfter(aRow);
+			wRow = $('<div>').attr('id', 'waterRow').addClass('outfitRow').appendTo(groups.supplies);
 			$('<div>').addClass('row_key').text(_('water')).appendTo(wRow);
 			$('<div>').addClass('row_val').text(World.getMaxWater()).appendTo(wRow);
 			$('<div>').addClass('clear').appendTo(wRow);
@@ -182,6 +195,8 @@ var Path = {
 		for(var k in carryable) {
 			var lk = _(k);
 			var store = carryable[k];
+			var group = groups[store.type === 'weapon' ? 'weapons' :
+				(['cured meat', 'medicine', 'hypo', 'stim', 'bullets', 'energy cell'].indexOf(k) !== -1 ? 'supplies' : 'utility')];
 			var have = $SM.get('stores["'+k+'"]');
 			var num = Path.outfit[k];
 			num = typeof num == 'number' ? num : 0;
@@ -196,24 +211,17 @@ var Path = {
 				if(row.length === 0) {
 					row = Path.createOutfittingRow(k, num, store, store.name);
 					
-					var curPrev = null;
-					outfit.children().each(function(i) {
+					var next = null;
+					group.children('.outfitRow').each(function() {
 						var child = $(this);
-						if(child.attr('id').indexOf('outfit_row_') === 0) {
-							var cName = child.children('.row_key').text();
-							if(cName < lk) {
-								curPrev = child.attr('id');
-							}
-						}
+						if(!next && child.attr('id').indexOf('outfit_row_') === 0 && child.children('.row_key').text() > lk) next = child;
 					});
-					if(curPrev == null) {
-						row.insertAfter(wRow);
-					} else {
-						row.insertAfter(outfit.find('#' + curPrev));
-					}
+					if(next) row.insertBefore(next);
+					else row.appendTo(group);
 				} else {
 					$('div#' + row.attr('id') + ' > div.row_val > span', outfit).text(num);
 					$('div#' + row.attr('id') + ' .tooltip .numAvailable', outfit).text(have - num);
+					if(World.Weapons[k]) $('.weaponDamage', row).text(World.getDamage(k));
 				}
 				if(num === 0) {
 					$('.dnBtn', row).addClass('disabled');
@@ -268,7 +276,7 @@ var Path = {
 
 		if(store.type == 'weapon') {
 			$('<div>').addClass('row_key').text(_('damage')).appendTo(tt);
-			$('<div>').addClass('row_val').text(World.getDamage(key)).appendTo(tt);
+			$('<div>').addClass('row_val weaponDamage').text(World.getDamage(key)).appendTo(tt);
 		} else if(store.type == 'tool' && store.desc != "undefined") {
 			$('<div>').addClass('row_key').text(store.desc).appendTo(tt);
 		}
@@ -321,13 +329,19 @@ var Path = {
 		document.title = _('A Dusty Path');
 	},
 	
+	clearCrystalSelection: function() {
+		delete Path.outfit.crystal;
+		$SM.remove('outfit.crystal', true);
+	},
+
 	embark: function() {
+		Path.clearCrystalSelection();
 		for(var k in Path.outfit) {
 			$SM.add('stores["'+k+'"]', -Path.outfit[k]);
 		}
 		World.onArrival();
 		$('#outerSlider').animate({left: '-700px'}, 300);
-		Engine.activeModule = World;
+		Engine.setActiveModule(World);
 		AudioEngine.playSound(AudioLibrary.EMBARK);
 	},
 	

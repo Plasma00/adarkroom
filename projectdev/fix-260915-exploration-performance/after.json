@@ -1,0 +1,20 @@
+[
+  {
+    "size": 30,
+    "moves": 24,
+    "cpuSlowdown": 4,
+    "medianMs": 5,
+    "p95Ms": 17,
+    "addedNodes": 96,
+    "removedNodes": 96
+  },
+  {
+    "size": 61,
+    "moves": 24,
+    "cpuSlowdown": 4,
+    "medianMs": 13.5,
+    "p95Ms": 17.1,
+    "addedNodes": 48,
+    "removedNodes": 48
+  }
+]

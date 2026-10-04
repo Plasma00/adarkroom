@@ -1,0 +1,60 @@
+{
+  "backup_directory": "C:\\Users\\User\\Documents\\Codex\\2026-10-04\\d-onedrive-university-of-virginia-projects\\work\\maintenance-backup",
+  "modified_files": [
+    {
+      "file": "doc/architecture-guide-zh.md",
+      "before": "3d96c62d21aee1a95f9be136fa310aaf1361b3761882bf4627a2991a60223ef5",
+      "after": "566593a9f220d975727efa5cc26f9f227bde46366d0a0eff304a7fb9b1cf3a61"
+    },
+    {
+      "file": "doc/crystal-expansion-development-plan.md",
+      "before": "6534ece11501ff7e5b40456aa628481d73f3c7c0745c25927596930e16696de2",
+      "after": "ca11aa094f03eaa66e874420048ad72b0ea1ac26591061fd6e7e6fde0a91aa48"
+    },
+    {
+      "file": "doc/crystal-expansion-implementation.md",
+      "before": "2a334438cde3b652d4599785642ae3b90c0fe8fe49c58faa8b800e74165333e3",
+      "after": "8b0bd13b1d1ba82617e93a320a14016f4c8c743ed949fb25ee2e43c9c24c4947"
+    },
+    {
+      "file": "doc/frontier-update.md",
+      "before": "63e03eb92a7e3bad9b599104c7353f719fd715b3212997029ca1cab36a6301fd",
+      "after": "2a0a9a838b0936c9a705fc22b78f0729aa3b93cb2ac57e474662d1049b944bef"
+    },
+    {
+      "file": "doc/late-game-balance-review.md",
+      "before": "d406542769792a4aac4b6250316fb421621669bd2a7f754b2ff476ebd7ab8abb",
+      "after": "5e7bacc0c2d82bd5585920101a7858c1bd659b12ca8210251c7dd48ef63aaf4e"
+    },
+    {
+      "file": "doc/map-radius45-expectations.md",
+      "before": "1e15b2b9ba366476989694b7a1b890222ab53609e3c3becabdd80807df5e8e6c",
+      "after": "992381ec6472d401495c354e9c6685e8d016648ed2fd34c4b765375a085de726"
+    },
+    {
+      "file": "doc/proposed-map-sampling-review.md",
+      "before": "f61382c8afa06f202f0c79dd0be5d6c0e94f6d6e9d9fe105d4449dd891ec641d",
+      "after": "bd92b67d9ebd4df9c8e0e4b42d4b7230d9eb8808bae67d0a1dd856a415f4be3d"
+    },
+    {
+      "file": "README.md",
+      "before": "852015607bb32329fe25e158593a5ff62c74836ca4dff7088baccb5a1c7bc696",
+      "after": "e8170ffae90680c42e1cc84af8f3cdda66f148d601784c08796f4859a6fff759"
+    },
+    {
+      "file": "script/state_manager.js",
+      "before": "4763ca12fd5ba4674a46ecb4ef849ad2b9b8ddc24fb5850927d4bf8f3f1b52ec",
+      "after": "08216afcadb458c0ce32785ede1e0cc2bbdb9d430d3c4386d826b4b392453a3a"
+    },
+    {
+      "file": "tests/browser/expansion.spec.js",
+      "before": "8512aa2442b93b1fdb0735c6ae24c53fced6c0696d0d7d830d83b30a64cc3ede",
+      "after": "6f5bfa6ba58f5e2b5831ac926bc35e781efc6c2cf01019faa99e6bc4c0a64a47"
+    },
+    {
+      "file": "tests/expansion.test.js",
+      "before": "6691f47d8f3ef2d52e5696cf822d4f415e1de00bb2fd97a67db083ea3e161563",
+      "after": "18a30ae83f919d94724abac20ddb4a7970052f4efa41ea412a0586f9b98c2079"
+    }
+  ]
+}

@@ -11,6 +11,10 @@ var Outside = {
 	_HUT_ROOM: 4,
 	
 	_INCOME: {
+		'crystal worker': {
+            name: _('crystal worker'), delay: 45,
+            stores: { 'cured meat': -2, 'steel': -1, 'coal': -2, 'crystal': 1 }
+		},
 		'gatherer': {
 			name: _('gatherer'),
 			delay: 10,
@@ -175,7 +179,8 @@ var Outside = {
 	},
 	
 	getMaxPopulation: function() {
-		return $SM.get('game.buildings["hut"]', true) * Outside._HUT_ROOM;
+		return $SM.get('game.buildings["hut"]', true) * Outside._HUT_ROOM +
+			$SM.get('game.buildings.bunkhouse', true) * 10;
 	},
 	
 	increasePopulation: function() {
@@ -201,9 +206,9 @@ var Outside = {
 	},
 	
 	killVillagers: function(num) {
-		$SM.add('game.population', num * -1);
+		$SM.add('game.population', Math.max(0, num) * -1, true);
 		if($SM.get('game.population') < 0) {
-			$SM.set('game.population', 0);
+			$SM.set('game.population', 0, true);
 		}
 		var remaining = Outside.getNumGatherers();
 		if(remaining < 0) {
@@ -212,45 +217,35 @@ var Outside = {
 				var numWorkers = $SM.get('game.workers["'+k+'"]');
 				if(numWorkers < gap) {
 					gap -= numWorkers;
-					$SM.set('game.workers["'+k+'"]', 0);
+					$SM.set('game.workers["'+k+'"]', 0, true);
 				} else {
-					$SM.add('game.workers["'+k+'"]', gap * -1);
+					$SM.add('game.workers["'+k+'"]', gap * -1, true);
 					break;
 				}
 			}
 		}
+		Engine.saveGame();
+		$SM.fireUpdate('game.population');
 	},
 	
 	destroyHuts: function(num, allowEmpty) {
 		var dead = 0;
-		for(var i = 0; i < num; i++){
+		for (var i = 0; i < num; i++) {
+			var huts = $SM.get('game.buildings.hut', true);
 			var population = $SM.get('game.population', true);
-			var rate = population / Outside._HUT_ROOM;
-			var full = Math.floor(rate);
-			// by default this is used to destroy full or half-full huts
-			// pass allowEmpty to include empty huts in the armageddon
-			var huts = (allowEmpty) ? $SM.get('game.buildings["hut"]', true) : Math.ceil(rate);
-			if(!huts) {
-				break;
-			}
-			// random can be 0 but not 1; however, 0 as a target is useless
-			var target = Math.floor(Math.random() * huts) + 1;
-			var inhabitants = 0;
-			if(target <= full){
-				inhabitants = Outside._HUT_ROOM;
-			} else if(target == full + 1){
-				inhabitants = population % Outside._HUT_ROOM;
-			}
-			$SM.set('game.buildings["hut"]', ($SM.get('game.buildings["hut"]') - 1));
-			if(inhabitants){
-				Outside.killVillagers(inhabitants);
-				dead += inhabitants;
-			}
+			// Occupy huts first; any remaining residents live in bunkhouses.
+			var hutResidents = Math.min(population, huts * Outside._HUT_ROOM);
+			var eligible = allowEmpty ? huts : Math.ceil(hutResidents / Outside._HUT_ROOM);
+			if (eligible <= 0) break;
+			var target = Math.floor(Math.random() * eligible);
+			var inhabitants = Math.max(0, Math.min(Outside._HUT_ROOM, hutResidents - target * Outside._HUT_ROOM));
+			$SM.set('game.buildings.hut', huts - 1, true);
+			Outside.killVillagers(inhabitants);
+			dead += inhabitants;
 		}
-		// this method returns the total number of victims, for further actions
 		return dead;
 	},
-	
+
 	schedulePopIncrease: function() {
 		var nextIncrease = Math.floor(Math.random()*(Outside._POP_DELAY[1] - Outside._POP_DELAY[0])) + Outside._POP_DELAY[0];
 		Engine.log('next population increase scheduled in ' + nextIncrease + ' minutes');
@@ -273,30 +268,14 @@ var Outside = {
 		var numGatherers = $SM.get('game.population');
 		var gatherer = $('div#workers_row_gatherer', workers);
 		
-		for(var k in $SM.get('game.workers')) {
+		for(var k of $SM.orderedKeys('workers', Object.keys($SM.get('game.workers') || {}))) {
 			var lk = _(k);
 			var workerCount = $SM.get('game.workers["'+k+'"]');
 			var row = $('div#workers_row_' + k.replace(' ', '-'), workers);
 			if(row.length === 0) {
 				row = Outside.makeWorkerRow(k, workerCount);
 				
-				var curPrev = null;
-				workers.children().each(function(i) {
-					var child = $(this);
-					var cName = child.children('.row_key').text();
-					if(cName != 'gatherer') {
-						if(cName < lk) {
-							curPrev = child.attr('id');
-						}
-					}
-				});
-				if(curPrev == null && gatherer.length === 0) {
-					row.prependTo(workers);
-				} else if(curPrev == null) {
-					row.insertAfter(gatherer);
-				} else {
-					row.insertAfter(workers.find('#'+ curPrev));
-				}
+				row.appendTo(workers);
 				
 			} else {
 				$('div#' + row.attr('id') + ' > div.row_val > span', workers).text(workerCount);
@@ -396,25 +375,11 @@ var Outside = {
 		var lname = _(name);
 		var row = $('div#' + id, village);
 		if(row.length === 0 && num > 0) {
-			row = $('<div>').attr('id', id).addClass('storeRow');
+			row = $('<div>').attr('id', id).attr('data-building', name).addClass('storeRow');
 			$('<div>').addClass('row_key').text(lname).appendTo(row);
 			$('<div>').addClass('row_val').text(num).appendTo(row);
 			$('<div>').addClass('clear').appendTo(row);
-			var curPrev = null;
-			village.children().each(function(i) {
-				var child = $(this);
-				if(child.attr('id') != 'population') {
-					var cName = child.children('.row_key').text();
-					if(cName < lname) {
-						curPrev = child.attr('id');
-					}
-				}
-			});
-			if(curPrev == null) {
-				row.prependTo(village);
-			} else {
-				row.insertAfter('#' + curPrev);
-			}
+			row.appendTo(village);
 		} else if(num > 0) {
 			$('div#' + row.attr('id') + ' > div.row_val', village).text(num);
 		} else if(num === 0) {
@@ -432,7 +397,7 @@ var Outside = {
 			population = $('<div>').attr('id', 'population').appendTo(village);
 		}
 		
-		for(var k in $SM.get('game.buildings')) {
+		for(var k of $SM.orderedKeys('buildings', Object.keys($SM.get('game.buildings') || {}))) {
 			if(k == 'trap') {
 				var numTraps = $SM.get('game.buildings["'+k+'"]');
 				var numBait = $SM.get('stores.bait', true);
@@ -447,11 +412,26 @@ var Outside = {
 				Outside.updateVillageRow(k, $SM.get('game.buildings["'+k+'"]'), village);
 			}
 		}
+		// Rebuilding a demolished building or rebaiting traps must retain its place.
+		if(village[0]) {
+			var order = $SM.orderedKeys('buildings', Object.keys($SM.get('game.buildings') || {}));
+			var rows = Array.from(village[0].querySelectorAll('.storeRow'));
+			var rank = function(row) {
+				var key = row.getAttribute('data-building');
+				return key === 'baited trap' ? order.indexOf('trap') * 2 + 1 : order.indexOf(key) * 2;
+			};
+			rows.sort(function(a, b) { return rank(a) - rank(b); });
+			var previous = population[0];
+			rows.forEach(function(row) {
+				if(row.previousElementSibling !== previous) village[0].insertBefore(row, previous.nextSibling);
+				previous = row;
+			});
+		}
 		/// TRANSLATORS : pop is short for population.
 		population.text(_('pop ') + $SM.get('game.population') + '/' + this.getMaxPopulation());
 		
 		var hasPeeps;
-		if($SM.get('game.buildings["hut"]', true) === 0) {
+		if(Outside.getMaxPopulation() === 0) {
 			hasPeeps = false;
 			village.attr('data-legend', _('forest'));
 		} else {
@@ -656,7 +636,7 @@ var Outside = {
 	handleStateUpdates: function(e){
 		if(e.category == 'stores'){
 			Outside.updateVillage();
-		} else if(e.stateName.indexOf('game.workers') === 0 || e.stateName.indexOf('game.population') === 0){
+		} else if(e.stateName.indexOf('game.workers') === 0 || e.stateName.indexOf('game.population') === 0 || e.stateName.indexOf('game.buildings') === 0){
 			Outside.updateVillage();
 			Outside.updateWorkersView();
 			Outside.updateVillageIncome();

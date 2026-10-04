@@ -3186,10 +3186,10 @@ Events.Setpieces = {
 				enemy: 'soldier',
 				ranged: true,
 				chara: 'D',
-				damage: 8,
+				damage: 5,
 				hit: 0.8,
 				attackDelay: 2,
-				health: 50,
+				health: 35,
 				loot: {
 					'cured meat': {
 						min: 1,
@@ -3226,10 +3226,10 @@ Events.Setpieces = {
 				enemy: 'soldier',
 				ranged: true,
 				chara: 'D',
-				damage: 8,
+				damage: 6,
 				hit: 0.8,
 				attackDelay: 2,
-				health: 50,
+				health: 40,
 				loot: {
 					'cured meat': {
 						min: 1,
@@ -3265,10 +3265,10 @@ Events.Setpieces = {
 				combat: true,
 				enemy: 'veteran',
 				chara: 'D',
-				damage: 10,
+				damage: 8,
 				hit: 0.8,
 				attackDelay: 2,
-				health: 65,
+				health: 55,
 				loot: {
 					'bayonet': {
 						min: 1,

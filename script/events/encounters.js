@@ -325,7 +325,7 @@ Events.Encounters = [
 				chara: 'T',
 				damage: 6,
 				hit: 0.8,
-				attackDelay: 1,
+				attackDelay: 1.5,
 				health: 45,
 				loot: {
 					'fur': {

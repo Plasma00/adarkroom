@@ -1,0 +1,342 @@
+{
+  "model": "direct damage with carried sequence state; no statuses or loot; not actual playthrough win rates",
+  "sets": {
+    "steel": {
+      "hp": 45,
+      "weapons": [
+        "steel sword"
+      ],
+      "meat": 10,
+      "medicine": 3,
+      "bullets": 0,
+      "cells": 0
+    },
+    "rifle": {
+      "hp": 45,
+      "weapons": [
+        "steel sword",
+        "rifle"
+      ],
+      "meat": 5,
+      "medicine": 3,
+      "bullets": 40,
+      "cells": 0
+    },
+    "laser": {
+      "hp": 45,
+      "weapons": [
+        "bayonet",
+        "laser rifle"
+      ],
+      "meat": 5,
+      "medicine": 3,
+      "bullets": 0,
+      "cells": 30
+    },
+    "end": {
+      "hp": 85,
+      "weapons": [
+        "energy blade",
+        "plasma rifle"
+      ],
+      "meat": 5,
+      "medicine": 3,
+      "bullets": 0,
+      "cells": 30
+    },
+    "veteran": {
+      "hp": 45,
+      "weapons": [
+        "bayonet",
+        "laser rifle"
+      ],
+      "meat": 5,
+      "medicine": 3,
+      "bullets": 0,
+      "cells": 30,
+      "trained": true
+    }
+  },
+  "rows": [
+    {
+      "name": "sulfur before",
+      "gear": "steel",
+      "samples": 5000,
+      "winRate": 0.0452,
+      "winningMean": {
+        "time": 64.7752212389383,
+        "hp": 11.061946902654867,
+        "damageTaken": 173.5132743362832,
+        "meat": 9.991150442477876,
+        "medicine": 2.982300884955752,
+        "shots": 0
+      }
+    },
+    {
+      "name": "sulfur after",
+      "gear": "steel",
+      "samples": 5000,
+      "winRate": 0.9876,
+      "winningMean": {
+        "time": 56.56695018226525,
+        "hp": 32.22721749696233,
+        "damageTaken": 135.9854191980559,
+        "meat": 9.3424463345484,
+        "medicine": 2.423653300931551,
+        "shots": 0
+      }
+    },
+    {
+      "name": "sulfur after",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 22.551599999999382,
+        "hp": 37.0332,
+        "damageTaken": 44.35,
+        "meat": 3.4194,
+        "medicine": 0.4514,
+        "shots": 21.0716
+      }
+    },
+    {
+      "name": "forest21–44 before",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 7.847640000000474,
+        "hp": 37.4796,
+        "damageTaken": 31.2972,
+        "meat": 1.2876,
+        "medicine": 0.6738,
+        "shots": 7.1574
+      }
+    },
+    {
+      "name": "forest21–44 after",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 7.8521200000004585,
+        "hp": 34.9952,
+        "damageTaken": 19.8024,
+        "meat": 1.0422,
+        "medicine": 0.073,
+        "shots": 7.155
+      }
+    },
+    {
+      "name": "forest45–64",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 10.880400000000126,
+        "hp": 37.2664,
+        "damageTaken": 22.784,
+        "meat": 1.8808,
+        "medicine": 0.0002,
+        "shots": 10.1132
+      }
+    },
+    {
+      "name": "crystal",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 7.848200000000459,
+        "hp": 39.9764,
+        "damageTaken": 10.638,
+        "meat": 0.7018,
+        "medicine": 0,
+        "shots": 7.1642
+      }
+    },
+    {
+      "name": "chemical",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 9.456440000000361,
+        "hp": 36.3124,
+        "damageTaken": 16.1308,
+        "meat": 0.9304,
+        "medicine": 0,
+        "shots": 8.7582
+      }
+    },
+    {
+      "name": "assembly",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 12.267000000000115,
+        "hp": 39.7066,
+        "damageTaken": 28.9926,
+        "meat": 2.0174,
+        "medicine": 0.378,
+        "shots": 11.5302
+      }
+    },
+    {
+      "name": "plains65–90",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 19.485119999998606,
+        "hp": 32.4324,
+        "damageTaken": 77.3276,
+        "meat": 3.296,
+        "medicine": 1.9196,
+        "shots": 18.8072
+      }
+    },
+    {
+      "name": "plains65–90",
+      "gear": "laser",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 12.845120000000255,
+        "hp": 36.6724,
+        "damageTaken": 47.0204,
+        "meat": 2.0156,
+        "medicine": 1.1284,
+        "shots": 12.1704
+      }
+    },
+    {
+      "name": "plains65–90",
+      "gear": "veteran",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 7.739360000000462,
+        "hp": 42.012,
+        "damageTaken": 18.9336,
+        "meat": 0.9252,
+        "medicine": 0.4272,
+        "shots": 6.9992
+      }
+    },
+    {
+      "name": "plains65–90",
+      "gear": "end",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 9.504120000000427,
+        "hp": 79.8224,
+        "damageTaken": 32.3848,
+        "meat": 1.4944,
+        "medicine": 0.7626,
+        "shots": 8.847
+      }
+    },
+    {
+      "name": "fortress45",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 13.772399999999966,
+        "hp": 36.336,
+        "damageTaken": 35.908,
+        "meat": 2.254,
+        "medicine": 0.4606,
+        "shots": 13.0812
+      }
+    },
+    {
+      "name": "fortress65",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 18.663479999998785,
+        "hp": 34.5412,
+        "damageTaken": 68.1148,
+        "meat": 3.265,
+        "medicine": 1.5768,
+        "shots": 17.9966
+      }
+    },
+    {
+      "name": "fortress65+commander",
+      "gear": "laser",
+      "samples": 5000,
+      "winRate": 0.9864,
+      "winningMean": {
+        "time": 27.281873479317476,
+        "hp": 28.54947283049473,
+        "damageTaken": 101.78791565287915,
+        "meat": 4.589010543390105,
+        "medicine": 2.431265206812652,
+        "shots": 26.140308191403083
+      }
+    },
+    {
+      "name": "fortress65+commander",
+      "gear": "end",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 19.708799999999297,
+        "hp": 71.0918,
+        "damageTaken": 67.9178,
+        "meat": 3.2642,
+        "medicine": 1.3948,
+        "shots": 18.6816
+      }
+    },
+    {
+      "name": "cargo before",
+      "gear": "rifle",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 6.158160000000514,
+        "hp": 39.6856,
+        "damageTaken": 10.9752,
+        "meat": 0.7076,
+        "medicine": 0,
+        "shots": 5.4756
+      }
+    },
+    {
+      "name": "cargo after",
+      "gear": "laser",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 12.845120000000255,
+        "hp": 36.6724,
+        "damageTaken": 47.0204,
+        "meat": 2.0156,
+        "medicine": 1.1284,
+        "shots": 12.1704
+      }
+    },
+    {
+      "name": "cargo after",
+      "gear": "end",
+      "samples": 5000,
+      "winRate": 1,
+      "winningMean": {
+        "time": 9.504120000000427,
+        "hp": 79.8224,
+        "damageTaken": 32.3848,
+        "meat": 1.4944,
+        "medicine": 0.7626,
+        "shots": 8.847
+      }
+    }
+  ]
+}

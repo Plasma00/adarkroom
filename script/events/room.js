@@ -577,7 +577,7 @@ Events.Room = [
 						nextScene: 'end'
 					},
 					'force': {
-						text: _('force'),
+						text: _('learn melee mastery'),
 						available: function() {
 							return !$SM.hasPerk('barbarian');
 						},

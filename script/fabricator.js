@@ -5,12 +5,28 @@ const Fabricator = {
   _STORES_OFFSET: 0,
   name: _('Fabricator'),
   Craftables: {
+    'laser rifle': {
+      name: _('laser rifle'),
+      type: 'weapon',
+      blueprintRequired: true,
+      buildMsg: _('a crystal lens settles into the steel frame. a thin beam cuts through the dust.'),
+      cost: () => ({ crystal: 40, steel: 40, 'energy cell': 5 })
+    },
+    'energy cell': {
+      name: _('energy cell'),
+      type: 'tool',
+      desc: _('ammunition for laser and plasma rifles'),
+      requiredFeature: 'features.industry.etching',
+      quantity: 25,
+      buildMsg: _('etched crystal settles into steel shells. twenty-five cells begin to glow.'),
+      cost: () => ({ crystal: 25, steel: 25, sulphur: 10 })
+    },
     'energy blade': {
       name: _('energy blade'),
       type: 'weapon',
       buildMsg: _("the blade hums, charged particles sparking and fizzing."),
       cost: () => ({
-        'alien alloy': 1
+        crystal: 35, steel: 30
       })
     },
     'fluid recycler': {
@@ -19,7 +35,7 @@ const Fabricator = {
       maximum: 1,
       buildMsg: _('water out, water in. waste not, want not.'),
       cost: () => ({
-        'alien alloy': 2
+        crystal: 60, steel: 50
       })
     },
     'cargo drone': {
@@ -28,7 +44,7 @@ const Fabricator = {
       maximum: 1,
       buildMsg: _('the workhorse of the wanderer fleet.'),
       cost: () => ({
-        'alien alloy': 2
+        crystal: 50, steel: 60, 'energy cell': 10
       })
     },
     'kinetic armour': {
@@ -38,16 +54,16 @@ const Fabricator = {
       blueprintRequired: true,
       buildMsg: _('wanderer soldiers succeed by subverting the enemy\'s rage.'),
       cost: () => ({
-        'alien alloy': 2
+        crystal: 80, steel: 70
       })
     },
     'disruptor': {
       name: _('disruptor'),
       type: 'weapon',
       blueprintRequired: true,
-      buildMsg: _("somtimes it is best not to fight."),
+      buildMsg: _("sometimes it is best not to fight."),
       cost: () => ({
-        'alien alloy': 1
+        crystal: 60, steel: 45
       })
     },
     'hypo': {
@@ -56,9 +72,9 @@ const Fabricator = {
       blueprintRequired: true,
       buildMsg: _('a handful of hypos. life in a vial.'),
       cost: () => ({
-        'alien alloy': 1
+        crystal: 25, steel: 25, medicine: 5
       }),
-      quantity: 5
+      quantity: 10
     },
     'stim': {
       name: _('stim'),
@@ -66,8 +82,9 @@ const Fabricator = {
       blueprintRequired: true,
       buildMsg: _('sometimes it is best to fight without restraint.'),
       cost: () => ({
-        'alien alloy': 1
-      })
+        crystal: 30, steel: 25, medicine: 5
+      }),
+      quantity: 5
     },
     'plasma rifle': {
       name: _('plasma rifle'),
@@ -75,7 +92,7 @@ const Fabricator = {
       blueprintRequired: true,
       buildMsg: _("the peak of wanderer weapons technology, sleek and deadly."),
       cost: () => ({
-        'alien alloy': 1
+        crystal: 80, steel: 60, 'energy cell': 10
       })
     },
     'glowstone': {
@@ -84,7 +101,7 @@ const Fabricator = {
       blueprintRequired: true,
       buildMsg: _('a smooth, perfect sphere. its light is inextinguishable.'),
       cost: () => ({
-        'alien alloy': 1
+        crystal: 30, steel: 25
       })
     }
   },
@@ -145,11 +162,13 @@ const Fabricator = {
       needsAppend = true;
     }
 
-    for (const [ key, value ] of Object.entries(Fabricator.Craftables)) {
+    const available = Object.keys(Fabricator.Craftables).filter(Fabricator.canFabricate);
+    for (const key of $SM.orderedKeys('fabricator', available)) {
+      const value = Fabricator.Craftables[key];
       const max = $SM.num(key, value) + 1 > value.maximum;
       if (!value.button) {
         if (Fabricator.canFabricate(key)) {
-          const name = _(value.name) + ((value.quantity ?? 1) > 1 ? ` (x${value.quantity})` : '');
+          const name = value.name + ((value.quantity ?? 1) > 1 ? ` (x${value.quantity})` : '');
           value.button = new Button.Button({
             id: 'fabricate_' + key,
             cost: value.cost(),
@@ -196,7 +215,7 @@ const Fabricator = {
       blueprints = $('<div>').attr({'id': 'blueprints', 'data-legend': _('blueprints')});
     }
 
-    for (const k in $SM.get('character.blueprints')) {
+    for (const k of $SM.orderedKeys('blueprints', Object.keys($SM.get('character.blueprints')).filter(k => $SM.get('character.blueprints')[k]))) {
       const id = 'blueprint_' + k.replace(/ /g, '-');
       let r = $('#' + id);
       if($SM.get(`character.blueprints["${k}"]`) && r.length === 0) {
@@ -210,14 +229,17 @@ const Fabricator = {
     }
   },
 
-  canFabricate: itemKey => 
-    !Fabricator.Craftables[itemKey].blueprintRequired || 
-    $SM.get(`character.blueprints['${itemKey}']`),
+  canFabricate: itemKey => {
+    const recipe = Fabricator.Craftables[itemKey];
+    return !!recipe && (!recipe.requiredFeature || !!$SM.get(recipe.requiredFeature)) &&
+      (!recipe.blueprintRequired || !!$SM.get(`character.blueprints['${itemKey}']`));
+  },
 
   fabricate: button => {
     const thing = $(button).attr('fabricateThing');
     const craftable = Fabricator.Craftables[thing];
-    const numThings = Math.min(0, $SM.get(`stores['${thing}']`, true));
+    if (!craftable || !Fabricator.canFabricate(thing) || !$SM.get('features.location.fabricator')) return false;
+    const numThings = Math.max(0, $SM.get(`stores['${thing}']`, true));
 
     if (craftable.maximum <= numThings) {
       return;
@@ -228,14 +250,15 @@ const Fabricator = {
     for (const [ key, value ] of Object.entries(cost)) {
       const have = $SM.get(`stores['${key}']`, true);
       if (have < value) {
-        Notifications.notify(Fabricator, _(`not enough ${key}`));
+        Notifications.notify(Fabricator, _('not enough {0}', _(key)));
         return false;
       } else {
         storeMod[key] = have - value;
       }
     }
+    // Save the consumed materials and manufactured batch together.
+    storeMod[thing] = numThings + (craftable.quantity ?? 1);
     $SM.setM('stores', storeMod);
-    $SM.add(`stores['${thing}']`, craftable.quantity ?? 1);
 
     Notifications.notify(Fabricator, craftable.buildMsg);
     AudioEngine.playSound(AudioLibrary.CRAFT);

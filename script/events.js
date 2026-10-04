@@ -52,6 +52,7 @@ var Events = {
 	activeScene: null,
 
 	loadScene: function(name) {
+		Events.clearTimeouts();
 		Engine.log('loading scene: ' + name);
 		Events.activeScene = name;
 		var scene = Events.activeEvent().scenes[name];
@@ -178,24 +179,29 @@ var Events = {
 	},
 
 	setStatus: (fighter, status) => {
+		clearTimeout(fighter.data('statusTimer'));
+		if (fighter.data('status') === 'enraged') Events.startEnemyAttacks();
 		fighter.data('status', status);
 		if (status === 'enraged' && fighter.attr('id') === 'enemy') {
 			Events.startEnemyAttacks(0.5);
-			setTimeout(() => {
+			fighter.data('statusTimer', Events.combatTimeout(() => {
 				fighter.data('status', 'none');
 				Events.startEnemyAttacks();
-			}, Events.ENRAGE_DURATION);
+				Events.updateFighterDiv(fighter);
+			}, Events.ENRAGE_DURATION));
 		}
 		if (status === 'meditation') {
 			Events._meditateDmg = 0;
-			setTimeout(() => {
+			fighter.data('statusTimer', Events.combatTimeout(() => {
 				fighter.data('status', 'none');
-			}, Events.MEDITATE_DURATION);
+				Events.updateFighterDiv(fighter);
+			}, Events.MEDITATE_DURATION));
 		}
 		if (status === 'boost') {
-			setTimeout(() => {
+			fighter.data('statusTimer', Events.combatTimeout(() => {
 				fighter.data('status', 'none');
-			}, Events.BOOST_DURATION);
+				Events.updateFighterDiv(fighter);
+			}, Events.BOOST_DURATION));
 		}
 	},
 
@@ -333,7 +339,7 @@ var Events = {
 			cost: { 'hypo': 1 }
 		});
 
-		if((Path.outfit['hypo'] ?? 0) > 0) {
+		if((Path.outfit['hypo'] ?? 0) <= 0 || World.health >= World.getMaxHealth()) {
 			Button.setDisabled(btn, true);
 		}
 
@@ -345,7 +351,8 @@ var Events = {
 			id: 'shld',
 			text: _('shield'),
 			cooldown: Events._SHIELD_COOLDOWN,
-			click: Events.useShield
+			click: Events.useShield,
+			cost: { 'energy cell': 1 }
 		});
 		return btn;
 	},
@@ -354,7 +361,8 @@ var Events = {
 		id: 'use-stim',
 		text: _('boost'),
 		cooldown: Events._STIM_COOLDOWN,
-		click: Events.useStim
+		click: Events.useStim,
+		cost: { 'stim': 1 }
 	}),
 
 	createAttackButton: function(weaponName) {
@@ -408,13 +416,16 @@ var Events = {
 		var canHeal = (World.health < World.getMaxHealth());
 		healBtns.each(function(i){
 			const btn = $(this);
-			Button.setDisabled(btn, !canHeal && btn.attr('id') !== 'shld');
+			const id = btn.attr('id');
+			const item = { eat: 'cured meat', meds: 'medicine', hypo: 'hypo', shld: 'energy cell', 'use-stim': 'stim' }[id];
+			Button.setDisabled(btn, !(Path.outfit[item] > 0) ||
+				(!canHeal && id !== 'shld' && id !== 'use-stim'));
 		});
 		return canHeal;
 	},
 
 	doHeal: function(healing, cured, btn) {
-		if(Path.outfit[healing] > 0) {
+		if(Path.outfit[healing] > 0 && World.health < World.getMaxHealth()) {
 			Path.outfit[healing]--;
 			World.updateSupplies();
 			if(Path.outfit[healing] === 0) {
@@ -453,34 +464,45 @@ var Events = {
 	},
 
 	useShield: btn => {
+		if (!(Path.outfit['energy cell'] > 0)) return false;
+		Path.outfit['energy cell']--;
 		const player = $('#wanderer');
-		player.data('status', 'shield');
+		Events.setStatus(player, 'shield');
+		World.updateSupplies();
+		Events.setHeal();
 		Events.updateFighterDiv(player);
 	},
 
 	useStim: btn => {
+		if (!(Path.outfit.stim > 0)) return false;
+		Path.outfit.stim--;
 		const player = $('#wanderer');
-		player.data('status', 'boost');
+		Events.setStatus(player, 'boost');
 		Events.dotDamage(player, Events.BOOST_DAMAGE);
+		World.updateSupplies();
+		Events.setHeal();
 		Events.updateFighterDiv(player);
+	},
+
+	recordWeaponUse: function(name) {
+		if(name === 'fists') {
+			$SM.add('character.punches', 1);
+			[[50, 'boxer'], [150, 'martial artist'], [300, 'unarmed master']].forEach(function(tier) {
+				if($SM.get('character.punches', true) >= tier[0] && !$SM.hasPerk(tier[1])) $SM.addPerk(tier[1]);
+			});
+		}
+		if(['rifle', 'laser rifle', 'plasma rifle'].indexOf(name) >= 0) {
+			$SM.add('character.shots', 1);
+			if($SM.get('character.shots', true) >= 300 && !$SM.hasPerk('sharpshooter')) $SM.addPerk('sharpshooter');
+		}
 	},
 
 	useWeapon: function(btn) {
 		if(Events.activeEvent()) {
 			var weaponName = btn.attr('id').substring(7).replace(/-/g, ' ');
 			var weapon = World.Weapons[weaponName];
-			if(weapon.type == 'unarmed') {
-				if(!$SM.get('character.punches')) $SM.set('character.punches', 0);
-				$SM.add('character.punches', 1);
-				if($SM.get('character.punches') == 50 && !$SM.hasPerk('boxer')) {
-					$SM.addPerk('boxer');
-				} else if($SM.get('character.punches') == 150 && !$SM.hasPerk('martial artist')) {
-					$SM.addPerk('martial artist');
-				} else if($SM.get('character.punches') == 300 && !$SM.hasPerk('unarmed master')) {
-					$SM.addPerk('unarmed master');
-				}
+			if(!weapon || !Events.activeEvent().scenes[Events.activeScene].combat || !($('#enemy').data('hp') > 0)) return;
 
-			}
 			if(weapon.cost) {
 				var mod = {};
 				var out = false;
@@ -517,23 +539,10 @@ var Events = {
 				}
 				World.updateSupplies();
 			}
+			Events.recordWeaponUse(weaponName);
 			var dmg = -1;
 			if(Math.random() <= World.getHitChance()) {
-				dmg = weapon.damage;
-				if(typeof dmg == 'number') {
-					if(weapon.type == 'unarmed' && $SM.hasPerk('boxer')) {
-						dmg *= 2;
-					}
-					if(weapon.type == 'unarmed' && $SM.hasPerk('martial artist')) {
-						dmg *= 3;
-					}
-					if(weapon.type == 'unarmed' && $SM.hasPerk('unarmed master')) {
-						dmg *= 2;
-					}
-					if(weapon.type == 'melee' && $SM.hasPerk('barbarian')) {
-						dmg = Math.floor(dmg * 1.5);
-					}
-				}
+				dmg = World.getDamage(weaponName);
 			}
 			
 			var attackFn = weapon.type == 'ranged' ? Events.animateRanged : Events.animateMelee;
@@ -581,9 +590,9 @@ var Events = {
 	},
 
 	explode: (enemy, player, dmg) => {
-		Events.clearTimeouts();
+		Events.clearTimeouts(true);
 		enemy.addClass('exploding');
-		setTimeout(() => {
+		Events.combatTimeout(() => {
 			enemy.removeClass('exploding');
 			$('.label', enemy).text('*');
 			Events.damage(enemy, player, dmg, 'ranged', () => {
@@ -632,8 +641,8 @@ var Events = {
 					msg = dmg;
 				}
 				else {
-					msg = (shielded ? '+' : '-') + dmg;
-					enemyHp = Math.min(maxHp, Math.max(0, enemyHp + (shielded ? dmg : -dmg)));
+					msg = shielded ? _('blocked') : '-' + dmg;
+					enemyHp = Math.min(maxHp, Math.max(0, enemyHp - (shielded ? 0 : dmg)));
 					enemy.data('hp', enemyHp);
 					if(fighter.attr('id') == 'enemy') {
 						World.setHp(enemyHp);
@@ -673,7 +682,8 @@ var Events = {
 			if(dmg == 'stun') {
 				msg = _('stunned');
 				enemy.data('stunned', true);
-				setTimeout(() => enemy.data('stunned', false), Events.STUN_DURATION);
+				clearTimeout(enemy.data('stunTimer'));
+				enemy.data('stunTimer', Events.combatTimeout(() => enemy.data('stunned', false), Events.STUN_DURATION));
 			}
 		}
 
@@ -731,6 +741,7 @@ var Events = {
 	},
 
 	enemyAttack: function() {
+		if (!Events.activeEvent() || Events.won || Events.fought) return;
 		// Events.togglePause($('#pause'),'auto');
 
 		var scene = Events.activeEvent().scenes[Events.activeScene];
@@ -766,10 +777,27 @@ var Events = {
 		return false;
 	},
 
-	clearTimeouts: () => {
+	_combatTimers: [],
+	combatTimeout: (callback, delay, noScale) => {
+		const timer = Engine.setTimeout(() => {
+			Events._combatTimers = Events._combatTimers.filter(id => id !== timer);
+			callback();
+		}, delay, noScale);
+		Events._combatTimers.push(timer);
+		return timer;
+	},
+	clearTimeouts: (preserveShield = false) => {
+		const shield = preserveShield && $('#wanderer').data('status') === 'shield';
 		clearInterval(Events._enemyAttackTimer);
-		Events._specialTimers.forEach(clearInterval);
+		(Events._specialTimers || []).forEach(clearInterval);
+		Events._specialTimers = [];
 		clearInterval(Events._dotTimer);
+		Events._combatTimers.forEach(clearTimeout);
+		Events._combatTimers = [];
+		Events._meditateDmg = 0;
+		$('#fight, #fight *, .bullet, .damageText').stop(true, false);
+		$('#wanderer, #enemy').data('status', 'none').data('stunned', false);
+		if (shield) $('#wanderer').data('status', 'shield');
 	},
 
 	endFight: function() {
@@ -779,14 +807,15 @@ var Events = {
 	},
 
 	winFight: function() {
-		Engine.setTimeout(function() {
+		Events.clearTimeouts();
+		Events.combatTimeout(function() {
 			if(Events.fought) {
 				return;
 			}
 			Events.endFight();
 			// AudioEngine.playSound(AudioLibrary.WIN_FIGHT);
 			$('#enemy').animate({opacity: 0}, 300, 'linear', function() {
-				Engine.setTimeout(function() {
+				Events.combatTimeout(function() {
 					var scene = Events.activeEvent().scenes[Events.activeScene];
 					var leaveBtn = false;
 					var desc = $('#description', Events.eventPanel());
@@ -1337,8 +1366,9 @@ var Events = {
 
 	triggerFight: function() {
 		var possibleFights = [];
-		for(var i in Events.Encounters) {
-			var fight = Events.Encounters[i];
+		var pool = World.getDistance() >= 45 ? Events.Frontier.encounters : Events.Encounters;
+		for(var i in pool) {
+			var fight = pool[i];
 			if(fight.isAvailable()) {
 				possibleFights.push(fight);
 			}
@@ -1395,6 +1425,7 @@ var Events = {
 		Button.saveCooldown = false;
 		Events.eventStack.unshift(event);
 		event.eventPanel = $('<div>').attr('id', 'event').addClass('eventPanel').css('opacity', '0');
+		event.eventPanel.attr('role', 'dialog').attr('aria-modal', 'true').attr('tabindex', '-1').attr('aria-label', event.title);
 		if(options != null && options.width != null) {
 			Events.eventPanel().css('width', options.width);
 		}
@@ -1403,7 +1434,13 @@ var Events = {
 		$('<div>').attr('id', 'buttons').appendTo(Events.eventPanel());
 		Events.loadScene('start');
 		$('div#wrapper').append(Events.eventPanel());
-		Events.eventPanel().animate({opacity: 1}, Events._PANEL_FADE, 'linear');
+		var panel = Events.eventPanel();
+		if(panel[0] && panel[0].animate && !$.fx.off) {
+			panel.css('opacity', '1');
+			panel[0]._entryAnimation = panel[0].animate([{ opacity: 0 }, { opacity: 1 }], { duration: Events._PANEL_FADE });
+		} else {
+			panel.animate({opacity: 1}, Events._PANEL_FADE, 'linear');
+		}
 		var currentSceneInformation = Events.activeEvent().scenes[Events.activeScene];
 		if (currentSceneInformation.blink) {
 			Events.blinkTitle();
@@ -1418,7 +1455,10 @@ var Events = {
 	},
 
 	endEvent: function() {
+		Events.clearTimeouts();
 		AudioEngine.stopEventMusic();
+		var panel = Events.eventPanel()[0];
+		if(panel && panel._entryAnimation) panel._entryAnimation.cancel();
 		Events.eventPanel().animate({opacity:0}, Events._PANEL_FADE, 'linear', function() {
 			Events.eventPanel().remove();
 			Events.activeEvent().eventPanel = null;

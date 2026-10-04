@@ -92,9 +92,38 @@ var StateManager = {
 			Engine.log('WARNING: state:' + stateName + ' can not be a negative value. Set to 0 instead.');
 		}
 
+		$SM.recordUnlocks(stateName);
+
 		if(!noEvent) {
 			Engine.saveGame();
 			$SM.fireUpdate(stateName);
+		}
+	},
+
+	// Persist first discovery order independently of counts, locale and DOM rebuilds.
+	orderedKeys: function(group, keys) {
+		State.game = State.game || {};
+		var orders = State.game.unlockOrder || (State.game.unlockOrder = {});
+		var order = orders[group] || (orders[group] = []);
+		keys.forEach(function(key) { if(order.indexOf(key) < 0) order.push(key); });
+		return order.filter(function(key) { return keys.indexOf(key) >= 0; });
+	},
+
+	recordUnlocks: function(stateName) {
+		var words = stateName.split(/[.\[\]'"]+/).filter(Boolean);
+		var root = words.slice(0, 2).join('.');
+		var groups = { 'game.workers': 'workers', 'game.buildings': 'buildings', 'character.blueprints': 'blueprints' };
+		var group = groups[root];
+		if(group) {
+			var values = $SM.get(root) || {};
+			$SM.orderedKeys(group, Object.keys(values).filter(function(key) {
+				return group === 'workers' ? typeof values[key] === 'number' : !!values[key];
+			}));
+		}
+		if(words[0] === 'stores') $SM.orderedKeys('resources', Object.keys(State.stores || {}));
+		if((words[0] === 'features' || root === 'character.blueprints') &&
+			typeof Fabricator !== 'undefined' && $SM.get('features.location.fabricator')) {
+			$SM.orderedKeys('fabricator', Object.keys(Fabricator.Craftables).filter(Fabricator.canFabricate));
 		}
 	},
 
@@ -252,8 +281,16 @@ var StateManager = {
 		}
 		if(version == 1.1) {
 			//v1.2 added the Swamp to the map, so add it to already generated maps
-			if($SM.get('world')) {
-				World.placeLandmark(15, World.RADIUS * 1.5, World.TILE.SWAMP, $SM.get('world.map'));
+			if($SM.get('world.map')) {
+				// Loading precedes World.init; use the legacy map's size, not the new-world default.
+				var legacyMap = $SM.get('world.map');
+				var currentRadius = World.RADIUS;
+				try {
+					World.RADIUS = (legacyMap.length - 1) / 2;
+					World.placeLandmark(15, World.RADIUS * 1.5, World.TILE.SWAMP, legacyMap);
+				} finally {
+					World.RADIUS = currentRadius;
+				}
 			}
 			Engine.log('upgraded save to v1.2');
 			version = 1.2;
@@ -315,6 +352,30 @@ var StateManager = {
 				$SM.remove('cityCleared');
 			}
 			$SM.set('version', 1.3);
+			version = 1.3;
+		}
+		if (version < 1.4) {
+			// Maps and masks keep their physical layout. Only persisted logical positions change.
+			var world = $SM.get('game.world');
+			if (world) {
+				world.radius = 30;
+				['curPos', 'position'].forEach(key => {
+					if (Array.isArray(world[key])) world[key] = world[key].map(n => n - 30);
+				});
+				if (world.usedOutposts) {
+					var outposts = {};
+					Object.keys(world.usedOutposts).forEach(key => {
+						outposts[key.split(',').map(n => Number(n) - 30).join(',')] = world.usedOutposts[key];
+					});
+					world.usedOutposts = outposts;
+				}
+				if (world.executioner) {
+					world.shardSources = { executioner: true };
+					$SM.add('stores["lattice shard"]', 1, true);
+				}
+			}
+			$SM.set('game.spaceShip.lattice', 0, true);
+			$SM.set('version', 1.4);
 		}
 	},
 

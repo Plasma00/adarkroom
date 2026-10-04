@@ -1,0 +1,5 @@
+step	logic_passed	logic_failed	browser_passed	outcome
+baseline	25	0	34	progressed
+reproduction	0	2		progressed
+fix	27	0	35	progressed
+independent_verify		0		verified

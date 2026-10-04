@@ -4,13 +4,23 @@
 }
 
 #map {
+	--map-width: 610px;
 	position: relative;
 	font-family: "Courier New", Courier, monospace;
 	border: 1px solid black;
 	overflow: hidden;
-	display: inline-block;
-	line-height: 10px;
-	letter-spacing: 1px;
+	display: grid;
+	grid-template-columns: repeat(var(--map-cells, 61), minmax(0, 1fr));
+	grid-template-rows: repeat(var(--map-cells, 61), minmax(0, 1fr));
+	aspect-ratio: 1;
+	box-sizing: border-box;
+	padding: 6px;
+	width: var(--map-width);
+	max-width: 100%;
+	font-size: min(20px, calc((var(--map-width) - 14px) / max(30, var(--map-cells, 61)) / 0.6001));
+	line-height: calc((var(--map-width) - 14px) / var(--map-cells, 61));
+	letter-spacing: 0;
+	white-space: nowrap;
 	color: #999;
 	cursor: default;
 	-webkit-touch-callout: none;
@@ -21,6 +31,19 @@
 	user-select: none;
 }
 
+/* Grid coordinates remain uniform while early exploration uses a stable glyph size. */
+#map > .mapCell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	min-height: 0;
+}
+#map > br { display: none; }
+
+#map .tooltip { font-size: 14px; line-height: 1.4; white-space: normal; }
+#mapScale { color: #888; font-size: 13px; margin-top: 5px; }
+
 #map .landmark {
 	position: relative;
 	font-weight: bold;
@@ -30,13 +53,14 @@
 
 #bagspace-world {
 	border: 1px solid black;
-	height: 62px;
+	min-height: 62px;
 	margin-bottom: 5px;
 	margin-top: 13px;
 	overflow: hidden;
 }
 
 #bagspace-world > div {
+	display: flow-root;
 	padding: 6px 4px;
 }
 
@@ -72,3 +96,8 @@ div.supplyItem {
 	padding: 0 5px;
 	cursor: default;
 }
+
+#mapLegend { max-width: 650px; margin: 20px 0 0; line-height: 1.5; }
+#mapLegend h2 { font-size: 18px; font-weight: normal; margin: 0 0 8px; }
+#mapLegend ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px 12px; list-style: none; padding: 0; margin: 0; font-size: 14px; }
+#mapLegend .mapSymbol { font-family: "Courier New", Courier, monospace; font-weight: bold; }
